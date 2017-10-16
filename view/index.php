@@ -6,4 +6,4 @@
  * Time: 12:05 ч.
  */
 ?>
-<h1>index</h1>
+<h1>WELCOME TO Ftracker</h1>
