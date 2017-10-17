@@ -1,8 +1,9 @@
 <?php
-include('config.php');
+include('../model/config.php');
 $session_uid='';
-$_SESSION['uid']='';
-if(empty($session_uid) && empty($_SESSION['uid']))
+$_SESSION['user_id']='';
+
+if(empty($session_uid) && empty($_SESSION['user_id']))
 {
     $url=BASE_URL.'index.php';
     header("Location: $url");

@@ -5,6 +5,9 @@
  * Date: 13.10.2017 г.
  * Time: 11:22 ч.
  */
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
 ?>
 <!doctype html>
 <html lang="en">

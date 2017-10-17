@@ -1,5 +1,7 @@
 <?php
-session_start();
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
 /* DATABASE CONFIGURATION */
 define('DB_SERVER', 'localhost');
 define('DB_USERNAME', 'id3203367_admina');

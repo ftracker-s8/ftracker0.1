@@ -49,23 +49,45 @@ class UserDAO{
     public function deleteUser(UserVO $u) {
     }
 
-    public function userLogin2($user_email,$password)
+    public function userLogin2(UserVO $u)
     {
-        $db = getDB();
+        //$db = getDB();
         //$hash_password= hash('sha256', $password);
         $sql = "SELECT user_id FROM users WHERE user_email = ? AND  password = ?";
-        $hash_password= $password;
+        //$hash_password= $password;
         //$stmt = $db->prepare($sql);
         $stmt = $this->pdo->prepare($sql);
         //        $stmt->bindParam("usernameEmail", $usernameEmail,\PDO::PARAM_STR) ;
 //        $stmt->bindParam("hash_password", $hash_password,\PDO::PARAM_STR) ;
-        $stmt->execute(array($user_email, $hash_password));
+        //$stmt->execute(array($user_email, $hash_password));
+        $stmt->execute(array($u->getUserId(), $u->getPassword()));
         $count=$stmt->rowCount();
         $data=$stmt->fetch(\PDO::FETCH_OBJ);
-        $db = null;
+        //$db = null;
         if($count)
         {
             $_SESSION['user_id']=$data->user_id;
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    public function userLogin3($user_name, $password)
+    {
+        $sql = "SELECT user_id, first_name FROM users WHERE user_email = ? AND  password = ?";
+        //$hash_password= $password;
+        //$stmt = $db->prepare($sql);
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute(array($user_name, $password));
+        $count=$stmt->rowCount();
+        $data=$stmt->fetch(\PDO::FETCH_OBJ);
+        //$db = null;
+        if($count)
+        {
+            $_SESSION['user_id']=$data->user_id;
+            $_SESSION['user_name']=$data->first_name;
             return true;
         }
         else

@@ -1,7 +1,10 @@
 <?php
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
 include("../model/config.php");
 include('../model/userClass.php');
-$userClass = new \model\userClass();
+//$userClass = new \model\userClass();
 
 $errorMsgReg = '';
 $errorMsgLogin = '';
@@ -32,7 +35,7 @@ $errorMsgLogin = '';
             if (empty($_COOKIE["login_test"])) {
                 echo "empty";
             } else {
-                echo $_COOKIE["login_test"];
+                echo "non empty";
             }
             ?>
 

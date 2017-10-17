@@ -1,12 +1,10 @@
 <?php
 /**
- * Created by PhpStorm.
  * User: assen.kovachev
- * Date: 17.10.2017 г.
- * Time: 15:03 ч.
  */
 use model\UserDAO;
 use model\UserVO;
+include_once "../controller/session.php";
 include "../model/UserVO.php";
 include "../model/UserDAO.php";
 
