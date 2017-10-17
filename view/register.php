@@ -21,13 +21,14 @@ if (session_status() == PHP_SESSION_NONE) {
 </head>
 <body>
 <?php include "menu.php" ?>
+<h1>Register</h1>
 <div id="container">
 <div id="signup">
 <form action="../controller/register_controller.php" method="post">
     <label>email*</label>
-    <input type="text" name="user_email"><br>
+    <input type="text" name="user_email" required><br>
     <label>password*</label>
-    <input type="text" name="password"><br>
+    <input type="password" name="password" required><br>
     <label>First name</label>
     <input type="text" name="first_name"><br>
     <label>Last name</label>

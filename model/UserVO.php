@@ -143,4 +143,5 @@ class UserVO
     {
         $this->activated = $activated;
     }
+
 }

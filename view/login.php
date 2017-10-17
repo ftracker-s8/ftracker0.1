@@ -19,34 +19,18 @@ $errorMsgLogin = '';
 </head>
 <body>
 <?php include "menu.php" ?>
+<h1>Login</h1>
 <div id="container">
     <div id="login">
-        <h3>Login</h3>
         <form method="post" action="../controller/login_controler.php" name="login">
             <label>Email*</label>
             <input type="text" name="user_email" autocomplete="" placeholder="valid email"/>
             <label>Password*</label>
             <input type="password" name="password" autocomplete="" placeholder="password"/>
             <div class="errorMsg"><?php echo $errorMsgLogin; ?></div>
-            <input type="submit" class="button" name="loginSubmit" value="Login">
+            <input type="submit" name="loginSubmit" value="Login">
         </form>
         <div>or <a href="register.php">Register here</a></div>
-        <div>error:<?php
-            if (empty($_COOKIE["login_test"])) {
-                echo "empty";
-            } else {
-                echo "non empty";
-            }
-            ?>
-
-            <?php
-
-            if (isset($_COOKIE["login_error"])) {
-                echo $_COOKIE["login_error"] . "<br>";
-                echo $_COOKIE["login_pass"];
-            }
-            ?>
-        </div>
     </div>
 </div>
 

@@ -2,14 +2,8 @@
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
-include('../model/config.php');
-include "../model/userClass.php";
-//include('../controller/session.php');
-
-//$userDetails = $userClass->userDetails($user_id);
-//print_r($userDetails);
-
 ?>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -24,7 +18,7 @@ include "../model/userClass.php";
 <?php include "menu.php" ?>
 <!--<h1>Main: Welcome --><?php //echo $userDetails->name; ?><!--</h1>-->
 <div><h1>
-        Welcome <?php
+        Profile: <?php
         if (!empty($_SESSION['user_name'])) {
             echo $_SESSION['user_name'] . " | " . $_SESSION['user_id'];
         }

@@ -95,6 +95,12 @@ class UserDAO{
             return false;
         }
     }
+    public function takeUserPic(UserVO $u) {
+        $sql = "SELECT user_pic FROM users WHERE user_id = ?";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute(array($u->getUserPic()));
+        return $stmt->execute($sql);
+    }
 
 
 }
