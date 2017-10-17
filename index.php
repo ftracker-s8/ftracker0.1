@@ -1,7 +1,7 @@
 <?php
-if(isset($_SESSION["user_id"])) {
-    header("location: view/main.html");
+if(isset($_SESSION["user_id"])){
+    header("Location:view/main.php");
 }
-else {
-    header("location: view/login.html");
+else{
+    header("Location:view/login.php");
 }
