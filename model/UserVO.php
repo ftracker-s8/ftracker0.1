@@ -17,20 +17,15 @@ class UserVO
     private $user_pic;
     private $activated;
 
-    /**
-     * UserVO constructor.
-     * @param $user_email
-     * @param $password
-     * @param $first_name
-     * @param $last_name
-     */
-    public function __construct($user_email, $password, $first_name, $last_name)
-    {
-        $this->user_email = $user_email;
-        $this->password = $password;
-        $this->first_name = $first_name;
-        $this->last_name = $last_name;
-    }
+    //public function __construct($user_email, $password, $first_name, $last_name, $user_pic = null)
+//    public function __construct()
+//    {
+//        $this->user_email = $user_email;
+//        $this->password = $password;
+//        $this->first_name = $first_name;
+//        $this->last_name = $last_name;
+//        $this->user_pic = $user_pic;
+//    }
 
     /**
      * @return mixed

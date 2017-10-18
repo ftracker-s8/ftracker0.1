@@ -25,10 +25,10 @@ if (session_status() == PHP_SESSION_NONE) {
 <div id="container">
 <div id="signup">
 <form action="../controller/register_controller.php" method="post">
-    <label>email*</label>
-    <input type="text" name="user_email" required><br>
+    <label>Email*</label>
+    <input type="text" name="user_email" required placeholder="valid email" autocomplete="off"><br>
     <label>password*</label>
-    <input type="password" name="password" required><br>
+    <input type="password" name="password" required placeholder="4+ symbols" autocomplete="off"><br>
     <label>First name</label>
     <input type="text" name="first_name"><br>
     <label>Last name</label>

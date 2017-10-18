@@ -2,6 +2,10 @@
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
+include "../model/UserDAO.php";
+include "../model/UserVO.php";
+use model\UserVO;
+use model\UserDAO;
 ?>
 
 <!doctype html>
@@ -24,6 +28,10 @@ if (session_status() == PHP_SESSION_NONE) {
         }
         ?>
     </h1>
+    <?php
+        include "../controller/user_pic_controller.php";
+    ?>
+
 </div>
 
 </body>

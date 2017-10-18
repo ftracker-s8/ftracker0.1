@@ -13,6 +13,12 @@ use model;
 class UserDAO{
     private static $instance;
     private $pdo;
+    const REGISTER_USER = "INSERT INTO users (user_email, `password`, first_name, last_name) VALUES (?, ?, ?, ?)";
+    const EDIT_USER = "UPDATE users SET user_email = ?, `password` = ?, first_name = ?, last_name = ?,
+    image_url = ?, password = ? WHERE user_id = ?";
+    const GET_USER_INFO = "SELECT U.id, U.email, U.enabled, U.first_name, U.last_name, U.mobile_phone, U.image_url, 
+                                  U.password, U.last_login, U.role, A.full_adress, A.is_personal  FROM users AS U 
+                                  JOIN adresses AS A ON U.id = A.user_id WHERE A.user_id = ?";
 
     private function __construct()    {
         $this->pdo = DBManager::getInstance()->getConnection();
@@ -38,6 +44,37 @@ class UserDAO{
 
         return $stmt->fetch(\PDO::FETCH_ASSOC)["counter"] > 0;
     }
+    public function getUserName(UserVO $user_id) {
+        $sql = "SELECT (first_name, last_name) as usernama, user_id FROM `users` WHERE `user_id` = ?";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute(array($user_id->getUserId()));
+
+        $data=$stmt->fetch(\PDO::FETCH_OBJ);
+        $current_user_name = $data->usernama;
+
+        //$_SESSION['user_name']=$data->user_id;
+        //return $stmt->fetch(\PDO::FETCH_ASSOC)["counter"] > 0;
+        return $current_user_name;
+    }
+    function registerUser2(UserVO $user)
+    {
+        //Use try catch, to have transaction
+        try {
+            $this->pdo->beginTransaction();
+            $statement = $this->pdo->prepare(self::REGISTER_USER);
+            $statement->execute(array($user->getUserEmail(), $user->getPassword(), $user->getFirstName(), $user->getLastName()));
+            $lastInsertId = $this->pdo->lastInsertId();
+//            $statement = $this->pdo->prepare(self::REGISTER_USER_ADDRESS);
+//            $statement->execute(array($user->getAddress(), $user->getPersonal(), $lastInsertId));
+            $this->pdo->commit();
+
+            return $lastInsertId; //Return registered user's ID
+        } catch (\PDOException $e) {
+            $this->pdo->rollBack();
+            header("Location: ../view/registererror.php");
+        }
+    }
+
     public function insertUser(UserVO $u) {
         $sql = "INSERT INTO users (user_email, password, first_name, last_name) VALUES (?,?,?,?) ";
         $stmt = $this->pdo->prepare($sql);
@@ -95,11 +132,37 @@ class UserDAO{
             return false;
         }
     }
-    public function takeUserPic(UserVO $u) {
-        $sql = "SELECT user_pic FROM users WHERE user_id = ?";
-        $stmt = $this->pdo->prepare($sql);
-        $stmt->execute(array($u->getUserPic()));
-        return $stmt->execute($sql);
+//    public function takeUserPic(UserVO $u) {
+//        $sql = "SELECT user_pic FROM users WHERE user_id = ?";
+//        $stmt = $this->pdo->prepare($sql);
+//        $stmt->execute(array($u->getUserPic()));
+//        $data=$stmt->fetch(\PDO::FETCH_OBJ);
+//        $url = $data->user_pic;
+//        return $url;
+//    }
+
+    function getUserInfo(UserVO $user)
+    {
+        $statement = $this->pdo->prepare(self::GET_USER_INFO);
+        $statement->execute(array($user->getUserId()));
+        $userInfo = $statement->fetch();
+        return $userInfo;
+    }
+
+    function userProfile(UserVO $user)
+    {
+        try {
+            $this->pdo->beginTransaction();
+            $statement = $this->pdo->prepare(self::EDIT_USER);
+            $statement->execute(array($user->getUserEmail(), $user->getPassword(), $user->getFirstName(), $user->getLastName(),
+               $user->getUserPic(), $user->getUserId()));
+            //$statement = $this->pdo->prepare(self::UPDATE_ADDRESS);
+            //$statement->execute(array($user->getAddress(), $user->getPersonal(), $user->getId()));
+            $this->pdo->commit();
+        } catch (\PDOException $e) {
+            $this->pdo->rollBack();
+            header("Location: ../../view/error/pdo_error.php");
+        }
     }
 
 

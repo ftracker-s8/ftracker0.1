@@ -14,7 +14,8 @@ class DBManager
 
     private function __construct(){
         try{
-            $this->pdo = new \PDO("mysql:host=".self::DB_IP.":".self::DB_PORT.";dbname=".self::DB_NAME, self::DB_USER, self::DB_PASS);
+            //$this->pdo = new \PDO("mysql:host=".self::DB_IP.":".self::DB_PORT.";dbname=".self::DB_NAME, self::DB_USER, self::DB_PASS);
+            $this->pdo = new \PDO("mysql:host=".self::DB_IP.";dbname=".self::DB_NAME, self::DB_USER, self::DB_PASS);
             $this->pdo->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
             $this->pdo->query("USE " . self::DB_NAME);
         }

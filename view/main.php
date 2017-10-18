@@ -24,9 +24,9 @@ include "../model/userClass.php";
 <?php include "menu.php" ?>
 <!--<h1>Main: Welcome --><?php //echo $userDetails->name; ?><!--</h1>-->
 <div><h1>
-        Welcome <?php
+        Main::Welcome <?php
         if (!empty($_SESSION['user_name'])) {
-            echo $_SESSION['user_name'] . " | " . $_SESSION['user_id'];
+            echo $_SESSION['user_name'] . " | id # " . $_SESSION['user_id'];
         }
         ?>
     </h1>
