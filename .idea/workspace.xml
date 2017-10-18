@@ -1,20 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="03ea9d12-5a23-4074-b6ee-e86cbd20a305" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/controller/user_edit_controler.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/controller/user_pic_controller.php" />
+    <list default="true" id="03ea9d12-5a23-4074-b6ee-e86cbd20a305" name="Default" comment="edit register/login&#10;changed User class">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controller/logout.php" afterPath="$PROJECT_DIR$/controller/logout.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controller/register_controller.php" afterPath="$PROJECT_DIR$/controller/register_controller.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/model/DBManager.php" afterPath="$PROJECT_DIR$/model/DBManager.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/model/UserDAO.php" afterPath="$PROJECT_DIR$/model/UserDAO.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/model/UserVO.php" afterPath="$PROJECT_DIR$/model/UserVO.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/view/css/style.css" afterPath="$PROJECT_DIR$/view/css/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/view/main.php" afterPath="$PROJECT_DIR$/view/main.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/view/menu.php" afterPath="$PROJECT_DIR$/view/menu.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/view/profile.php" afterPath="$PROJECT_DIR$/view/profile.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/view/register.php" afterPath="$PROJECT_DIR$/view/register.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -158,9 +146,9 @@
   <component name="Git.Settings">
     <option name="PREVIOUS_COMMIT_AUTHORS">
       <list>
+        <option value="assendk" />
         <option value="assendk@gmail.com" />
         <option value="assendk1" />
-        <option value="assendk" />
       </list>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -210,10 +198,10 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" interpreter_name="PHP" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="255" />
-    <option name="y" value="76" />
+    <option name="x" value="256" />
+    <option name="y" value="105" />
     <option name="width" value="1589" />
-    <option name="height" value="1018" />
+    <option name="height" value="924" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -448,7 +436,7 @@
       <workItem from="1507717944039" duration="35000" />
       <workItem from="1507848845686" duration="3188000" />
       <workItem from="1508161165827" duration="2457000" />
-      <workItem from="1508175543594" duration="50865000" />
+      <workItem from="1508175543594" duration="51054000" />
     </task>
     <task id="LOCAL-00001" summary="add reg error html">
       <created>1507848921266</created>
@@ -492,26 +480,32 @@
       <option name="project" value="LOCAL" />
       <updated>1508281551688</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="edit register/login&#10;changed User class">
+      <created>1508346747047</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1508346747047</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="58539000" />
+    <option name="totallyTimeSpent" value="58728000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="255" y="76" width="1589" height="1018" extended-state="0" />
-    <editor active="true" />
+    <frame x="256" y="105" width="1589" height="924" extended-state="0" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32906976" sideWeight="0.49732977" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="PHP-CGI Server" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32906976" sideWeight="0.50228906" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3694517" sideWeight="0.50228906" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30348837" sideWeight="0.49732977" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3694517" sideWeight="0.4977109" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24787442" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32906976" sideWeight="0.4977109" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32906976" sideWeight="0.4977109" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -535,7 +529,8 @@
     <MESSAGE value="edit index.php" />
     <MESSAGE value="added register/login" />
     <MESSAGE value="edit register/login" />
-    <option name="LAST_COMMIT_MESSAGE" value="edit register/login" />
+    <MESSAGE value="edit register/login&#10;changed User class" />
+    <option name="LAST_COMMIT_MESSAGE" value="edit register/login&#10;changed User class" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
