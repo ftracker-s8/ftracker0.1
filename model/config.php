@@ -7,7 +7,8 @@ define('DB_SERVER', 'localhost');
 define('DB_USERNAME', 'id3203367_admina');
 define('DB_PASSWORD', 'ZOqMIBwHI0c3zCXl');
 define('DB_DATABASE', 'id3203367_s8ftracker_db');
-define("BASE_URL", "http://ftrack.mast/"); // Eg. http://yourwebsite.com
+//define("BASE_URL", "http://ftrack.mast/"); // Eg. http://yourwebsite.com
+define("BASE_URL", "http://localhost"); // Eg. http://yourwebsite.com
 
 
 function getDB() 

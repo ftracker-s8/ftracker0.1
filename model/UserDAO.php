@@ -15,8 +15,7 @@ class UserDAO{
     private $pdo;
     const REGISTER_USER = "INSERT INTO users (user_email, `password`, first_name, last_name) VALUES (?, ?, ?, ?)";
     const CREATE_NEW_ACCOUNT = "INSERT INTO accounts (account_name, `ammount`, owner_id) VALUES ('cash', '0', ?)";
-    const EDIT_USER = "UPDATE users SET user_email = ?, `password` = ?, first_name = ?, last_name = ?,
-    image_url = ?, password = ? WHERE user_id = ?";
+    const EDIT_USER = "UPDATE users SET user_email = ?, `password` = ?, first_name = ?, last_name = ? WHERE user_id = ?";
     const GET_USER_INFO = "SELECT U.id, U.email, U.enabled, U.first_name, U.last_name, U.mobile_phone, U.image_url, 
                                   U.password, U.last_login, U.role, A.full_adress, A.is_personal  FROM users AS U 
                                   JOIN adresses AS A ON U.id = A.user_id WHERE A.user_id = ?";
@@ -62,7 +61,7 @@ class UserDAO{
     {
         //Use try catch, to have transaction
         try {
-//            $this->pdo->beginTransaction();
+            $this->pdo->beginTransaction();
             $statement = $this->pdo->prepare(self::REGISTER_USER);
             $statement->execute(array($user->getUserEmail(), $user->getPassword(), $user->getFirstName(), $user->getLastName()));
             $lastInsertId = $this->pdo->lastInsertId();
@@ -70,11 +69,11 @@ class UserDAO{
             $statement = $this->pdo->prepare(self::CREATE_NEW_ACCOUNT);
             $statement->execute(array($lastInsertId));
 
-//            $this->pdo->commit();
+            $this->pdo->commit();
             return $lastInsertId; //Return registered user's ID
 
         } catch (\PDOException $e) {
- //           $this->pdo->rollBack();
+               $this->pdo->rollBack();
             header("Location: ../view/registererror.html");
         }
     }
@@ -142,6 +141,9 @@ class UserDAO{
 
         $url = $stmt->fetch(\PDO::FETCH_ASSOC);
         $_SESSION['user_pic'] = end($url);
+
+    }
+    function editUser () {
 
     }
 

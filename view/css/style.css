@@ -31,18 +31,21 @@ body h1 {color: #BDC7D8}
 h3{color:#365D98}
 form label{font-weight: bold;}
 #container form label, #container form input{display: block;margin-bottom: 5px;width: 90%;}
-#container form input{border: solid 1px #666666;padding: 10px;border: solid 1px #BDC7D8; margin-bottom: 20px}
+#container form input{border: solid 1px #666666; padding: 10px;border: solid 1px #BDC7D8; margin-bottom: 10px}
 #container .button {
     background-color: #5fcf80 !important;
     border-color: #3ac162 !important;
     font-weight: bold;
     padding: 12px 15px;
-    max-width: 100px;
+    //max-width: 100px;
     color: #ffffff;
 }
 input[type=text]:focus {
     border: 3px solid #555;
 }
+
+.profile-field {width: 45%; margin: 0 5px 5px 0;
+    float: left;}
 #menu input[type=button], input[type=submit], input[type=reset] {
     background-color: #4CAF50;
     border: 1px solid #4ca557;

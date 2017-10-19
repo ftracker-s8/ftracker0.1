@@ -22,7 +22,7 @@ if (session_status() == PHP_SESSION_NONE) {
 <?php include "menu.php" ?>
 <!--<h1>Main: Welcome --><?php //echo $userDetails->name; ?><!--</h1>-->
 <div id="container">
-    <div>
+    <div class="profile-field">
     <h1>
         Profile: <?php
         if (!empty($_SESSION['user_name'])) {
@@ -37,15 +37,26 @@ if (session_status() == PHP_SESSION_NONE) {
 
     ?>
         <br>
-    </div>
+
 
         <form enctype="multipart/form-data" action="" method="post">
             <input type="file" name="user_pic" size="20">
             <input type="submit" name="set_user_pic" value="Upload image">
         </form>
+    </div>
+    <div class="profile-field">
+        <h1>Change username details</h1>
+        <form action="../controller/update_user_ctrl.php"><br>
+            User/email<input type="text" name="user_email" value="TODO ot sistemata"><br>
+            Password <input type="text" name="password"><br>
+            Confirm password <input type="text" name="password"><br>
+            First Name<input type="text" name="first_name"value="TODO ot sistemata"><br>
+            Last  Name<input type="text" name="last_name" value="TODO ot sistemata"><br>
+            <input type="submit" name="update-user" value="Update">
+        </form>
+    </div>
 
 
-</div>
 </div>
 <?php include 'footer.php' ?>
 </body>

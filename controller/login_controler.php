@@ -36,8 +36,8 @@ if (isset($_POST['loginSubmit'])) {
                 setcookie('login_error', " no problem", time() + 360);
                 setcookie('login_pass', $password, time() + 360);
 
-                $url = BASE_URL . 'view/main.php';
-                echo "Loged";
+                //$url = BASE_URL . 'view/main.php';
+                //echo "Loged";
                 //header("Location: $url");
                 header("Location: ../view/main.php");
             }
@@ -48,10 +48,10 @@ if (isset($_POST['loginSubmit'])) {
 else
         {
             $errorMsgLogin = "Please check login details.";
-            $url = BASE_URL . 'view/login.php';
+            //$url = BASE_URL . 'view/login.php';
             setcookie('login_error', "problem s logina", time() + 360);
             setcookie('login_pass', $password, time() + 360);
-            header("Location: $url");
+            header("Location: ../view/login.php");
         }
     }
 }
