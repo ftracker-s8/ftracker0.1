@@ -1,28 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="03ea9d12-5a23-4074-b6ee-e86cbd20a305" name="Default" comment="changed User class valueble object">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/favicon-16x16.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/favicon-32x32.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/favicon.ico" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/controller/get_accounts.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/controller/set_user_pic.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/view/accounts.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/view/footer.php" />
+    <list default="true" id="03ea9d12-5a23-4074-b6ee-e86cbd20a305" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controller/login_controler.php" afterPath="$PROJECT_DIR$/controller/login_controler.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controller/register_controller.php" afterPath="$PROJECT_DIR$/controller/register_controller.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controller/user_pic_controller.php" afterPath="$PROJECT_DIR$/controller/user_pic_controller.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/model/Accounts.php" afterPath="$PROJECT_DIR$/model/Accounts.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/model/UserDAO.php" afterPath="$PROJECT_DIR$/model/UserDAO.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/model/userClass.php" afterPath="$PROJECT_DIR$/model/userClass.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/view/css/style.css" afterPath="$PROJECT_DIR$/view/css/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/view/login.php" afterPath="$PROJECT_DIR$/view/login.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/view/main.php" afterPath="$PROJECT_DIR$/view/main.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/view/menu.php" afterPath="$PROJECT_DIR$/view/menu.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/view/profile.php" afterPath="$PROJECT_DIR$/view/profile.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/view/register.php" afterPath="$PROJECT_DIR$/view/register.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/view/registererror.html" afterPath="$PROJECT_DIR$/view/registererror.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/id3203367_s8ftracker_db-final.sql" afterPath="$PROJECT_DIR$/id3203367_s8ftracker_db-final.sql" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -481,7 +462,7 @@
       <workItem from="1507717944039" duration="35000" />
       <workItem from="1507848845686" duration="3188000" />
       <workItem from="1508161165827" duration="2457000" />
-      <workItem from="1508175543594" duration="72204000" />
+      <workItem from="1508175543594" duration="72826000" />
     </task>
     <task id="LOCAL-00001" summary="add reg error html">
       <created>1507848921266</created>
@@ -546,11 +527,18 @@
       <option name="project" value="LOCAL" />
       <updated>1508346971079</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="edit register user">
+      <created>1508402632340</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1508402632340</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="79878000" />
+    <option name="totallyTimeSpent" value="80500000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="506" y="67" width="1353" height="879" extended-state="0" />
@@ -590,7 +578,8 @@
     <MESSAGE value="edit register/login" />
     <MESSAGE value="edit register/login&#10;changed User class" />
     <MESSAGE value="changed User class valueble object" />
-    <option name="LAST_COMMIT_MESSAGE" value="changed User class valueble object" />
+    <MESSAGE value="edit register user" />
+    <option name="LAST_COMMIT_MESSAGE" value="edit register user" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
