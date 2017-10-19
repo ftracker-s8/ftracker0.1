@@ -12,13 +12,12 @@
 
         if(!empty($_SESSION['user_id'])) {
             $name = $_SESSION['user_name'];
-            echo "<a href=\"profile.php\">$name</a>" ?>
+            echo "<a href=\"profile.php\">[$name]</a>" ?>
             <form class="menu_button" action="../controller/logout.php" method="post">
     <input type="submit" name="logout" value="Logout">
 </form>
-            <?php
-        }
-            ?></li>
+            <?php  }  ?>
+        </li>
     </ul>
     </div>
 </div>

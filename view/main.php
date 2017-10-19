@@ -22,15 +22,17 @@ include "../model/userClass.php";
 </head>
 <body>
 <?php include "menu.php" ?>
-<!--<h1>Main: Welcome --><?php //echo $userDetails->name; ?><!--</h1>-->
-<div><h1>
-        Main::Welcome <?php
-        if (!empty($_SESSION['user_name'])) {
-            echo $_SESSION['user_name'] . " | id # " . $_SESSION['user_id'];
-        }
-        ?>
-    </h1>
+<div id="container">
+    <!--<h1>Main: Welcome --><?php //echo $userDetails->name; ?><!--</h1>-->
+    <div><h1>
+            Main::Welcome <?php
+            if (!empty($_SESSION['user_name'])) {
+                echo $_SESSION['user_name'] . " | id # " . $_SESSION['user_id'];
+            }
+            ?>
+        </h1>
+    </div>
 </div>
-
+<?php include 'footer.php' ?>
 </body>
 </html>

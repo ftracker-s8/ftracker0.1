@@ -38,7 +38,8 @@ if (isset($_POST['loginSubmit'])) {
 
                 $url = BASE_URL . 'view/main.php';
                 echo "Loged";
-                header("Location: $url");
+                //header("Location: $url");
+                header("Location: ../view/main.php");
             }
 //        }
 //        catch (PDOException $e) {

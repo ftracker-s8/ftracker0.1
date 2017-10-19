@@ -4,7 +4,7 @@ if (session_status() == PHP_SESSION_NONE) {
 }
 include("../model/config.php");
 include('../model/userClass.php');
-//$userClass = new \model\userClass();
+$userClass = new \model\userClass();
 
 $errorMsgReg = '';
 $errorMsgLogin = '';
@@ -19,8 +19,8 @@ $errorMsgLogin = '';
 </head>
 <body>
 <?php include "menu.php" ?>
-<h1>Login</h1>
 <div id="container">
+    <h1>Login</h1>
     <div id="login">
         <form method="post" action="../controller/login_controler.php" name="login">
             <label>Email*</label>
@@ -34,6 +34,6 @@ $errorMsgLogin = '';
     </div>
 </div>
 
-
+<?php include 'footer.php' ?>
 </body>
 </html>

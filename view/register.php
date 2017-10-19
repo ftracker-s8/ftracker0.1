@@ -8,6 +8,10 @@
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
+$err_user = "";
+if(!empty($_COOKIE['err-exist'])) {
+    $err_user = $_COOKIE['err-exist'];
+}
 ?>
 <!doctype html>
 <html lang="en">
@@ -26,7 +30,7 @@ if (session_status() == PHP_SESSION_NONE) {
 <div id="signup">
 <form action="../controller/register_controller.php" method="post">
     <label>Email*</label>
-    <input type="text" name="user_email" required placeholder="valid email" autocomplete="off"><br>
+    <input type="text" name="user_email" required placeholder="valid email" autocomplete="off"><?= $err_user ?><br>
     <label>password*</label>
     <input type="password" name="password" required placeholder="4+ symbols" autocomplete="off"><br>
     <label>First name</label>
@@ -36,5 +40,6 @@ if (session_status() == PHP_SESSION_NONE) {
     <input type="submit" name="register" value="Register">
 </form>
 </div>
+    <?php include 'footer.php' ?>
 </body>
 </html>

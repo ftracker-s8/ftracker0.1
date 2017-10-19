@@ -5,14 +5,25 @@
  * Date: 18.10.2017 г.
  * Time: 02:29 ч.
  */
-use model\UserVO;
-use model\UserDAO;
-include "../model/UserDAO.php";
-include "../model/UserVO.php";
+//include 'session.php';
+include "../model/DBManager.php";
+include '../model/userClass.php';
 
-$muser_pic = 1;
-$url = takeUserPic2($muser_pic);
+$user_id = "";
+if(isset($_SESSION['user_id'])){
+    $user_id = $_SESSION['user_id'];
+}
+
+//uuserPic
+
+$products = null;
+$userClass = new \model\userClass();
+
+//$userPia = $userClass->userDetails($session_uid);
+$userPic = $userClass->uuserPic($user_id);
+$the_url = $userPic->user_pic;
+//print_r($userPic);
 ?>
-<div>
-echo  "<img src=\"$url\" alt=\"\">";
-</div>
+<!--//<h1>Welcome --><?php //echo $userPic->data; ?><!--</h1>-->
+<img src="<?php echo $the_url; ?>" >
+

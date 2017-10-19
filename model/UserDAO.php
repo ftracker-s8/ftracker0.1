@@ -4,7 +4,7 @@ namespace model;
 
 include "DBManager.php";
 
-use model;
+use model\UserVO;
 /**
  * Created by PhpStorm.
  * User: assen.kovachev
@@ -14,6 +14,7 @@ class UserDAO{
     private static $instance;
     private $pdo;
     const REGISTER_USER = "INSERT INTO users (user_email, `password`, first_name, last_name) VALUES (?, ?, ?, ?)";
+    const CREATE_NEW_ACCOUNT = "INSERT INTO accounts (account_name, `ammount`, owner_id) VALUES ('cash', '0', ?)";
     const EDIT_USER = "UPDATE users SET user_email = ?, `password` = ?, first_name = ?, last_name = ?,
     image_url = ?, password = ? WHERE user_id = ?";
     const GET_USER_INFO = "SELECT U.id, U.email, U.enabled, U.first_name, U.last_name, U.mobile_phone, U.image_url, 
@@ -56,61 +57,31 @@ class UserDAO{
         //return $stmt->fetch(\PDO::FETCH_ASSOC)["counter"] > 0;
         return $current_user_name;
     }
+
     function registerUser2(UserVO $user)
     {
         //Use try catch, to have transaction
         try {
-            $this->pdo->beginTransaction();
+//            $this->pdo->beginTransaction();
             $statement = $this->pdo->prepare(self::REGISTER_USER);
             $statement->execute(array($user->getUserEmail(), $user->getPassword(), $user->getFirstName(), $user->getLastName()));
             $lastInsertId = $this->pdo->lastInsertId();
-//            $statement = $this->pdo->prepare(self::REGISTER_USER_ADDRESS);
-//            $statement->execute(array($user->getAddress(), $user->getPersonal(), $lastInsertId));
-            $this->pdo->commit();
 
+            $statement = $this->pdo->prepare(self::CREATE_NEW_ACCOUNT);
+            $statement->execute(array($lastInsertId));
+
+//            $this->pdo->commit();
             return $lastInsertId; //Return registered user's ID
+
         } catch (\PDOException $e) {
-            $this->pdo->rollBack();
-            header("Location: ../view/registererror.php");
+ //           $this->pdo->rollBack();
+            header("Location: ../view/registererror.html");
         }
-    }
-
-    public function insertUser(UserVO $u) {
-        $sql = "INSERT INTO users (user_email, password, first_name, last_name) VALUES (?,?,?,?) ";
-        $stmt = $this->pdo->prepare($sql);
-        $stmt->execute(array($u->getUserEmail(), $u->getPassword(), $u->getFirstName(), $u->getLastName()));
-
-        $u->setUserId($this->pdo->lastInsertId());
     }
 
     public function deleteUser(UserVO $u) {
     }
 
-    public function userLogin2(UserVO $u)
-    {
-        //$db = getDB();
-        //$hash_password= hash('sha256', $password);
-        $sql = "SELECT user_id FROM users WHERE user_email = ? AND  password = ?";
-        //$hash_password= $password;
-        //$stmt = $db->prepare($sql);
-        $stmt = $this->pdo->prepare($sql);
-        //        $stmt->bindParam("usernameEmail", $usernameEmail,\PDO::PARAM_STR) ;
-//        $stmt->bindParam("hash_password", $hash_password,\PDO::PARAM_STR) ;
-        //$stmt->execute(array($user_email, $hash_password));
-        $stmt->execute(array($u->getUserId(), $u->getPassword()));
-        $count=$stmt->rowCount();
-        $data=$stmt->fetch(\PDO::FETCH_OBJ);
-        //$db = null;
-        if($count)
-        {
-            $_SESSION['user_id']=$data->user_id;
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-    }
     public function userLogin3($user_name, $password)
     {
         $sql = "SELECT user_id, first_name FROM users WHERE user_email = ? AND  password = ?";
@@ -164,6 +135,26 @@ class UserDAO{
             header("Location: ../../view/error/pdo_error.php");
         }
     }
+    function getUserPic(UserVO $user_id) {
+        $sql = "SELECT user_pic FROM `users` WHERE `user_id` = ?";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute(array($user_id));
+
+        $url = $stmt->fetch(\PDO::FETCH_ASSOC);
+        $_SESSION['user_pic'] = end($url);
+
+    }
 
 
 }
+
+//function getUserPicT($user_id) {
+//    $pdo = connect();
+//    $sql = "SELECT user_pic FROM `users` WHERE `user_id` = ?";
+//    $stmt = $pdo->prepare($sql);
+//    $stmt->execute(array($user_id));
+//    //return $this->userPic($user_id);
+//    //$stmt->fetch(\PDO::FETCH_ASSOC)["user_pic"];
+//    $url = $stmt->fetch(PDO::FETCH_ASSOC);
+//    return end($url);
+//}

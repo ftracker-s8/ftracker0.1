@@ -2,9 +2,14 @@
 /**
  * User: assen.kovachev
  */
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+
 use model\UserDAO;
 use model\UserVO;
-include_once "../controller/session.php";
+//include_once "../controller/session.php";
+
 include "../model/UserVO.php";
 include "../model/UserDAO.php";
 
@@ -19,7 +24,10 @@ if (isset($_POST['user_email']) && isset($_POST['password'])
 
     $user = new \model\UserVO();
 
-    //Try to accomplish connection with the database
+    $account_name = 'Cash';
+    $amount = 0;
+    $owner_id = "";
+
     try {
 
         $userDao = \model\UserDao::getUserInstance();
@@ -27,37 +35,34 @@ if (isset($_POST['user_email']) && isset($_POST['password'])
         $user->setUserEmail(htmlentities($_POST['user_email']));
         $user->setPassword(sha1($_POST['password']));
         $user->setFirstName(htmlentities($_POST['first_name']));
-        $user->setLastName(htmlentities($_POST['last_ame']));
+        $user->setLastName(htmlentities($_POST['last_name']));
         $user->setUserPic("../uploads/placeholder.jpg");
 
         //Check if user exists
         if($userDao->existsUser($user)) {
 
             //Locate to error Register Page
-            header("Location: ../view/user/register.php?error");
+            setcookie('err-exist', 'user exist', time()+360 );
+            header("Location: ../view/register.php");
         } else {
 
             $user_id = $userDao->registerUser2($user);
             $_SESSION['user_id'] = "";
-            //$_SESSION['user_id'] = $user_id;
-            //$current_user_name = $userDao->getUserName($user_id);
-
-//            $_SESSION['user_name'] = $first_name;
-            //$userDao->setLastLogin($user);
+            //echo $user_id;
             header("Location: ../view/login.php");
         }
 
 
 
     } catch (PDOException $e) {
-
-        header("Location: ../../view/error/pdo_error.php");
+        echo "PDOa rra: " . $e->getMessage();
+        //header("Location: ../../view/error/pdo_error.php");
     }
 
 } else {
 
     //Locate to error Register Page
-    header("Location: ../../view/user/register.php?error");
+    header("Location: ../view/registererror.html");
 }
 
 //    $username_check = preg_match('~^[A-Za-z0-9_]{3,20}$~i', $username);
