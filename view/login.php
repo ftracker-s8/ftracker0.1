@@ -15,11 +15,11 @@ $errorMsgLogin = '';
 <head>
     <meta charset="UTF-8">
     <title>Login</title>
-    <link rel="stylesheet" href="css/style.css">
+    <?php include_once "head.inc.php"; ?>
 </head>
 <body>
 <?php include "header.php" ?>
-<div id="container">
+<div id="container" class="container">
     <h1>Login</h1>
     <div id="login">
         <form method="post" action="../controller/login_controler.php" name="login">

@@ -11,7 +11,10 @@ html {
 }
 body {
   margin: 0;
+  padding-top: 50px;
+  padding-bottom: 20px;
 }
+
 article,
 aside,
 details,
@@ -4959,8 +4962,10 @@ a.badge:focus {
   padding-top: 30px;
   padding-bottom: 30px;
   margin-bottom: 30px;
-  color: inherit;
+  color: #fff;
   background-color: #eee;
+  background: url("../images/front-background.jpg") fixed ;
+  background-size: contain;
 }
 .jumbotron h1,
 .jumbotron .h1 {
