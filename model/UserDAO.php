@@ -74,7 +74,8 @@ class UserDAO{
 
         } catch (\PDOException $e) {
                $this->pdo->rollBack();
-            header("Location: ../view/registererror.html");
+               echo "UDAO err reg: " . $e->getMessage();
+            //header("Location: ../view/registererror.html");
         }
     }
 
@@ -143,6 +144,13 @@ class UserDAO{
         $_SESSION['user_pic'] = end($url);
 
     }
+    function setUserPicture(UserVO $user) {
+        $sql = "UPDATE users SET `user_pic` = ? WHERE `user_id` = ?";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute(array($user->getUserPic()));
+        return true;
+    }
+
     function editUser () {
 
     }

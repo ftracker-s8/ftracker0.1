@@ -19,7 +19,7 @@ use model\UserDAO;
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-<?php include "menu.php" ?>
+<?php include "header.php" ?>
 <!--<h1>Main: Welcome --><?php //echo $userDetails->name; ?><!--</h1>-->
 <div><h1>
         Profile: <?php

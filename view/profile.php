@@ -19,7 +19,7 @@ if (session_status() == PHP_SESSION_NONE) {
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-<?php include "menu.php" ?>
+<?php include "header.php" ?>
 <!--<h1>Main: Welcome --><?php //echo $userDetails->name; ?><!--</h1>-->
 <div id="container">
     <div class="profile-field">
@@ -34,14 +34,14 @@ if (session_status() == PHP_SESSION_NONE) {
         //echo $_SESSION['user_name'] . "<br>";
 
         include "../controller/user_pic_controller.php";
-
     ?>
-        <br>
 
 
-        <form enctype="multipart/form-data" action="" method="post">
-            <input type="file" name="user_pic" size="20">
-            <input type="submit" name="set_user_pic" value="Upload image">
+        <form enctype="multipart/form-data" action="../controller/upload_userpic_controller.php" method="post">
+            <input type="hidden" name="MAX_FILE_SIZE" value="100000">
+            <input type="file" name="user_pic" size="20"><br>
+
+            <input type="submit" name="uploadedfile" value="Upload image">
         </form>
     </div>
     <div class="profile-field">
@@ -54,6 +54,16 @@ if (session_status() == PHP_SESSION_NONE) {
             Last  Name<input type="text" name="last_name" value="TODO ot sistemata"><br>
             <input type="submit" name="update-user" value="Update">
         </form>
+        <?php
+        if(!isset($_COOKIE['upload-error'])){
+
+        echo "  ";
+        //setcookie('upload-error');
+        }
+        else {
+        echo $_COOKIE['upload-error'];
+        }
+        ?>
     </div>
 
 

@@ -18,7 +18,7 @@ $errorMsgLogin = '';
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-<?php include "menu.php" ?>
+<?php include "header.php" ?>
 <div id="container">
     <h1>Login</h1>
     <div id="login">

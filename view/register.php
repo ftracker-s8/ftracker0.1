@@ -24,7 +24,7 @@ if(!empty($_COOKIE['err-exist'])) {
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-<?php include "menu.php" ?>
+<?php include "header.php" ?>
 <h1>Register</h1>
 <div id="container">
 <div id="signup">
