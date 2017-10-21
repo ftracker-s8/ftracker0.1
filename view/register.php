@@ -25,20 +25,22 @@ if(!empty($_COOKIE['err-exist'])) {
 </head>
 <body>
 <?php include "header.php" ?>
-<h1>Register</h1>
-<div id="container">
-<div id="signup">
+<div id="container" class="container">
+    <h1>Register</h1>
+<div class="col-md-3 align-middle adk-shadow ">
 <form action="../controller/register_controller.php" method="post">
-    <label>Email*</label>
-    <input type="text" name="user_email" required placeholder="valid email" autocomplete="off"><?= $err_user ?><br>
+    <label class="col-form-label">Email*</label>
+    <input class="form-control" type="text" name="user_email" required placeholder="valid email" autocomplete="off"><?= $err_user ?><br>
     <label>password*</label>
-    <input type="password" name="password" required placeholder="4+ symbols" autocomplete="off"><br>
+    <input class="form-control" type="password" name="password" required placeholder="4+ symbols" autocomplete="off"><br>
     <label>First name</label>
-    <input type="text" name="first_name"><br>
+    <input class="form-control" type="text" name="first_name"><br>
     <label>Last name</label>
-    <input type="text" name="last_name">
-    <input type="submit" name="register" value="Register">
+    <input class="form-control"  type="text" name="last_name"><br>
+    <input class="btn btn-success" type="submit" name="Register" value="Register"><br>
+    <div class="clearfix"></div>
 </form>
+</div>
 </div>
     <?php include 'footer.php' ?>
 </body>

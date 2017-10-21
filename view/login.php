@@ -21,16 +21,19 @@ $errorMsgLogin = '';
 <?php include "header.php" ?>
 <div id="container" class="container">
     <h1>Login</h1>
-    <div id="login">
-        <form method="post" action="../controller/login_controler.php" name="login">
-            <label>Email*</label>
-            <input type="text" name="user_email" autocomplete="" placeholder="valid email"/>
-            <label>Password*</label>
-            <input type="password" name="password" autocomplete="" placeholder="password"/>
-            <div class="errorMsg"><?php echo $errorMsgLogin; ?></div>
-            <input type="submit" name="loginSubmit" value="Login">
-        </form>
-        <div>or <a href="register.php">Register here</a></div>
+    <div class="col-md-3 center-block adk-shadow">
+        <div id="login" class="form-group">
+            <form method="post" action="../controller/login_controler.php" name="login">
+                <label class="label-default">Email*</label>
+                <input type="text" name="user_email" autocomplete="" placeholder="valid email" class="form-control"><br>
+                <label>Password*</label>
+                <input class="form-control" type="password" name="password" autocomplete="" placeholder="password"/><br>
+                <div class="errorMsg"><?php echo $errorMsgLogin; ?></div>
+                <input class="btn btn-block" type="submit" name="loginSubmit" value="Login">
+                <div class="clearfix"></div>
+            </form>
+            <div>or <a href="register.php">Register here</a></div>
+        </div>
     </div>
 </div>
 

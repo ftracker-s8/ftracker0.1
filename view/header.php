@@ -15,31 +15,35 @@
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
 <!--                <li class="active"><a href="#">Home</a></li>-->
-                <li class="active"><a href="main.php">Main</a></li>
+                <li><a href="main.php">Main</a></li>
+                <li><a href="accounts.php">Accounts</a></li>
                 <li><a href="login.php">Login</a></li>
                 <li><a href="register.php">Register</a></li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-
-                        <li role="separator" class="divider"></li>
-                        <li class="dropdown-header">Nav header</li>
-                        <li><a href="#">Separated link</a></li>
-                        <li><a href="#">One more separated link</a></li>
-
-                    </ul>
-                </li>
-                <li class="userli"><?php
-
-                    if(!empty($_SESSION['user_id'])) {
-                        $name = $_SESSION['user_name'];
-                        echo "<a href=\"profile.php\">settings [$name]</a>" ?>
-                        <form class="menu_button" action="../controller/logout.php" method="post">
-                            <input type="submit" name="logout" value="Logout">
-                        </form>
-                    <?php  }  ?>
+<!--                <li class="dropdown">-->
+<!--                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>-->
+<!--                    <ul class="dropdown-menu">-->
+<!---->
+<!--                        <li role="separator" class="divider"></li>-->
+<!--                        <li class="dropdown-header">Nav header</li>-->
+<!--                        <li><a href="#">Separated link</a></li>-->
+<!--                        <li><a href="#">One more separated link</a></li>-->
+<!---->
+<!--                    </ul>-->
+<!--                </li>-->
+                <li class="userli">
                 </li>
             </ul>
+            <div class="navbar-right">
+            <?php
+
+            if(!empty($_SESSION['user_id'])) {
+                $name = $_SESSION['user_name'];
+                echo "<a href=\"profile.php\">settings [$name]</a>" ?>
+                <form class="navbar-form" action="../controller/logout.php" method="post">
+                    <input class="btn btn-success" type="submit" name="logout" value="Logout">
+                </form>
+            <?php  }  ?>
+            </div>
 
             <!-- <form class="navbar-form navbar-right">
                 <div class="form-group">

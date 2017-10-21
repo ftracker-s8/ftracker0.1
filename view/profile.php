@@ -22,7 +22,7 @@ if (session_status() == PHP_SESSION_NONE) {
 <?php include "header.php" ?>
 <!--<h1>Main: Welcome --><?php //echo $userDetails->name; ?><!--</h1>-->
 <div id="container">
-    <div class="profile-field">
+    <div class="col-md-2">
     <h1>
         Profile: <?php
         if (!empty($_SESSION['user_name'])) {
@@ -37,14 +37,14 @@ if (session_status() == PHP_SESSION_NONE) {
     ?>
 
 
-        <form enctype="multipart/form-data" action="../controller/upload_userpic_controller.php" method="post">
+        <form class="form-group" enctype="multipart/form-data" action="../controller/upload_userpic_controller.php" method="post">
             <input type="hidden" name="MAX_FILE_SIZE" value="100000">
             <input type="file" name="user_pic" size="20"><br>
 
-            <input type="submit" name="uploadedfile" value="Upload image">
+            <input class="btn btn-light" type="submit" name="uploadedfile" value="Upload image">
         </form>
     </div>
-    <div class="profile-field">
+    <div class="col-md-2">
         <h1>Change username details</h1>
         <form action="../controller/update_user_ctrl.php"><br>
             User/email<input type="text" name="user_email" value="TODO ot sistemata"><br>

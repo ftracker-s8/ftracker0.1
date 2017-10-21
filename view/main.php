@@ -22,13 +22,15 @@ include "../model/userClass.php";
 
     <?php include_once "head.inc.php"; ?>
     <link rel="stylesheet" href="css/morris.css">
+    <script src="js/raphael.min.js"></script>
     <script src="js/morris.min.js"></script>
 </head>
 <body>
 <?php include "header.php" ?>
-<div id="container">
+<div id="container" class="container">
     <!--<h1>Main: Welcome --><?php //echo $userDetails->name; ?><!--</h1>-->
-    <div><h1>
+    <div>
+        <h1>
             Overview::Welcome <?php
             if (!empty($_SESSION['user_name'])) {
                 echo $_SESSION['user_name'] . " | id # " . $_SESSION['user_id'];
@@ -36,15 +38,16 @@ include "../model/userClass.php";
             ?>
         </h1>
     </div>
-<div class="col-md-6">
-    <div class="box-body chart-responsive">
+<div class="row">
+    <div class="box-body chart-responsive col-md-4">
         <div class="chart" id="sales-chart" style="height: 300px; position: relative;"></div>
     </div>
 
-    <div class="box-body chart-responsive">
-        <div class="chart" id="line-chart" style="height: 300px;"></div>
+    <div class="box-body chart-responsive col-md-4">
+        <div class="chart" id="bar-chart" style="height: 300px;"></div>
     </div>
 </div>
+
 
 
 

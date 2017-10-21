@@ -1,0 +1,11 @@
+footer{
+    clear: both;
+    background: #F7F7F7;
+    border: 0px solid #d2e1f3;
+    width: 100%; height: 100px;
+    margin: 50px 0 0 0;
+}
+nav form {display: inline-block}
+
+.adk {display: inline}
+.adk-shadow {box-shadow: 0 3px 6px #dddddd;}

@@ -19,12 +19,12 @@ class Accounts
     private $currency;
 
     //public function __construct($account_name, $amount, $owner_id = null){
-    public function __construct(){
+      public function __construct($owner_id){
         //$this->account_name = $account_name;
        $this->account_name = "cash";
        //$this->amount = $amount;
         $this->amount = 0;
-        //$this->owner_id = $owner_id;
+        $this->owner_id = $owner_id;
         $this->start_cash = 0;
         $this->currency = 'EU';
     }
