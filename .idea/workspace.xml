@@ -493,7 +493,7 @@
       <workItem from="1507848845686" duration="3188000" />
       <workItem from="1508161165827" duration="2457000" />
       <workItem from="1508175543594" duration="93201000" />
-      <workItem from="1508530509673" duration="16779000" />
+      <workItem from="1508530509673" duration="17502000" />
     </task>
     <task id="LOCAL-00001" summary="add reg error html">
       <created>1507848921266</created>
@@ -586,11 +586,18 @@
       <option name="project" value="LOCAL" />
       <updated>1508540062669</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="addded bootstrap css/js to html">
+      <created>1508574447619</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1508574447619</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="117654000" />
+    <option name="totallyTimeSpent" value="118377000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="366" y="189" width="1378" height="807" extended-state="0" />
