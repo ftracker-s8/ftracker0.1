@@ -23,6 +23,7 @@ include "../model/userClass.php";
     <?php include_once "head.inc.php"; ?>
     <script src="js/raphael.min.js"></script>
     <script src="js/morris.min.js"></script>
+    <script src="js/tracker.js"></script>
 </head>
 <body>
 <?php include "header.php" ?>
@@ -30,6 +31,18 @@ include "../model/userClass.php";
     <!--<h1>Main: Welcome --><?php //echo $userDetails->name; ?><!--</h1>-->
     <div>
         <h1>Acounts</h1>
+    </div>
+    <div>
+        <fieldset class="field_container">
+            <legend> Add new account </legend>
+            <form>
+                <input type="text" id="account_name" class="frm_input" placeholder="Account name">
+                <input type="text" id="ammount" class="frm_input" placeholder="Ammount">
+                <input type="text" id="account_desc" class="frm_input" placeholder="description">
+                <input type="text" id="currency" class="frm_input" placeholder="Email">
+                <input type="button" class="frm_button" value="Add" onclick="add_member()">
+            </form>
+        </fieldset>
     </div>
 
     <div>
