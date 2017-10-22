@@ -2,21 +2,35 @@
  * Created by expert600 on 21.10.2017 г..
  */
 
-// add_account function
-function add_account() {
+// add_new_account function
+function add_new_account() {
     // initialisation
     var url = '../controller/add_account_ctrl.php';
     var method = 'POST';
-    var params = 'username='+document.getElementById('username').value;
-    params += '&full_name='+document.getElementById('full_name').value;
-    params += '&password='+document.getElementById('passwd').value;
-    params += '&email='+document.getElementById('email').value;
-    params += '&age='+document.getElementById('age').value;
+    var params = 'account_name='+document.getElementById('account_name').value;
+    params += '&ammount='+document.getElementById('ammount').value;
+    params += '&account_desc='+document.getElementById('account_desc').value;
+
     var container_id = 'list_container' ;
-    var loading_text = '<img src="../images/ajax_loader.gif">' ;
+    var loading_text = '<img src="../view/images/ajax_loader.gif">' ;
     // call ajax function
     ajax (url, method, params, container_id, loading_text) ;
 }
+
+function delete_account(account_id) {
+    if (confirm('Are you sure to delete this member ?')) {
+        // initialisation
+        var url = '../controller/delete_user_account.php';
+        var method = 'POST';
+        //var params = 'id='+id;
+        var params = 'account_id='+account_id;
+        var container_id = 'list_container' ;
+        var loading_text = '<img src="images/ajax_loader.gif">' ;
+        // call ajax function
+        ajax (url, method, params, container_id, loading_text) ;
+    }
+}
+
 
 // ajax : basic function for using ajax easily
 function ajax (url, method, params, container_id, loading_text) {

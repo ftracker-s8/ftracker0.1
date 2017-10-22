@@ -24,7 +24,7 @@ $errorMsgLogin = '';
     <div class="col-md-3 center-block adk-shadow">
         <div id="login" class="form-group">
             <form method="post" action="../controller/login_controler.php" name="login">
-                <label class="label-default">Email*</label>
+                <label class="label">Email*</label>
                 <input type="text" name="user_email" autocomplete="" placeholder="valid email" class="form-control"><br>
                 <label>Password*</label>
                 <input class="form-control" type="password" name="password" autocomplete="" placeholder="password"/><br>
