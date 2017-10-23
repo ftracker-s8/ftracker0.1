@@ -14,26 +14,10 @@ class UserCategories
     private $user_cat_color;
     private $user_cat_icon;
     private $user_cat_name;
+    private $user_id;
 
-    private function __construct()
-    {
-
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getUcId()
-    {
-        return $this->uc_id;
-    }
-
-    /**
-     * @param mixed $uc_id
-     */
-    public function setUcId($uc_id)
-    {
-        $this->uc_id = $uc_id;
+    public function __construct(){
+        //$this->user_id = $user_id;
     }
 
     /**
@@ -82,6 +66,22 @@ class UserCategories
     public function setUserCatName($user_cat_name)
     {
         $this->user_cat_name = $user_cat_name;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getUserId()
+    {
+        return $this->user_id;
+    }
+
+    /**
+     * @param mixed $user_id
+     */
+    public function setUserId($user_id)
+    {
+        $this->user_id = $user_id;
     }
 
 }

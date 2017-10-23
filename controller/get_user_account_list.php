@@ -15,7 +15,7 @@ include_once "../model/Accounts.php";
 require_once "../model/DBManager.php";
 
 if (class_exists('Accounts')) {
-    $$oi = new Accounts($owner_id);
+    $oi = new Accounts($owner_id);
 }
 
 

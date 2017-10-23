@@ -6,7 +6,7 @@ if(isset($_SESSION["user_id"])){
     header("Location:view/main.php");
 }
 else{
-    header("Location:view/login.php");
+    header("Location:view/index.php");
 }
 ?>
 <!doctype html>
