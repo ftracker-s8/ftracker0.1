@@ -25,5 +25,5 @@ $the_url = $userPic->user_pic;
 //print_r($userPic);
 ?>
 <!--//<h1>Welcome --><?php //echo $userPic->data; ?><!--</h1>-->
-<img src="<?php echo $the_url; ?>" >
+<img width="100%" height="auto" src="<?php echo $the_url; ?>" >
 

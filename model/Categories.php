@@ -10,22 +10,21 @@ namespace model;
 
 
 class Categories{
+    private $uc_id;
     private $category_id;
     private $category_name;
     private $icon_url;
     private $color;
-    private $owner_id;
+    private $category_desc;
 
-    public function __construct($category_name, $icon_url, $color, $owner_id = null){
-        $this->category_name = $category_name;
-        $this->icon_url = $icon_url;
-        $this->color = $color;
-        $this->owner_id = $owner_id;
+    //public function __construct($category_name, $icon_url, $color, $owner_id = null){
+    public function __construct(){
+//        $this->category_name = $category_name;
+//        $this->icon_url = $icon_url;
+//        $this->color = $color;
+//        $this->owner_id = $owner_id;
     }
 
-    public function getOwnerId(){
-        return $this->owner_id;
-    }
     /**
      * @return mixed
      */
@@ -58,4 +57,29 @@ class Categories{
     public function getIconUrl(){
         return $this->icon_url;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getCategoryDesc()
+    {
+        return $this->category_desc;
+    }
+
+    /**
+     * @param mixed $category_desc
+     */
+    public function setCategoryDesc($category_desc)
+    {
+        $this->category_desc = $category_desc;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getUcId()
+    {
+        return $this->uc_id;
+    }
+
 }

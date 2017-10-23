@@ -19,13 +19,20 @@ class Transaction
     private $category_id;
     private $description;
 
-    public function __construct($date_time, $account_id, $amount, $type, $category_id, $description=null){
-        $this->date_time = $date_time;
+    public function __construct($account_id, $amount, $type, $category_id, $description=null){
+        //$this->date_time = $date_time;
         $this->account_id = $account_id;
         $this->amount = $amount;
         $this->type = $type;
         $this->category_id = $category_id;
         $this->description = $description;
+
+//        private $account_id;
+//        private $amount;
+//        private $type;
+//        private $category_id;
+//        private $description;
+//        private $recurent_bill;
     }
 
     /**

@@ -16,7 +16,9 @@
             <ul class="nav navbar-nav">
 <!--                <li class="active"><a href="#">Home</a></li>-->
                 <li><a href="main.php">Main</a></li>
+                <li><a href="expenses.php">Expenses</a></li>
                 <li><a href="accounts.php">Accounts</a></li>
+                <li><a href="categories.php">Categories</a></li>
                 <li><a href="login.php">Login</a></li>
                 <li><a href="register.php">Register</a></li>
 <!--                <li class="dropdown">-->

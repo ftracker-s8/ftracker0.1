@@ -73,8 +73,8 @@ if (session_status() == PHP_SESSION_NONE) {
         </div>
     </div>
 
-
+    <?php include 'footer.php' ?>
 </div>
-<?php include 'footer.php' ?>
+
 </body>
 </html>

@@ -2,15 +2,29 @@
 if(session_status() == PHP_SESSION_NONE) {
     session_start();
 }
-function __autoload ( $class ){
-    $class = "..\\" . $class;
-    require_once str_replace("\\", "/", $class) .".php";
+
+
+//function __autoload ( $class ){
+//    $class = "..\\" . $class;
+//    require_once str_replace("\\", "/", $class) .".php";
+//}
+$owner_id = $_SESSION['user_id'];
+
+include_once "../model/dao/AccountDao.php";
+include_once "../model/Accounts.php";
+require_once "../model/DBManager.php";
+
+if (class_exists('Accounts')) {
+    $$oi = new Accounts($owner_id);
 }
+
+
+
 
 use \model\Accounts;
 use model\dao\AccountDao;
 
-$owner_id = $_SESSION['user_id'];
+
 $oi = new Accounts($owner_id);
 ?>
 <h2>Accounts list</h2>

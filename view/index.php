@@ -51,8 +51,9 @@
 
     <footer>
         <p>&copy; Company 2017</p>
+        <?php include 'footer.php' ?>
     </footer>
 </div> <!-- /container -->
-<?php include 'footer.php' ?>
+
 </body>
 </html>
