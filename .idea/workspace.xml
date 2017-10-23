@@ -2,11 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="03ea9d12-5a23-4074-b6ee-e86cbd20a305" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uploads/-user-pic.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uploads/26-profile.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uploads/26-profile.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uploads/26-profilepng" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uploads/26-user-pic.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/view/images/icons/012.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/view/images/icons/055.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/view/images/icons/058.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/view/images/icons/059.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/view/images/icons/084.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/view/images/icons/default.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/view/images/icons/drinks.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/view/images/icons/entert.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/view/images/icons/family.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/view/images/icons/food.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/view/images/icons/healt.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/view/images/icons/house.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/view/images/icons/kid.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/view/images/icons/phone.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/view/images/icons/sport.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/view/images/icons/transport.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/view/images/icons/travel.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -258,7 +270,7 @@
     <option name="x" value="270" />
     <option name="y" value="90" />
     <option name="width" value="1613" />
-    <option name="height" value="849" />
+    <option name="height" value="963" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -285,6 +297,38 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="adk3" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="adk3" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="adk3" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="view" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="adk3" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="adk3" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="view" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="images" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -490,7 +534,7 @@
       <workItem from="1508161165827" duration="2457000" />
       <workItem from="1508175543594" duration="93201000" />
       <workItem from="1508530509673" duration="54969000" />
-      <workItem from="1508685436172" duration="22571000" />
+      <workItem from="1508685436172" duration="23231000" />
     </task>
     <task id="LOCAL-00001" summary="add reg error html">
       <created>1507848921266</created>
@@ -639,18 +683,25 @@
       <option name="project" value="LOCAL" />
       <updated>1508758038768</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="added Category class + dao&#10;added Category page&#10;added Calendar class + by months nav">
+      <created>1508758920533</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1508758920533</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="178415000" />
+    <option name="totallyTimeSpent" value="179075000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="270" y="90" width="1613" height="849" extended-state="0" />
+    <frame x="270" y="90" width="1613" height="963" extended-state="0" />
     <layout>
       <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2099163" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.50361794" sideWeight="0.49110594" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.43229812" sideWeight="0.49110594" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25381416" sideWeight="0.50812066" order="11" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33841887" sideWeight="0.57617944" order="2" side_tool="false" content_ui="tabs" />
