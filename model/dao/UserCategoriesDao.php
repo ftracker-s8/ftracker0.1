@@ -3,7 +3,7 @@
  * Created by PhpStorm.
  * User: Sheilly
  * Date: 23.10.2017 г.
- * Time: 15:01 ч.
+ * Time: 15:01 ч.c
  */
 
 namespace model\dao;
