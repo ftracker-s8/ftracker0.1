@@ -34,5 +34,7 @@ sysinfo.txt
 *.unitypackage
 
 # User-specific stuff:
+workspace.xml
 .idea/**/workspace.xml
 #.idea/**/tasks.xml
+.idea/
