@@ -2,27 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="03ea9d12-5a23-4074-b6ee-e86cbd20a305" name="Default" comment="added Category class + dao&#10;added Category page&#10;added Calendar class + by months nav">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/controller/add_custom_category.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/controller/get_categories_list.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/controller/get_user_custom_categories.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/model/Calendar.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/model/Expenses.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/view/categories.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/view/css/bootstrap.css.map" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/view/expenses.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/view/js/jscolor.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controller/get_user_account_list.php" afterPath="$PROJECT_DIR$/controller/get_user_account_list.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controller/user_pic_controller.php" afterPath="$PROJECT_DIR$/controller/user_pic_controller.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/model/Categories.php" afterPath="$PROJECT_DIR$/model/Categories.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/model/Transactions.php" afterPath="$PROJECT_DIR$/model/Transactions.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/model/dao/CategoryDao.php" afterPath="$PROJECT_DIR$/model/dao/CategoryDao.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/view/css/style.css" afterPath="$PROJECT_DIR$/view/css/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/view/footer.php" afterPath="$PROJECT_DIR$/view/footer.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/view/header.php" afterPath="$PROJECT_DIR$/view/header.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/view/index.php" afterPath="$PROJECT_DIR$/view/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/view/js/ajaxAdk.js" afterPath="$PROJECT_DIR$/view/js/ajaxAdk.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/view/profile.php" afterPath="$PROJECT_DIR$/view/profile.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/id3203367_s8ftracker_db-final.sql" afterPath="$PROJECT_DIR$/id3203367_s8ftracker_db-final.sql" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -31,10 +12,19 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_TABLE_DETAILS" value="true" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+  </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="CategoryDao.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="CategoryDao.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/model/dao/CategoryDao.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="96">
@@ -44,6 +34,16 @@
                 <marker date="1508714952701" expanded="true" signature="669:754" ph="INSERT INTO users... " />
                 <marker date="1508714952701" expanded="true" signature="1026:1050" ph="SELECT * FRO... categories" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="id3203367_s8ftracker_db-final.sql" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/id3203367_s8ftracker_db-final.sql">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="170">
+              <caret line="10" column="25" lean-forward="false" selection-start-line="10" selection-start-column="25" selection-end-line="10" selection-end-column="25" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -88,16 +88,6 @@
               <folding>
                 <element signature="e#326#348#0#PHP" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="add_custom_category.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/controller/add_custom_category.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="1" column="31" lean-forward="true" selection-start-line="1" selection-start-column="31" selection-end-line="1" selection-end-column="31" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -401,6 +391,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="com.intellij.database.dataSource.DataSourceTemplate" value="MySQL" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -531,7 +522,7 @@
       <workItem from="1508161165827" duration="2457000" />
       <workItem from="1508175543594" duration="93201000" />
       <workItem from="1508530509673" duration="54969000" />
-      <workItem from="1508685436172" duration="20611000" />
+      <workItem from="1508685436172" duration="21279000" />
     </task>
     <task id="LOCAL-00001" summary="add reg error html">
       <created>1507848921266</created>
@@ -659,11 +650,18 @@
       <option name="project" value="LOCAL" />
       <updated>1508631319457</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="added Category class + dao&#10;added Category page&#10;added Calendar class + by months nav">
+      <created>1508749355576</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1508749355576</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="176455000" />
+    <option name="totallyTimeSpent" value="177123000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="270" y="90" width="1613" height="849" extended-state="0" />
@@ -723,14 +721,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/temp/idx.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="47" column="17" lean-forward="false" selection-start-line="47" selection-start-column="17" selection-end-line="47" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/controller/select2.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
@@ -1197,6 +1187,14 @@
             <marker date="1508714952701" expanded="true" signature="669:754" ph="INSERT INTO users... " />
             <marker date="1508714952701" expanded="true" signature="1026:1050" ph="SELECT * FRO... categories" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/id3203367_s8ftracker_db-final.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="25" lean-forward="false" selection-start-line="10" selection-start-column="25" selection-end-line="10" selection-end-column="25" />
+          <folding />
         </state>
       </provider>
     </entry>

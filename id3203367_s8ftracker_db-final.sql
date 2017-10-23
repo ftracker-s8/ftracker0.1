@@ -1,5 +1,3 @@
-CREATE DATABASE  IF NOT EXISTS `id3203367_s8ftracker_db` /*!40100 DEFAULT CHARACTER SET utf8 */;
-USE `id3203367_s8ftracker_db`;
 -- MySQL dump 10.13  Distrib 5.7.17, for Win64 (x86_64)
 --
 -- Host: 127.0.0.1    Database: id3203367_s8ftracker_db
@@ -29,12 +27,12 @@ CREATE TABLE `accounts` (
   `account_name` varchar(45) CHARACTER SET utf8 NOT NULL,
   `ammount` double NOT NULL,
   `owner_id` int(11) NOT NULL,
-  `currency` varchar(3) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `account_desc` varchar(45) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `currency` varchar(3) COLLATE utf8_unicode_ci NOT NULL,
+  `account_desc` varchar(45) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'IBAN:',
   PRIMARY KEY (`account_id`),
   KEY `fk_owner_id_idx` (`owner_id`),
   CONSTRAINT `fk_owner_id` FOREIGN KEY (`owner_id`) REFERENCES `users` (`user_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -43,7 +41,7 @@ CREATE TABLE `accounts` (
 
 LOCK TABLES `accounts` WRITE;
 /*!40000 ALTER TABLE `accounts` DISABLE KEYS */;
-INSERT INTO `accounts` VALUES (1,'cash',0,1,NULL,NULL),(2,'cash',0,14,NULL,NULL),(11,'cash',200,26,NULL,NULL),(12,'RBBank',203.5,26,'USD',NULL),(13,'Bylbunk',72.43,26,NULL,NULL);
+INSERT INTO `accounts` VALUES (1,'cash',0,1,'&eu','IBAN:'),(2,'cash',0,14,'&eu','IBAN:'),(11,'cash',201,26,'&eu','IBAN: 333'),(12,'RBBank',203.5,26,'&eu','IBAN: 222'),(13,'Balbunk',72.43,26,'&eu','IBAN: 111'),(18,'Goliamata',3441,26,'&eu','big desc');
 /*!40000 ALTER TABLE `accounts` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -93,7 +91,7 @@ CREATE TABLE `categories` (
   `color` varchar(45) CHARACTER SET utf8 DEFAULT NULL,
   `category_desc` varchar(45) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`category_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -102,7 +100,7 @@ CREATE TABLE `categories` (
 
 LOCK TABLES `categories` WRITE;
 /*!40000 ALTER TABLE `categories` DISABLE KEYS */;
-INSERT INTO `categories` VALUES (1,'Family','family.png','green',NULL),(2,'Food & Drinks','food.png','red',NULL),(3,'Travel','travel.png','yellow',NULL),(4,'Entertainment','entert.png','red',NULL),(5,'Healt','healt.png','blue',NULL),(6,'Kid','kid.png','blue',NULL),(7,'House','house.png','blue',NULL),(8,'Sport','sport.png','green',NULL);
+INSERT INTO `categories` VALUES (1,'Family','family.png','green','safds'),(2,'Food & Drinks','food.png','red','kkkkkk'),(3,'Travel','travel.png','yellow','dddd'),(4,'Entertainment','entert.png','red','cccc'),(5,'Healt','healt.png','blue','vvvv'),(6,'Kid','kid.png','blue','gggg'),(7,'House','house.png','blue','qqqqqqq'),(8,'Sport','sport.png','green','hhhhh'),(9,'Rent','house.png','#ffff00','aaaaa'),(11,'default','default.png','#dddddd','default');
 /*!40000 ALTER TABLE `categories` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -122,6 +120,7 @@ CREATE TABLE `transactions` (
   `category_id` int(11) NOT NULL,
   `description` varchar(64) COLLATE utf8_unicode_ci NOT NULL,
   `recurent_bill` tinyint(4) NOT NULL,
+  `user_id` int(11) NOT NULL,
   PRIMARY KEY (`transaction_id`),
   KEY `fk_trans_accounts_idx` (`account_id`),
   KEY `fk_trans_categories_idx` (`category_id`),
@@ -136,7 +135,7 @@ CREATE TABLE `transactions` (
 
 LOCK TABLES `transactions` WRITE;
 /*!40000 ALTER TABLE `transactions` DISABLE KEYS */;
-INSERT INTO `transactions` VALUES (1,'2017-10-20 20:09:35',11,50,'buy',1,'pantofi',0);
+INSERT INTO `transactions` VALUES (1,'2017-10-20 20:09:35',11,50,'buy',1,'pantofi',0,0);
 /*!40000 ALTER TABLE `transactions` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -197,7 +196,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'admin@admin.dev','a66df261120b6c2311c6ef0b1bab4e583afcbcc0','admin','admin','../uploads/placeholder.jpg',1,'2017-10-16 20:41:41',0),(9,'test5@test5.dev','911ddc3b8f9a13b5499b6bc4638a2b4f3f68bf23','Nametest5','Familytest5','../uploads/placeholder.jpg',1,'2017-10-17 21:41:43',0),(10,'userone@test.dev','52281b81fb6a6037c9e0b42369f062236bd93e86','userOne','familyOne','../uploads/placeholder.jpg',1,'2017-10-17 21:57:49',0),(14,'test31@test.com','5293da0e0a7bfc32bf8bf6ba98b4d4dac0bc6c10','test31','','../uploads/placeholder.jpg',1,'2017-10-18 22:29:40',0),(22,'test43@test.com','2eee3e280033103efd95a2bd1bcf150acb0c62e0','test43','test43','../uploads/placeholder.jpg',1,'2017-10-19 08:20:55',0),(24,'test20@test.com','57e5a4df68387d1d97210cf40c41104ce9256cf6','test20','20test','../uploads/placeholder.jpg',1,'2017-10-19 08:32:43',0),(25,'test22@test.com','8e59a08ba401da8aedd958b3a65c2d8e70dc8da2','test22','test22','../uploads/placeholder.jpg',1,'2017-10-19 08:38:15',0),(26,'test30@test.com','f6ebefa3fcf47cdc0eb801265d1d2dabcfc4fff6','test30','30test30','../uploads/26-profile.png',1,'2017-10-19 13:19:18',0);
+INSERT INTO `users` VALUES (1,'admin@admin.dev','a66df261120b6c2311c6ef0b1bab4e583afcbcc0','admin','admin','../uploads/placeholder.jpg',1,'2017-10-16 20:41:41',0),(9,'test5@test5.dev','911ddc3b8f9a13b5499b6bc4638a2b4f3f68bf23','Nametest5','Familytest5','../uploads/placeholder.jpg',1,'2017-10-17 21:41:43',0),(10,'userone@test.dev','52281b81fb6a6037c9e0b42369f062236bd93e86','userOne','familyOne','../uploads/placeholder.jpg',1,'2017-10-17 21:57:49',0),(14,'test31@test.com','5293da0e0a7bfc32bf8bf6ba98b4d4dac0bc6c10','test31','','../uploads/placeholder.jpg',1,'2017-10-18 22:29:40',0),(22,'test43@test.com','2eee3e280033103efd95a2bd1bcf150acb0c62e0','test43','test43','../uploads/placeholder.jpg',1,'2017-10-19 08:20:55',0),(24,'test20@test.com','57e5a4df68387d1d97210cf40c41104ce9256cf6','test20','20test','../uploads/placeholder.jpg',1,'2017-10-19 08:32:43',0),(25,'test22@test.com','8e59a08ba401da8aedd958b3a65c2d8e70dc8da2','test22','test22','../uploads/placeholder.jpg',1,'2017-10-19 08:38:15',0),(26,'test30@test.com','f6ebefa3fcf47cdc0eb801265d1d2dabcfc4fff6','test30','30test30','../uploads/26-profile.jpg',1,'2017-10-19 13:19:18',0);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -210,4 +209,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-10-21 11:54:04
+-- Dump completed on 2017-10-23 12:25:30
