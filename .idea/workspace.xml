@@ -41,8 +41,8 @@
       <file leaf-file-name="id3203367_s8ftracker_db-final.sql" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/id3203367_s8ftracker_db-final.sql">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="10" column="25" lean-forward="false" selection-start-line="10" selection-start-column="25" selection-end-line="10" selection-end-column="25" />
+            <state relative-caret-position="0">
+              <caret line="0" column="41" lean-forward="false" selection-start-line="0" selection-start-column="41" selection-end-line="0" selection-end-column="41" />
               <folding />
             </state>
           </provider>
@@ -189,7 +189,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/temp/template.html" />
         <option value="$PROJECT_DIR$/view/head.inc.php" />
         <option value="$PROJECT_DIR$/view/register.php" />
         <option value="$PROJECT_DIR$/view/main.php" />
@@ -240,6 +239,7 @@
         <option value="$PROJECT_DIR$/view/css/style.css" />
         <option value="$PROJECT_DIR$/controller/get_user_custom_categories.php" />
         <option value="$PROJECT_DIR$/view/categories.php" />
+        <option value="$PROJECT_DIR$/id3203367_s8ftracker_db-final.sql" />
       </list>
     </option>
   </component>
@@ -522,7 +522,7 @@
       <workItem from="1508161165827" duration="2457000" />
       <workItem from="1508175543594" duration="93201000" />
       <workItem from="1508530509673" duration="54969000" />
-      <workItem from="1508685436172" duration="21279000" />
+      <workItem from="1508685436172" duration="21920000" />
     </task>
     <task id="LOCAL-00001" summary="add reg error html">
       <created>1507848921266</created>
@@ -657,11 +657,18 @@
       <option name="project" value="LOCAL" />
       <updated>1508749355576</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="added Category class + dao&#10;added Category page&#10;added Calendar class + by months nav">
+      <created>1508750793390</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1508750793390</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="177123000" />
+    <option name="totallyTimeSpent" value="177764000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="270" y="90" width="1613" height="849" extended-state="0" />
@@ -1192,8 +1199,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/id3203367_s8ftracker_db-final.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="25" lean-forward="false" selection-start-line="10" selection-start-column="25" selection-end-line="10" selection-end-column="25" />
+        <state relative-caret-position="0">
+          <caret line="0" column="41" lean-forward="false" selection-start-line="0" selection-start-column="41" selection-end-line="0" selection-end-column="41" />
           <folding />
         </state>
       </provider>
