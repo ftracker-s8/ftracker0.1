@@ -61,6 +61,8 @@ use \model\dao\CategoryDao;
             <h1>Categories</h1>
             <h2>Defined categories</h2>
             <?php include "../controller/get_categories_list.php"; ?>
+
+<!--            --><?php //include "../controller/get_user_custom_categories.php"; ?>
         </div>
 
         <!-- ======================================================= -->

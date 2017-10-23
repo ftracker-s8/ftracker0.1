@@ -7,7 +7,7 @@ $_SESSION['user_name'] = '';
 if(empty($session_uid) && empty($_SESSION['user_id']))
 {
     $url=BASE_URL.'index.php';
-    header("Location: $url");
+    header("Location: ../view/index.php");
 //echo "<script>window.location='$url'</script>";
 }
 ?>

@@ -2,16 +2,20 @@
 if(session_status() == PHP_SESSION_NONE) {
     session_start();
 }
-function __autoload ( $class ){
-    $class = "..\\model\\" . $class;
-    require_once str_replace("\\", "/", $class) .".php";
-}
+//function __autoload ( $class ){
+//    $class = "..\\model\\" . $class;
+//    require_once str_replace("\\", "/", $class) .".php";
+//}
+include "../model/UserCategories.php";
+include "../model/dao/UserCategoriesDao.php";
+require_once "../model/DBManager.php";
 
-use \model\Accounts;
-use model\dao\AccountDao;
+use \model\UserCategories;
+use model\dao\UserCategoriesDao;
 
 $owner_id = $_SESSION['user_id'];
-$oi = new Accounts($owner_id);
+//$owner_id$oi = new UserCategories($owner_id);
+$oi = new UserCategories($owner_id);
 ?>
 <h2>Accounts list</h2>
 <table class="table table-bordered table_list table-hover" id="whole_table" cellspacing="2" cellpadding="0">
@@ -24,14 +28,15 @@ $oi = new Accounts($owner_id);
         <th>Modify</th>
     </tr>
     <?php
-    $result = AccountDao::getAInstance()->getUserAcountsList($oi);
+    //$result = AccountDao::getAInstance()->getUserAcountsList($oi);
+    $result = UserCategoriesDao::getUserCategoryInstance()->getAllCustomCategories($oi);
     //print_r($account_list->getAccountName());
     foreach ($result as $row) {
         ?>
         <tr class="">
-            <td><?php echo $row['account_name']; ?></td>
-            <td class="text-right"><?php echo $row['ammount']; ?>&euro;</td>
-            <td><?php echo $row['account_desc']; ?></td>
+            <td><?php echo $row['user_cat_name']; ?></td>
+            <td class="text-right"><?php echo $row['user_cat_icon']; ?>&euro;</td>
+            <td><?php echo $row['user_cat_desc']; ?></td>
             <td><a href="#" class="delete_m" onclick="delete_account(<?php echo $row['account_id']; ?>)">Delete</a></td>
             <td data-toggle="modal" data-target="#modal-default"><a href="#" class="delete_m" onclick="ajaxRow('modala', '<?= $row['account_id']; ?>')">Modify</a></td>
         </tr>

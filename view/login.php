@@ -29,7 +29,7 @@ $errorMsgLogin = '';
                 <label>Password*</label>
                 <input class="form-control" type="password" name="password" autocomplete="" placeholder="password"/><br>
                 <div class="errorMsg"><?php echo $errorMsgLogin; ?></div>
-                <input class="btn btn-block" type="submit" name="loginSubmit" value="Login">
+                <input class="btn btn-default" type="submit" name="loginSubmit" value="Login">
                 <div class="clearfix"></div>
             </form>
             <div>or <a href="register.php">Register here</a></div>
