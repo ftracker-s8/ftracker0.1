@@ -2,12 +2,6 @@
 if(session_status() == PHP_SESSION_NONE) {
     session_start();
 }
-
-
-//function __autoload ( $class ){
-//    $class = "..\\" . $class;
-//    require_once str_replace("\\", "/", $class) .".php";
-//}
 $owner_id = $_SESSION['user_id'];
 
 include_once "../model/dao/AccountDao.php";
@@ -18,16 +12,13 @@ if (class_exists('Accounts')) {
     $oi = new Accounts($owner_id);
 }
 
-
-
-
 use \model\Accounts;
 use model\dao\AccountDao;
 
 
 $oi = new Accounts($owner_id);
 ?>
-<h2>Accounts list</h2>
+<h2>Account list</h2>
 <table class="table table-bordered table_list table-hover" id="whole_table" cellspacing="2" cellpadding="0">
     <tr class="bg_h">
         <th>Account name</th>
@@ -47,7 +38,7 @@ $oi = new Accounts($owner_id);
         <td class="text-right"><?php echo $row['ammount']; ?>&euro;</td>
         <td><?php echo $row['account_desc']; ?></td>
         <td><a href="#" class="delete_m" onclick="delete_account(<?php echo $row['account_id']; ?>)">Delete</a></td>
-        <td data-toggle="modal" data-target="#modal-default"><a href="#" class="delete_m" onclick="ajaxRow('modala', '<?= $row['account_id']; ?>')">Modify</a></td>
+        <td><a data-toggle="modal" data-target="#modal-default" href="#" class="delete_m" onclick="ajaxRow('modala', '<?= $row['account_id']; ?>')">Modify</a></td>
         </tr>
 <?php
 }

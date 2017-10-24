@@ -45,15 +45,10 @@ include "../model/userClass.php";
 <body>
 <?php include "header.php" ?>
 <div id="container" class="container">
-    <!--<h1>Main: Welcome --><?php //echo $userDetails->name; ?><!--</h1>-->
     <div>
         <h1>Acounts</h1>
     </div>
-    <!-- <div class="box-body">
-        <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-default" onclick="updateUser()">
-            Launch Default Modal
-        </button>
-    </div> -->
+
 
 <!-- ================================== -->
 
@@ -64,11 +59,16 @@ include "../model/userClass.php";
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span></button>
                     <h4 class="modal-title">Account modify</h4>
+
+                    <?php /* $result = []; */
+                    include "../controller/get_account_by_id.php";
+                     ?>
+
+
                 </div>
                 <div class="modal-body" id="modala"></div>
                 <div class="modal-footer">
-<!--                    <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>-->
-<!--                    <button type="button" class="btn btn-primary">Save changes</button>-->
+
                 </div>
             </div>
             <!-- /.modal-content -->
@@ -92,10 +92,16 @@ include "../model/userClass.php";
     </div>
     <div id="list_container">
         <?php include "../controller/get_user_account_list.php" ?>
+
     </div>
 
+
 </div> <!-- container-->
-<?php include 'footer.php' ?>
+<div class="container">
+    <?php include 'footer.php' ?>
+</div>
+
+
 
 </body>
 </html>

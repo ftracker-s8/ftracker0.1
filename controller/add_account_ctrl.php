@@ -18,8 +18,8 @@ $err_msga = [];
 
 if (isset($_POST['account_name']) && $_POST['account_name'] != "" && isset($_POST['ammount'])) {
     $account_name = trim(htmlentities($_POST['account_name']));
-    $ammount = trim(htmlentities($_POST['account_name']));
-    $account_desc = trim(htmlentities($_POST['account_name']));
+    $ammount = trim(htmlentities($_POST['ammount']));
+    $account_desc = trim(htmlentities($_POST['account_desc']));
     if(!empty($_SESSION['user_id'])) {
         $owner_id = $_SESSION['user_id'];
     }

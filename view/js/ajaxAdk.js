@@ -10,6 +10,12 @@ function ajaxRow(tagID, aid) {
     // create pairs index=value with data that must be sent to server
     //var  the_data = 'test='+document.getElementById('txt2').innerHTML;
     var the_data = 'id-submit=' + aid;
+    the_data += 'user_cat_name='+document.getElementById('user_cat_name').value;
+    the_data += '&icons='+document.getElementById('icons').value;
+    the_data += '&account_desc='+document.getElementById('account_desc').value;
+    the_data += '&color_value='+document.getElementById('color_value').value;
+
+
     var php_file = '../controller/get_account_by_id.php';
 
     request.open("POST", php_file, true);			// set the request
@@ -27,12 +33,16 @@ function ajaxRow(tagID, aid) {
     }
 }
 
-function addViaAjax(php_file, tagID, aid) {
+function addViaAjax(php_file, tagID, aid, val2) {
     var request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');  // XMLHttpRequest object
 
     // create pairs index=value with data that must be sent to server
     //var  the_data = 'test='+document.getElementById('txt2').innerHTML;
-    var the_data = 'id-submit=' + aid;
+    val2 = val2 || null;
+    var the_data = 'user_id=' + aid;
+    the_data += '&user_cat_name='+val2;
+    the_data += '&password='+document.getElementById('color_value').value;
+
     //var php_file = '../controller/get_account_by_id.php';
 
     request.open("POST", php_file, true);			// set the request
@@ -50,6 +60,20 @@ function addViaAjax(php_file, tagID, aid) {
     }
 }
 
+function add_custom_category() {
+    // initialisation
+    var url = '../controler/add_custom_category.php';
+    var method = 'POST';
+    var params = 'username='+document.getElementById('username').value;
+    params += '&full_name='+document.getElementById('full_name').value;
+    params += '&password='+document.getElementById('passwd').value;
+    params += '&email='+document.getElementById('email').value;
+    params += '&age='+document.getElementById('age').value;
+    var container_id = 'list_container' ;
+    var loading_text = '<img src="../images/ajax_loader.gif">' ;
+    // call ajax function
+    ajax (url, method, params, container_id, loading_text) ;
+}
 // delete_member function
 // function updateAccount(id) {
 //         // initialisation
