@@ -27,10 +27,10 @@ if(isset($_POST["id-submit"]))
         $output = '';
         $pdo = \model\DBManager::getInstance()->getConnection();
         //$query = "SELECT * FROM accounts WHERE account_id = '" . $_POST["account_id"] . "'";
-        $query = "SELECT * FROM accounts WHERE account_id = '" . $_POST["account_id"] . "'";
+        $query = "SELECT * FROM accounts WHERE account_id = '" . $_POST["id-submit"] . "'";
         $stm = $pdo->prepare($query);
         $stm->execute();
-        $result = $stm->fetchAll(\PDO::FETCH_ASSOC);
+        $result = $stm->fetch(\PDO::FETCH_ASSOC);
 
         //echo "<h1>account name: " . $result['account_name'] . "</h1>";
 
@@ -41,5 +41,6 @@ if(isset($_POST["id-submit"]))
         trow: new PDOException();
     }
 }
-include "../view/update_account_form.incl.php";
+include "../view/includes/get_account_by_id_inmodal.php";
 ?>
+

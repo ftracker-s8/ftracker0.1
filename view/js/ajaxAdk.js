@@ -10,12 +10,6 @@ function ajaxRow(tagID, aid) {
     // create pairs index=value with data that must be sent to server
     //var  the_data = 'test='+document.getElementById('txt2').innerHTML;
     var the_data = 'id-submit=' + aid;
-    the_data += 'user_cat_name='+document.getElementById('user_cat_name').value;
-    the_data += '&icons='+document.getElementById('icons').value;
-    the_data += '&account_desc='+document.getElementById('account_desc').value;
-    the_data += '&color_value='+document.getElementById('color_value').value;
-
-
     var php_file = '../controller/get_account_by_id.php';
 
     request.open("POST", php_file, true);			// set the request

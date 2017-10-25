@@ -12,6 +12,6 @@
     <div class="col-md-4">email: admin@s8ftracker.tk</div>
     <div class="col-md-4">in the net</div>
     <div class="col-md-4">$8 finance tracker 2017</div>
-
+    <br><br>
 </div>
 <!--</div>-->

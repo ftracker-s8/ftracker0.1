@@ -12,7 +12,7 @@ html {
 body {
   margin: 0;
   padding-top: 50px;
-  padding-bottom: 20px;
+  /* padding-bottom: 20px; */
 }
 
 article,
@@ -4847,15 +4847,15 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
   background-color: #fff;
 }
 .label {
-  display: inline;
+  display: inline-block;
   padding: .2em .6em .3em;
   font-size: 75%;
   font-weight: bold;
-  line-height: 1;
+  /* line-height: 1; */
   color: #fff;
   text-align: center;
   white-space: nowrap;
-  vertical-align: baseline;
+  vertical-align: middle;
   border-radius: .25em;
 }
 a.label:hover,
