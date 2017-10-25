@@ -13,17 +13,23 @@ $user_id = "";
 if(isset($_SESSION['user_id'])){
     $user_id = $_SESSION['user_id'];
 }
+else {
+    echo "Please log in";
+}
 
-//uuserPic
-
-$products = null;
+$the_url = null;
 $userClass = new \model\userClass();
 
-//$userPia = $userClass->userDetails($session_uid);
-$userPic = $userClass->uuserPic($user_id);
-$the_url = $userPic->user_pic;
-//print_r($userPic);
+try {
+
+    $userPic = $userClass->uuserPic($user_id);
+    $the_url = $userPic->user_pic;
+    //var_dump($the_url);
+}
+catch (Exception $e) {
+    echo "File ERR: " . $e->getMessage();
+}
 ?>
-<!--//<h1>Welcome --><?php //echo $userPic->data; ?><!--</h1>-->
-<img width="100%" height="auto" src="<?php echo $the_url; ?>" >
+
+
 

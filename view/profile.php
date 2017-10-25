@@ -27,27 +27,28 @@ if (session_status() == PHP_SESSION_NONE) {
             <h1>
                 Profile: <?php
                 if (!empty($_SESSION['user_name'])) {
-                    echo $_SESSION['user_name'] . " | id# " . $_SESSION['user_id'];
+                    echo $_SESSION['user_name'];
                 }
                 ?>
             </h1>
             <?php
             //echo $_SESSION['user_name'] . "<br>";
-
+            $the_url = "";
             include "../controller/user_pic_controller.php";
             ?>
+            <img width="300px" height="auto" src="<?php echo $the_url; ?>" >
 
 
             <form class="form-group-lg" enctype="multipart/form-data"
                   action="../controller/upload_userpic_controller.php"
                   method="post">
                 <input type="hidden" name="MAX_FILE_SIZE" value="100000">
-                <input type="file" name="user_pic" size="20"><br>
+                <input class="btn btn-secondary" type="file" name="user_pic" size="20"><br>
 
                 <input class="btn btn-primary" type="submit" name="uploadedfile" value="Upload image">
             </form>
         </div>
-        <div class="col-md-4 col-padding10 adk-shadow">
+        <div class="col-md-6 col-padding10 adk-shadow">
             <h1>Change username details</h1>
             <form class="form-group-lg" action="../controller/update_user_ctrl.php">
                 <div class="form-group">
