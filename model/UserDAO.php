@@ -16,9 +16,8 @@ class UserDAO{
     const REGISTER_USER = "INSERT INTO users (user_email, `password`, first_name, last_name) VALUES (?, ?, ?, ?)";
     const CREATE_NEW_ACCOUNT = "INSERT INTO accounts (account_name, `ammount`, owner_id) VALUES ('cash', '0', ?)";
     const EDIT_USER = "UPDATE users SET user_email = ?, `password` = ?, first_name = ?, last_name = ? WHERE user_id = ?";
-    const GET_USER_INFO = "SELECT U.id, U.email, U.enabled, U.first_name, U.last_name, U.mobile_phone, U.image_url, 
-                                  U.password, U.last_login, U.role, A.full_adress, A.is_personal  FROM users AS U 
-                                  JOIN adresses AS A ON U.id = A.user_id WHERE A.user_id = ?";
+    const GET_USER_INFO = "SELECT user_email, first_name, last_name, user_pic, activated, last_login FROM users WHERE user_id = ?";
+    //const GET_USER_INFO = "SELECT * FROM users WHERE user_id = ?";
 
     private function __construct()    {
         $this->pdo = DBManager::getInstance()->getConnection();
@@ -28,7 +27,8 @@ class UserDAO{
         $sql = "SELECT * FROM users WHERE user_id = ?";
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute(array($u->getUserId()));
-        return $stmt->execute($sql);
+
+        //return $stmt->execute($sql);
     }
 
     public static function getUserInstance(){
@@ -103,20 +103,12 @@ class UserDAO{
             return false;
         }
     }
-//    public function takeUserPic(UserVO $u) {
-//        $sql = "SELECT user_pic FROM users WHERE user_id = ?";
-//        $stmt = $this->pdo->prepare($sql);
-//        $stmt->execute(array($u->getUserPic()));
-//        $data=$stmt->fetch(\PDO::FETCH_OBJ);
-//        $url = $data->user_pic;
-//        return $url;
-//    }
 
-    function getUserInfo(UserVO $user)
+    function getUserInfo($user)
     {
         $statement = $this->pdo->prepare(self::GET_USER_INFO);
-        $statement->execute(array($user->getUserId()));
-        $userInfo = $statement->fetch();
+        $statement->execute([$user]);
+        $userInfo = $statement->fetchAll(\PDO::FETCH_ASSOC);
         return $userInfo;
     }
 
@@ -144,27 +136,31 @@ class UserDAO{
         $_SESSION['user_pic'] = end($url);
 
     }
-    function setUserPicture(UserVO $user) {
-        $sql = "UPDATE users SET `user_pic` = ? WHERE `user_id` = ?";
+
+
+    public function userPic($user_id) {
+        try{
+            //$db = DBManager::getInstance()->getConnection();
+            $stmt = $this->pdo->prepare("SELECT user_pic FROM `users` WHERE `user_id` = ?");
+            //$stmt->bindParam("uid", $user_id,\PDO::PARAM_INT);
+            $stmt->execute(array($user_id));
+            $data = $stmt->fetch(\PDO::FETCH_OBJ);
+            return $data;
+        }
+        catch(\PDOException $e) {
+            echo '{" pdo.u.details error":{"text":'. $e->getMessage() .'}}';
+        }
+
+    }
+
+    public function updateUserInfo(\model\UserVO $user) {
+        $sql = "UPDATE users SET user_email = ?, `password` = ?, first_name = ?, last_name = ? WHERE user_id = ?";
         $stmt = $this->pdo->prepare($sql);
-        $stmt->execute(array($user->getUserPic()));
-        return true;
+        //$stmt->bindParam("uid", $user_id,\PDO::PARAM_INT);
+        $stmt->execute([$user->getUserEmail(), $user->getPassword(), $user->getFirstName(), $user->getLastName(), $user->getUserId()]);
+        //$data = $stmt->fetch(\PDO::FETCH_OBJ);
+        //return $data;
     }
-
-    function editUser () {
-
-    }
-
 
 }
 
-//function getUserPicT($user_id) {
-//    $pdo = connect();
-//    $sql = "SELECT user_pic FROM `users` WHERE `user_id` = ?";
-//    $stmt = $pdo->prepare($sql);
-//    $stmt->execute(array($user_id));
-//    //return $this->userPic($user_id);
-//    //$stmt->fetch(\PDO::FETCH_ASSOC)["user_pic"];
-//    $url = $stmt->fetch(PDO::FETCH_ASSOC);
-//    return end($url);
-//}

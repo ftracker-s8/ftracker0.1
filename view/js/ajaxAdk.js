@@ -56,30 +56,18 @@ function addViaAjax(php_file, tagID, aid, val2) {
 
 function add_custom_category() {
     // initialisation
-    var url = '../controler/add_custom_category.php';
+    var url = '../controller/add_custom_category.php';
     var method = 'POST';
-    var params = 'username='+document.getElementById('username').value;
-    params += '&full_name='+document.getElementById('full_name').value;
-    params += '&password='+document.getElementById('passwd').value;
-    params += '&email='+document.getElementById('email').value;
-    params += '&age='+document.getElementById('age').value;
+    var params = 'user_cat_name='+document.getElementById('user_cat_name').value;
+    params += '&user_cat_icon='+document.getElementById('icons').value;
+    params += '&user_cat_color='+document.getElementById('color_value').value;
+    params += '&user_cat_desc='+document.getElementById('user_cat_desc').value;
+
     var container_id = 'list_container' ;
     var loading_text = '<img src="../images/ajax_loader.gif">' ;
     // call ajax function
     ajax (url, method, params, container_id, loading_text) ;
 }
-// delete_member function
-// function updateAccount(id) {
-//         // initialisation
-//         var url = '../controler/delete_ticket_controller.php';
-//         var method = 'POST';
-//         var params = 'id='+id;
-//         var container_id = 'list_container' ;
-//         //var container_id = 'field_container' ;
-//         var loading_text = '<img src="images/ajax_loader.gif">' ;
-//         // call ajax function
-//         ajax (url, method, params, container_id, loading_text) ;
-// }
 
 function update_account_by_id(aid) {
     // initialisation

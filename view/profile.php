@@ -6,6 +6,7 @@ if (session_status() == PHP_SESSION_NONE) {
 //include "../model/UserVO.php";
 //use model\UserVO;
 //use model\UserDAO;
+
 ?>
 
 <!doctype html>
@@ -35,8 +36,9 @@ if (session_status() == PHP_SESSION_NONE) {
             //echo $_SESSION['user_name'] . "<br>";
             $the_url = "";
             include "../controller/user_pic_controller.php";
+            $randata = rand(5,10);
             ?>
-            <img width="300px" height="auto" src="<?php echo $the_url; ?>" >
+            <img width="300px" height="auto" src="<?php echo $the_url."?".$randata; ?>" >
 
 
             <form class="form-group-lg" enctype="multipart/form-data"
@@ -50,17 +52,18 @@ if (session_status() == PHP_SESSION_NONE) {
         </div>
         <div class="col-md-6 col-padding10 adk-shadow">
             <h1>Change username details</h1>
-            <form class="form-group-lg" action="../controller/update_user_ctrl.php">
+            <?php include "../controller/get_profile.php" ;?>
+            <form class="form-group-lg" action="../controller/update_user_ctrl.php" method="post">
                 <div class="form-group">
-                    <label class="col-sm-3 control-label" for="user_email">User/email</label>
-                    <input class="form-control" type="text" name="user_email" value="TODO ot sistemata" autofocus><br>
+                    <label class="col-sm-3 control-label" for="user_email"a>User/email</label>
+                    <input class="form-control" type="text" name="user_email" value="<?php echo $all_user_data[0]["user_email"] ?>" autofocus><br>
                 </div>
                 <!--            <span class="help-block">Last Name, First Name, eg.: Smith, Harry</span>-->
-                Password <input class="form-control" type="text" name="password"><br>
-                Confirm password <input class="form-control" type="text" name="password"><br>
-                First Name<input class="form-control" type="text" name="first_name" value="TODO ot sistemata"><br>
-                Last Name<input class="form-control" type="text" name="last_name" value="TODO ot sistemata"><br>
-                <input class="btn btn-primary" type="submit" name="update-user" value="Update">
+                New Password <input class="form-control" type="password" name="password"><br>
+                Confirm New Password <input class="form-control" type="password" name="password"><br>
+                First Name<input class="form-control" type="text" name="first_name" value="<?php echo $all_user_data[0]["first_name"] ?>"><br>
+                Last Name<input class="form-control" type="text" name="last_name" value="<?php echo $all_user_data[0]["last_name"] ?>"><br>
+                <input class="btn btn-primary" type="submit" name="updateuser" value="Update">
             </form>
             <?php
             if (!isset($_COOKIE['upload-error'])) {

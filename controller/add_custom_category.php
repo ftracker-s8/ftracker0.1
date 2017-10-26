@@ -1,2 +1,33 @@
 <?php
-//TODO add custom category code
+if(session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+include "../model/UserCategories.php";
+include "../model/dao/UserCategoriesDao.php";
+include "../model/DBManager.php";
+
+use model\dao\UserCategoriesDao;
+
+if(isset($_POST['user_cat_name'])){
+    $user_id = $_SESSION["user_id"];
+    $user_cat_name = $_POST["user_cat_name"];
+    $user_cat_icon = $_POST["user_cat_icon"];
+    $user_cat_desc = $_POST["user_cat_desc"];
+    $user_cat_color = "#".$_POST["user_cat_color"];
+//    $user_cat_name2= $user_cat_name1;
+
+    $user_ida = new \model\UserCategories($user_id);
+  //  $u_cat = new \model\UserCategories($user_cat_name2);
+
+    try {
+        UserCategoriesDao::getUserCategoryInstance()->addCustomCategory($user_ida, $user_cat_name, $user_cat_icon, $user_cat_color, $user_cat_desc);
+        //echo 'success';
+        include "../controller/get_user_categories_list.php";
+    }
+    catch (PDOException $e) {
+        echo "err add cust cat" . $e->getMessage();
+    }
+}
+else {
+    echo "error";
+}

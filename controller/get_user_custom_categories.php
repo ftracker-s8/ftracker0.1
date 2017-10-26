@@ -1,49 +1,23 @@
 <?php
-if(session_status() == PHP_SESSION_NONE) {
+/**
+ * Created by PhpStorm.
+ * User: assen.kovachev
+ * Date: 25.10.2017 г.
+ * Time: 15:24 ч.
+ */
+if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
-//function __autoload ( $class ){
-//    $class = "..\\model\\" . $class;
-//    require_once str_replace("\\", "/", $class) .".php";
-//}
-include "../model/UserCategories.php";
-include "../model/dao/UserCategoriesDao.php";
-require_once "../model/DBManager.php";
 
-use \model\UserCategories;
+use model\UserCategories;
 use model\dao\UserCategoriesDao;
+$user_id = "";
 
-$owner_id = $_SESSION['user_id'];
-//$owner_id$oi = new UserCategories($owner_id);
-$oi = new UserCategories($owner_id);
-?>
-<h2>Accounts list</h2>
-<table class="table table-bordered table_list table-hover" id="whole_table" cellspacing="2" cellpadding="0">
-    <tr class="bg_h">
-        <th>Account name</th>
-        <th>Ammount</th>
-        <th>Description</th>
+if(isset($_SESSION['user_id'])) {
+    $user_id = $_SESSION['user_id'];
+}
+$uid = new UserCategories($user_id);
 
-        <th>Delete</th>
-        <th>Modify</th>
-    </tr>
-    <?php
-    //$result = AccountDao::getAInstance()->getUserAcountsList($oi);
-    $result = UserCategoriesDao::getUserCategoryInstance()->getAllCustomCategories($oi);
-    //print_r($account_list->getAccountName());
-    foreach ($result as $row) {
-        ?>
-        <tr class="">
-            <td><?php echo $row['user_cat_name']; ?></td>
-            <td class="text-right"><?php echo $row['user_cat_icon']; ?>&euro;</td>
-            <td><?php echo $row['user_cat_desc']; ?></td>
-            <td><a href="#" class="delete_m" onclick="delete_account(<?php echo $row['account_id']; ?>)">Delete</a></td>
-            <td data-toggle="modal" data-target="#modal-default"><a href="#" class="delete_m" onclick="ajaxRow('modala', '<?= $row['account_id']; ?>')">Modify</a></td>
-        </tr>
-        <?php
-    }
-    ?>
-</table>
-<div id="user-total">
-    Total ammount from accounts: <strong><?php include "get_user_account_totals_ammount.php"?> &euro;</strong>
-</div>
+$result_user_categories = UserCategoriesDao::getUserCategoryInstance()->getAllCustomCategories($uid);
+
+//$result_cat = CategoryDao::getCategoryInstance()->getAllDefaultCategories();

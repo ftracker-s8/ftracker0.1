@@ -18,14 +18,14 @@ class UserVO
     private $activated;
 
 //  //public function __construct($user_email, $password, $first_name, $last_name, $user_pic = null)
-//    public function __construct()
-//    {
+ public function __construct()
+    {
 //        $this->user_email = $user_email;
 //        $this->password = $password;
 //        $this->first_name = $first_name;
 //        $this->last_name = $last_name;
 //        $this->user_ic = $user_pic;
-//    }
+    }
 
     /**
      * @return mixed

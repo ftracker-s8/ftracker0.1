@@ -12,7 +12,7 @@ footer{
 }
 nav form {display: inline-block}
 
-#container {margin-top: 30px;}
+#container {margin-top: 30px; margin-bottom: 3em;}
 .adk {display: inline}
 .adk-shadow {box-shadow: 0 3px 7px #cccccc; margin: 10px 0; padding-bottom: 10px}
 .col-padding10 { margin:10px; padding:10px; }
@@ -55,6 +55,11 @@ legend.add-cat {
     border: none;
     font-size: 14px;
 }
+/* Montly nav */
+.nav-monthly {font-size: 20px;}
+.nav-monthly a {border: 1px solid navy;
+    padding: 5px 15px; margin: 5px 10px}
+
 
 /* FORMS PATCH */
 .text-right{

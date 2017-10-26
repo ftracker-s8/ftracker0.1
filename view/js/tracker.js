@@ -25,11 +25,26 @@ function delete_account(account_id) {
         //var params = 'id='+id;
         var params = 'account_id='+account_id;
         var container_id = 'list_container' ;
-        var loading_text = '<img src="images/ajax_loader.gif">' ;
+        var loading_text = '<img src="../images/ajax_loader.gif">' ;
         // call ajax function
         ajax (url, method, params, container_id, loading_text) ;
     }
 }
+function rm_cust_cat(rm_uc_id) {
+    if (confirm('Are you sure to delete this category ?')) {
+        // initialisation
+        var url = '../controller/delete_user_category.php';
+        var method = 'POST';
+
+        var params = 'uc_id='+rm_uc_id;
+
+        var container_id = 'list_container' ;
+        var loading_text = '<img src="../images/ajax_loader.gif">' ;
+
+        ajax (url, method, params, container_id, loading_text) ;
+    }
+}
+
 
 
 // ajax : basic function for using ajax easily

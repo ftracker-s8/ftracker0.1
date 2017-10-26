@@ -12,7 +12,7 @@ use model\UserVO;
 
 include "../model/UserVO.php";
 include "../model/UserDAO.php";
-include "../model/UserPicClass.php";
+//include "../model/UserPicClass.php";
 
 
 //Register Validation

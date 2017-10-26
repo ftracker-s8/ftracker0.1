@@ -83,20 +83,7 @@ class userClass
           }
 
      }
-    public function uuserPic($user_id) {
-        try{
-            $db = DBManager::getInstance()->getConnection();
-            $stmt = $db->prepare("SELECT user_pic FROM `users` WHERE `user_id` = ?");
-            //$stmt->bindParam("uid", $user_id,\PDO::PARAM_INT);
-            $stmt->execute(array($user_id));
-            $data = $stmt->fetch(\PDO::FETCH_OBJ);
-            return $data;
-        }
-        catch(\PDOException $e) {
-            echo '{" pdo.u.details error":{"text":'. $e->getMessage() .'}}';
-        }
 
-    }
 
 
 }

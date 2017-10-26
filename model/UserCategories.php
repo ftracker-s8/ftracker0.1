@@ -11,13 +11,16 @@ namespace model;
 class UserCategories
 {
     private $uc_id;
-    private $user_cat_color;
-    private $user_cat_icon;
     private $user_cat_name;
+    private $user_cat_icon;
+    private $user_cat_color;
+    private $user_cat_desc;
+
     private $user_id;
 
-    public function __construct(){
-        //$this->user_id = $user_id;
+    public function __construct($user_id){
+        $this->user_id = $user_id;
+        //$this->user_cat_name = $user_cat_name;
     }
 
     /**
@@ -82,6 +85,30 @@ class UserCategories
     public function setUserId($user_id)
     {
         $this->user_id = $user_id;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getUcId()
+    {
+        return $this->uc_id;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getUserCatDesc()
+    {
+        return $this->user_cat_desc;
+    }
+
+    /**
+     * @param mixed $user_cat_desc
+     */
+    public function setUserCatDesc($user_cat_desc)
+    {
+        $this->user_cat_desc = $user_cat_desc;
     }
 
 }

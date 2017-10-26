@@ -23,6 +23,7 @@ if(isset($_POST['user_id'])) {
 $user_id = $_POST['user_id'];
 }
 //include "../controller/get_user_custom_categories.php";
+//$result_cat = CategoryDao::getCategoryInstance()->getAllDefaultCategories();
 ?>
 
 <!doctype html>
@@ -69,37 +70,43 @@ $user_id = $_POST['user_id'];
         <div class="col-md-4 adk adk-shadow">
             <h1>Categories</h1>
             <h2>Defined categories</h2>
-            <?php include "../controller/get_categories_list.php"; ?>
+<!--            <?php //include "../controller/get_categories_list.php"; ?> -->
+            <?php include "includes/get_default_categories_list.incl.php"; ?>
 
-            <!--            --><?php //include "../controller/get_user_custom_categories.php"; ?>
         </div>
 
         <!-- ======================================================= -->
         <div class="col-md-7 adk-shadow col-padding10" >
             <!--            <fieldset class="field_container profile-field">-->
-            <fieldset class="add-cat2">
 
-                <legend class="add-cat2"> Add custom category</legend>
+            <fieldset class="form-group-lg">
+                <legend class="legend"> Add custom category</legend>
+
                 <form class="form-inline">
                     <input class="form-text" type="text" id="user_cat_name" placeholder="Category name" required>
                     <select class="form-text form-inline" name="icons" id="icons">
-                        <?php
-
-                        $result_cat = CategoryDao::getCategoryInstance()->getAllDefaultCategories();
-                        foreach ($result_cat as $value) {
-                            echo "<option value=\"" . $value['uc_id'] . "\"><img src=\"\" alt=\"\">icon for " . $value['category_name'] . "</option>";
-                        }
-                        ?>
+                        <option value="kid.png" selected>Kid</option>
+                        <option value="phone.png">Phone</option>
+                        <option value="food.png">Food</option>
+<!--                        --><?php
+//                        //$result_cat = CategoryDao::getCategoryInstance()->getAllDefaultCategories();
+//                        //var_dump($result_cat);
+//                        include "../controller/get_user_custom_categories.php";
+//                        foreach ($result as $value) {
+//                            //echo "<option value=\"" . $value['uc_id'] . "\"><img src=\"\" alt=\"\">icon for " . $value['category_name'] . "</option>";}
+//                        echo "<option value=\"" . $value['category_id'] . "\"><img src=\"\" alt=\"\">icon for " . $value['category_name'] . "</option>";}
+//                        ?>
 
                     </select>
-                    <!--                    <input class="form-text" type="number" id="user_cat_icon" placeholder="icon" required>-->
-                    <input class="form-text" type="text" id="account_desc" placeholder="description">
+
+                    <input class="form-text" type="text" id="user_cat_desc" placeholder="description">
 
                     <input name="user_cat_color" type="hidden" id="color_value" value="99cc00">
                     <button class="jscolor {valueElement: 'color_value'}">&nbsp;</button>
 
 <!--                    <input type="button" class="btn btn-outline-secondary frm_button" value="Add" onclick="addViaAjax('../controller/add_custom_category.php', list_container, <?//= $user_id; ?>//, 'default')"> -->
-                    <input type="button" class="frm_button" value="Add" onclick="add_custom_category(uid)">
+                    <input type="button" class="frm_button" value="Add" onclick="add_custom_category()">
+
                 </form>
                 <div id="err_ms_id"></div>
             </fieldset>
@@ -107,9 +114,7 @@ $user_id = $_POST['user_id'];
 
 
             <div id="list_container" class="col-md-8">
-                <?php
-                include "../controller/get_user_categories_list.php"
-                ?>
+                <?php include "../controller/get_user_categories_list.php" ?>
             </div>
         </div>
 

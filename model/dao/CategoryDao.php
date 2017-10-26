@@ -33,8 +33,6 @@ class CategoryDao
     public function getAllDefaultCategories() {
         try {
 
-            //$pdo = \model\DBManager::getInstance()->getConnection();
-            //$query = "SELECT * FROM accounts WHERE account_id = '" . $_POST["account_id"] . "'";
             $query = "SELECT * FROM categories";
             $stm = $this->pdo->prepare($query);
             $stm->execute();
