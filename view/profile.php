@@ -59,8 +59,8 @@ if (session_status() == PHP_SESSION_NONE) {
                     <input class="form-control" type="text" name="user_email" value="<?php echo $all_user_data[0]["user_email"] ?>" autofocus><br>
                 </div>
                 <!--            <span class="help-block">Last Name, First Name, eg.: Smith, Harry</span>-->
-                New Password <input class="form-control" type="password" name="password"><br>
-                Confirm New Password <input class="form-control" type="password" name="password"><br>
+                New Password <input class="form-control" type="password" name="password" value=""><br>
+                Confirm New Password <input class="form-control" type="password" name="cpassword"><br>
                 First Name<input class="form-control" type="text" name="first_name" value="<?php echo $all_user_data[0]["first_name"] ?>"><br>
                 Last Name<input class="form-control" type="text" name="last_name" value="<?php echo $all_user_data[0]["last_name"] ?>"><br>
                 <input class="btn btn-primary" type="submit" name="updateuser" value="Update">
