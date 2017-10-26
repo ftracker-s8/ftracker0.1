@@ -17,7 +17,7 @@ include "../model/UserDAO.php";
 
 //Register Validation
 if (isset($_POST['user_email']) && isset($_POST['password'])
-    //&& filter_var($_POST['user_email'], FILTER_VALIDATE_EMAIL)
+    && filter_var($_POST['user_email'], FILTER_VALIDATE_EMAIL)
     && strlen($_POST['user_email']) > 3 && strlen($_POST['user_email']) < 254
     && strlen($_POST['password']) >= 4 && strlen($_POST['password']) < 20
     && strlen($_POST['first_name']) >= 4 && strlen($_POST['first_name']) < 20
@@ -63,7 +63,7 @@ if (isset($_POST['user_email']) && isset($_POST['password'])
 } else {
 
     //Locate to error Register Page
-    header("Location: ../view/registererror.html");
+    header("Location: ../view/register.php");
 }
 
 //    $username_check = preg_match('~^[A-Za-z0-9_]{3,20}$~i', $username);

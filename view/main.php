@@ -28,14 +28,22 @@ if (isset($_GET['page'])) {
 <body>
 <?php include "header.php" ?>
 <div id="container" class="container">
+    <h1>Monthly reports</h1>
     <div class="nav-monthly">
     <?php
     include '../model/calendar.php';
     $calendar = new Calendar();
     $tada = $calendar->showNavOnly();
     echo $tada;
-
+//    var_dump($tada)
     ?>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4 adk-report">Add expense</div>
+        <div class="col-md-4 adk-report">Add income</div>
+        <div class="col-md-4 adk-report">Montly balance</div>
+
     </div>
 
 

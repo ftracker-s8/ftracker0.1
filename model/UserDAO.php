@@ -24,9 +24,20 @@ class UserDAO{
     }
 
     public function getByUserId(UserVO $u) {
-        $sql = "SELECT * FROM users WHERE user_id = ?";
+        $sql = "SELECT user_email, first_name, last_name, user_pic, activated, last_login FROM users WHERE user_id = ?";
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute(array($u->getUserId()));
+
+        //return $stmt->execute($sql);
+    }
+
+    public function getUPass($u) {
+        $sql = "SELECT `password` FROM users WHERE user_id = ?";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute(array($u));
+        $result = $stmt->fetch(\PDO::FETCH_ASSOC);
+        return $result;
+
 
         //return $stmt->execute($sql);
     }
