@@ -2,20 +2,7 @@
  * Created by expert600 on 21.10.2017 г..
  */
 
-// add_new_account function
-function add_new_account() {
-    // initialisation
-    var url = '../controller/add_account_ctrl.php';
-    var method = 'POST';
-    var params = 'account_name='+document.getElementById('account_name').value;
-    params += '&ammount='+document.getElementById('ammount').value;
-    params += '&account_desc='+document.getElementById('account_desc').value;
 
-    var container_id = 'list_container' ;
-    var loading_text = '<img src="../view/images/ajax_loader.gif">' ;
-    // call ajax function
-    ajax (url, method, params, container_id, loading_text) ;
-}
 
 function delete_account(account_id) {
     if (confirm('Are you sure to delete this member ?')) {
@@ -25,7 +12,7 @@ function delete_account(account_id) {
         //var params = 'id='+id;
         var params = 'account_id='+account_id;
         var container_id = 'list_container' ;
-        var loading_text = '<img src="../images/ajax_loader.gif">' ;
+        var loading_text = '<img src="../view/images/ajax_loader.gif">' ;
         // call ajax function
         ajax (url, method, params, container_id, loading_text) ;
     }
@@ -39,7 +26,7 @@ function rm_cust_cat(rm_uc_id) {
         var params = 'uc_id='+rm_uc_id;
 
         var container_id = 'list_container' ;
-        var loading_text = '<img src="../images/ajax_loader.gif">' ;
+        var loading_text = '<img src="../view/images/ajax_loader.gif">' ;
 
         ajax (url, method, params, container_id, loading_text) ;
     }

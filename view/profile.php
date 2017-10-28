@@ -24,7 +24,7 @@ if (session_status() == PHP_SESSION_NONE) {
 <!--<h1>Main: Welcome --><?php //echo $userDetails->name; ?><!--</h1>-->
 <div id="container" class="container">
     <div class="row">
-        <div class="col-md-5 pull-left adk-shadow">
+        <div class="col-md-5 shadow-soft">
             <h1>
                 Profile: <?php
                 if (!empty($_SESSION['user_name'])) {
@@ -49,8 +49,9 @@ if (session_status() == PHP_SESSION_NONE) {
 
                 <input class="btn btn-primary" type="submit" name="uploadedfile" value="Upload image">
             </form>
+            <br>
         </div>
-        <div class="col-md-6 col-padding10 adk-shadow">
+        <div class="col-md-6 col-padding10 shadow-soft">
             <h1>Change username details</h1>
             <?php include "../controller/get_profile.php" ;?>
             <form class="form-group-lg" action="../controller/update_user_ctrl.php" method="post">
@@ -65,6 +66,7 @@ if (session_status() == PHP_SESSION_NONE) {
                 Last Name<input class="form-control" type="text" name="last_name" value="<?php echo $all_user_data[0]["last_name"] ?>"><br>
                 <input class="btn btn-primary" type="submit" name="updateuser" value="Update">
             </form>
+
             <?php
             if (!isset($_COOKIE['upload-error'])) {
 
@@ -76,9 +78,7 @@ if (session_status() == PHP_SESSION_NONE) {
             ?>
         </div>
     </div>
-
-    <?php include 'footer.php' ?>
 </div>
-
+<?php include 'footer.php' ?>
 </body>
 </html>

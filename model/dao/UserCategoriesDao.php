@@ -28,24 +28,29 @@ class UserCategoriesDao
     }
 //uc_iduser_cat_nameuser_cat_iconuser_cat_coloruser_cat_descuser_id
     //const GET_CATEGORIES_LIST = "SELECT * FROM user_categories WHERE user_id = ?";
-    const GET_CATEGORIES_LIST = "SELECT * FROM `user_categories` WHERE `user_id` = ?";
+    const GET_UNITED_CATEGORIES_LIST = "SELECT * FROM CategoriesUnion WHERE user_id = 0 OR user_id = ?";
+    const GET_USER_CATEGORIES_LIST = "SELECT * FROM `user_categories` WHERE `user_id` = ?";
     const ADD_CUSTOM_CATEGORY = "INSERT INTO `user_categories` (user_id, user_cat_name, user_cat_icon, user_cat_color, user_cat_desc) VALUES (?, ?, ?, ?, ?)";
     const RM_CUSTOM_CATEGORY = "DELETE FROM `user_categories` WHERE user_id = ? AND uc_id = ?";
     //const ADD_CUSTOM_CATEGORY = "INSERT INTO users (user_email, `password`, first_name, last_name) VALUES (?, ?, ?, ?)";
 
-    public function getAllCustomCategories(UserCategories $user_id) {
-        try {
+    public function selectCategoriesUnionList($uid) {
+        //$sql = "";
+        $stm = $this->pdo->prepare(self::GET_UNITED_CATEGORIES_LIST); //cat union default + user
+        $stm->execute([$uid]);
+        $cat_list_result = $stm->fetchAll(\PDO::FETCH_ASSOC);
+        return $cat_list_result;
+
+
+    }
+
+    public function getAllCustomCategories($user_id) {
             //$query = "SELECT * FROM `user_categories` WHERE `user_id` = ?";
-            $stm = $this->pdo->prepare(self::GET_CATEGORIES_LIST);
-            $stm->execute([$user_id->getUserId()]);
+            $stm = $this->pdo->prepare(self::GET_USER_CATEGORIES_LIST);
+            $stm->execute([$user_id]);
             $result = $stm->fetchAll(\PDO::FETCH_ASSOC);
 
             return $result;
-
-        } catch (\PDOException $e) {
-            echo "Custom Cat Err" . $e->getMessage();
-            trow: new \PDOException();
-        }
     }
     public function addCustomCategory(UserCategories $u, $user_cat_name, $user_cat_icon, $user_cat_color, $user_cat_desc) {
         try {

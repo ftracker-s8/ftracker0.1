@@ -16,8 +16,5 @@ use \model\dao\UserCategoriesDao;
 $result = "";
 
 $owner_id = $_SESSION['user_id'];
-$oi = new UserCategories($owner_id);
-
-$result_cust_categories = UserCategoriesDao::getUserCategoryInstance()->getAllCustomCategories($oi);
-include "../view/includes/show_custom_categories.incl.php"
-?>
+//selectCategoriesUnionList
+$union_result = UserCategoriesDao::getUserCategoryInstance()->selectCategoriesUnionList($owner_id);

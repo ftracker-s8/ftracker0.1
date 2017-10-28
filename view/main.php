@@ -3,6 +3,8 @@ if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
 
+include "../model/DBManager.php";
+
 $month = date("F");
 if (isset($_GET['page'])) {
     $page = $_GET['page'];
@@ -29,21 +31,52 @@ if (isset($_GET['page'])) {
 <?php include "header.php" ?>
 <div id="container" class="container">
     <h1>Monthly reports</h1>
-    <div class="nav-monthly">
-    <?php
-    include '../model/calendar.php';
-    $calendar = new Calendar();
-    $tada = $calendar->showNavOnly();
-    echo $tada;
-//    var_dump($tada)
-    ?>
+    <div class="row">
+        <div class="col-lg-12">
+            <?php
+            include '../model/calendar.php';
+            $calendar = new Calendar();
+            $tada = $calendar->showNavOnly();
+            echo $tada;
+            //    var_dump($tada)
+            ?>
+
+        </div>
     </div>
 
+    <div style="clear: both"></div>
     <div class="row">
-        <div class="col-md-4 adk-report">Add expense</div>
-        <div class="col-md-4 adk-report">Add income</div>
-        <div class="col-md-4 adk-report">Montly balance</div>
+        <div class="col-lg-12">
+            <div class="col-sm-4">
+                <div class="panel panel-danger">
+                    <div>
+                        <?php include "includes/add_expence_form.incl.php"; ?>
+                    </div>
+                    <div>
+                        <?php include "../controller/get_user_all_transactions_uid_ctrl.php"; ?>
 
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="panel panel-danger">
+                    <div>
+                        Addincom
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="panel panel-danger">
+                    <div>
+                        Balance
+                    </div>
+                </div>
+                <div>
+                    ** FILTER **
+                </div>
+            </div>
+        </div>
     </div>
 
 
@@ -68,6 +101,10 @@ if (isset($_GET['page'])) {
     <!-- /.modal -->
 
 </div> <!-- container -->
+<div id="bottom-buttons">
+<?php include_once "includes/transaction_buttons.php"; ?>
+</div>
 <?php include 'footer.php' ?>
+
 </body>
 </html>

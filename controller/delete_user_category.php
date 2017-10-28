@@ -15,7 +15,9 @@ if(isset($_POST['uc_id'])){
         $uc_id = htmlentities($_POST['uc_id']);
         $model_id = new \model\UserCategories($user_id);
         $del_id = UserCategoriesDao::getUserCategoryInstance()->deleteCustCategory($model_id, $uc_id);
-        include "get_user_categories_list.php";
+        //include "get_user_categories_list.php";
+        include "get_user_custom_categories.php";
+
 
     }
     catch (PDOException $e) {

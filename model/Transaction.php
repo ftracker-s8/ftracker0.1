@@ -22,7 +22,7 @@ class Transaction
     private $user_id;
 
     public function __construct(){
-        //$this->pdo = DBManager::getInstance()->getConnection();
+        $this->pdo = DBManager::getInstance()->getConnection();
     }
 
     /**

@@ -5,7 +5,7 @@ if (session_status() == PHP_SESSION_NONE) {
 
 use model\Transaction;
 use model\dao\TransactionDao;
-include "../model/DBManager.php";
+//include "../model/DBManager.php";
 include "../model/Transaction.php";
 include "../model/dao/TransactionDao.php";
 

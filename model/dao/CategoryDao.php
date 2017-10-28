@@ -33,7 +33,7 @@ class CategoryDao
     public function getAllDefaultCategories() {
         try {
 
-            $query = "SELECT * FROM categories";
+            $query = "SELECT * FROM categories WHERE in_out = 'out'";
             $stm = $this->pdo->prepare($query);
             $stm->execute();
             $result = $stm->fetchAll(\PDO::FETCH_ASSOC);

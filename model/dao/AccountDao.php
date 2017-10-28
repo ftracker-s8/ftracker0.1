@@ -8,7 +8,7 @@
 
 namespace model\dao;
 
-
+//include "../DBManager.php";
 use model\Accounts;
 use model\DBManager;
 
@@ -28,7 +28,7 @@ class AccountDao
         return self::$instance;
     }
     const GET_USER_ACCOUNTS = "
-SELECT u.first_name, u.last_name, a.account_id, a.account_name, round(a.ammount,2) as `ammount`, a.account_desc FROM id3203367_s8ftracker_db.users AS u
+SELECT u.first_name, u.last_name, a.account_id, a.account_name, round(a.ammount,2) as `ammount`, a.account_desc FROM users AS u
 INNER JOIN accounts AS a
 ON u.user_id = a.owner_id
 WHERE u.user_id = ?";
@@ -36,17 +36,18 @@ WHERE u.user_id = ?";
     const SELECT_USER_SUM_AMMOUNT = "SELECT round(sum(ammount),2) as total, currency FROM accounts as a WHERE owner_id = ?";
     const GET_USER_ACCOUNT_INFO_BY_ID = "SELECT * FROM accounts WHERE account_id = ?";
 
-    public function getUserAcountsList(Accounts $a) {
-        try {
+    public function getUserAcountsList($uid) {
             $stm = $this->pdo->prepare(self::GET_USER_ACCOUNTS);
-            $stm->execute(array($a->getOwnerId()));
+            $stm->execute(array($uid));
             $result = $stm->fetchAll(\PDO::FETCH_ASSOC);
             return $result;
-        }
-        catch (\PDOException $e) {
-            echo "Err accounts list: " . $e->getMessage();
-        }
+    }
 
+    public function updateAccountAfterTransaction($ammount, $aid) {
+        $sql = "UPDATE accounts SET ammount = ? WHERE account_id = ?";
+        $stm = $this->pdo->prepare($sql);
+        $stm->execute([$ammount, $aid]);
+        return;
     }
 
 //    public function addNewAccount(AccountDao $a) {
@@ -85,5 +86,16 @@ WHERE u.user_id = ?";
                 echo "Err accounts list: " . $e->getMessage();
             }
         }
+    public  function getUserAccountById2($aid){
+        try {
+            $stm = $this->pdo->prepare(self::GET_USER_ACCOUNT_INFO_BY_ID);
+            $stm->execute(array($aid));
+            $result = $stm->fetch(\PDO::FETCH_ASSOC);
+            return $result;
+        }
+        catch (\PDOException $e) {
+            echo "Err accounts list: " . $e->getMessage();
+        }
+    }
 
 }

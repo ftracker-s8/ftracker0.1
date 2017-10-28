@@ -16,8 +16,13 @@ $user_id = "";
 if(isset($_SESSION['user_id'])) {
     $user_id = $_SESSION['user_id'];
 }
-$uid = new UserCategories($user_id);
+$uid = $user_id;
+try {
+    $result_user_categories = UserCategoriesDao::getUserCategoryInstance()->getAllCustomCategories($uid);
+}
+catch (PDOException $e) {
+    echo "ee" . $e->getMessage();
+}
 
-$result_user_categories = UserCategoriesDao::getUserCategoryInstance()->getAllCustomCategories($uid);
-
+include "../view/includes/show_custom_categories.incl.php";
 //$result_cat = CategoryDao::getCategoryInstance()->getAllDefaultCategories();

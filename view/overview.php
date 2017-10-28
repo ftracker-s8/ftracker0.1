@@ -24,7 +24,7 @@ include "../model/userClass.php";
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Overview</title>
+    <title>$8: Overview</title>
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 
     <?php include_once "head.inc.php"; ?>
@@ -46,7 +46,7 @@ include "../model/userClass.php";
         </h1>
     </div>
     <div class="row">
-        <?php include "../controller/get_user_all_transactions_uid.php"; ?>
+        <?php include "../controller/get_user_all_transactions_uid_ctrl.php"; ?>
     </div>
     <div class="row">
         <div class="box-body chart-responsive col-md-4">

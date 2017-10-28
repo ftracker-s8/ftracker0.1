@@ -4,12 +4,6 @@ namespace model;
 
 include "DBManager.php";
 
-use model\UserVO;
-/**
- * Created by PhpStorm.
- * User: assen.kovachev
- */
-
 class UserDAO{
     private static $instance;
     private $pdo;
@@ -150,28 +144,29 @@ class UserDAO{
 
 
     public function userPic($user_id) {
-        try{
             //$db = DBManager::getInstance()->getConnection();
             $stmt = $this->pdo->prepare("SELECT user_pic FROM `users` WHERE `user_id` = ?");
             //$stmt->bindParam("uid", $user_id,\PDO::PARAM_INT);
             $stmt->execute(array($user_id));
             $data = $stmt->fetch(\PDO::FETCH_OBJ);
             return $data;
-        }
-        catch(\PDOException $e) {
-            echo '{" pdo.u.details error":{"text":'. $e->getMessage() .'}}';
-        }
-
     }
 
     public function updateUserInfo(\model\UserVO $user) {
-        $sql = "UPDATE users SET user_email = ?, `password` = ?, first_name = ?, last_name = ? WHERE user_id = ?";
+        $sql = "UPDATE users SET user_email = ?, first_name = ?, last_name = ? WHERE user_id = ?";
         $stmt = $this->pdo->prepare($sql);
         //$stmt->bindParam("uid", $user_id,\PDO::PARAM_INT);
-        $stmt->execute([$user->getUserEmail(), $user->getPassword(), $user->getFirstName(), $user->getLastName(), $user->getUserId()]);
+        //$stmt->execute([$user->getUserEmail(), $user->getPassword(), $user->getFirstName(), $user->getLastName(), $user->getUserId()]);
+        $stmt->execute([$user->getUserEmail(), $user->getFirstName(), $user->getLastName(), $user->getUserId()]);
         //$data = $stmt->fetch(\PDO::FETCH_OBJ);
         //return $data;
+    }
+    public function updateUserPassword ($uid, $new_password) {
+        $sql = "UPDATE users SET `password` = ? WHERE user_id = ?";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute([$new_password, $uid]);
     }
 
 }
 
+?>

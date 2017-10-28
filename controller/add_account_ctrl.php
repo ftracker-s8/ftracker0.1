@@ -12,6 +12,7 @@ use \model\Accounts;
 use model\dao\AccountDao;
 
 require_once "../model/DBManager.php";
+
 $pdo = \model\DBManager::getInstance()->getConnection();
 $owner_id = "";
 $err_msga = [];
@@ -43,5 +44,4 @@ else {
 
 
 // list_members : this file displays the list of members in a table view
-include('error-msg.php');
-include('get_user_account_list.php');
+include('../view/includes/show_user_accounts_list.incl.php');

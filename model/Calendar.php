@@ -113,8 +113,8 @@ class Calendar {
 
         }else if(null==$month){
 
-            $month = date("F",time());
-            $month = date("F",time());
+            //$month = date("F",time());
+            $month = date("m",time());
 
         }
 

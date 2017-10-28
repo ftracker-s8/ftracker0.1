@@ -54,6 +54,21 @@ function addViaAjax(php_file, tagID, aid, val2) {
     }
 }
 
+// add_new_account function
+function add_new_account() {
+    // initialisation
+    var url = '../controller/add_account_ctrl.php';
+    var method = 'POST';
+    var params = 'account_name='+document.getElementById('account_name').value;
+    params += '&ammount='+document.getElementById('ammount').value;
+    params += '&account_desc='+document.getElementById('account_desc').value;
+
+    var container_id = 'list_container' ;
+    var loading_text = '<img src="../view/images/ajax_loader.gif">' ;
+    // call ajax function
+    ajax (url, method, params, container_id, loading_text) ;
+}
+
 function add_custom_category() {
     // initialisation
     var url = '../controller/add_custom_category.php';
@@ -64,23 +79,22 @@ function add_custom_category() {
     params += '&user_cat_desc='+document.getElementById('user_cat_desc').value;
 
     var container_id = 'list_container' ;
-    var loading_text = '<img src="../images/ajax_loader.gif">' ;
-    // call ajax function
+    var loading_text = '<img src="../view/images/ajax_loader.gif">' ;
+
     ajax (url, method, params, container_id, loading_text) ;
 }
 
 function update_account_by_id(aid) {
-    // initialisation
+
     var url = '../controller/update_account_by_id.php';
     var method = 'POST';
     var params = 'account_id='+ aid;
     params += '&account_name_update='+document.getElementById('account_name_update').value;
     params += '&ammount_update='+document.getElementById('ammount_update').value;
     params += '&account_desc_update='+document.getElementById('account_desc_update').value;
-    //params += '&aid='+document.getElementById('account_id').value;
 
     var container_id = 'list_container' ;
-    //var container_id = 'test22' ;
+
     var loading_text = '<img src="../view/images/ajax_loader.gif">' ;
     // call ajax function
     ajax (url, method, params, container_id, loading_text) ;

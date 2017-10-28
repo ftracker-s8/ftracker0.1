@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: assen.kovachev
- * Date: 24.10.2017 г.
- * Time: 15:48 ч.
- */
 ?>
 <h2>Custom categories</h2>
 <table class="table table-bordered table_list table-hover" id="whole_table" cellspacing="2" cellpadding="0">
@@ -13,12 +7,8 @@
         <th>Description</th>
     </tr>
     <?php
-    //$pdo = \model\DBManager::getInstance()->getConnection();
-    //$result = AccountDao::getAInstance()->getUserAcountsList($oi);
-    //$result = CategoryDao::getCategoryInstance()->getAllDefaultCategories();
-    //$result = UserCategoriesDao::getUserCategoryInstance()->getAllCustomCategories($oi);
 
-    foreach ($result_cust_categories as $row) {
+    foreach ($result_user_categories as $row) {
         ?>
         <tr >
 

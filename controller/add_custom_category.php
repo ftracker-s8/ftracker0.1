@@ -1,4 +1,5 @@
 <?php
+//TODO limit number of categories
 if(session_status() == PHP_SESSION_NONE) {
     session_start();
 }
@@ -22,7 +23,8 @@ if(isset($_POST['user_cat_name'])){
     try {
         UserCategoriesDao::getUserCategoryInstance()->addCustomCategory($user_ida, $user_cat_name, $user_cat_icon, $user_cat_color, $user_cat_desc);
         //echo 'success';
-        include "../controller/get_user_categories_list.php";
+        include "../controller/get_user_account_list.php";
+
     }
     catch (PDOException $e) {
         echo "err add cust cat" . $e->getMessage();

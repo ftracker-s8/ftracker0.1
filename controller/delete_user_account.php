@@ -26,5 +26,5 @@ try {
 }
 
 // list_members : this file displays the list of members in a table view
-include('get_user_account_list.php');
+include('../view/includes/show_user_accounts_list.incl.php');
 ?>

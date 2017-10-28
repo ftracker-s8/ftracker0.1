@@ -4,12 +4,13 @@ if (session_status() == PHP_SESSION_NONE) {
 }
 include('../model/config.php');
 include "../model/userClass.php";
-//include('../controller/session.php');
-
-//$userDetails = $userClass->userDetails($user_id);
-//print_r($userDetails);
-
-?>
+include "../model/DBManager.php";
+//function __autoload($class)
+//{
+//    $class = "..\\" . $class;
+//    require_once str_replace("\\", "/", $class) . ".php";
+//}
+//?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -82,7 +83,7 @@ include "../model/userClass.php";
             <legend> Add new account </legend>
             <form class="form-inline">
                 <input class="form-text" type="text" id="account_name" placeholder="Account name" required>
-                <input class="form-text text-right" type="number" id="ammount" placeholder="Ammount" required>$
+                <input class="form-text text-right" type="number" id="ammount" placeholder="Ammount" step=".01" required>$
                 <input class="form-text" type="text" id="account_desc" placeholder="description">
 
                 <input type="button" class="btn btn-outline-secondary frm_button" value="Add" onclick="add_new_account()">
@@ -91,7 +92,7 @@ include "../model/userClass.php";
         </fieldset>
     </div>
     <div id="list_container">
-        <?php include "../controller/get_user_account_list.php" ?>
+        <?php include "includes/show_user_accounts_list.incl.php" ?>
     </div>
 
 </div> <!-- container-->

@@ -35,43 +35,39 @@ if (isset($_POST['updateuser'])
     $owner_id = "";
     $uid = "";
     $set_old_pass = "";
-    if(trim(strlen($_POST['password'])) == 0) {
-        if(isset($_SESSION["user_id"])) {
-            $uid = $_SESSION["user_id"];
-        }
-        //$old_pass = new UserVO($uid);
-
-        $set_old_pass = \model\UserDAO::getUserInstance()->getUPass($uid);
-        $set_old_pass = $set_old_pass["password"];
-//        var_dump($set_old_pass);
-//        exit();
-    }
-    else {
-        $set_old_pass = htmlentities(trim(sha1($_POST['password'])));
-    }
 
     //$passw = new \model\UserVO();
 
     try {
 
         $userDao = \model\UserDao::getUserInstance();
-        
+        $userDaoPass = UserDAO::getUserInstance();
         $user->setUserEmail(htmlentities($_POST['user_email']));
         //$user->setPassword(sha1($_POST['password']));
-        $user->setPassword($set_old_pass);
+
         $user->setFirstName(htmlentities($_POST['first_name']));
         $user->setLastName(htmlentities($_POST['last_name']));
         //$user->setUserPic("../uploads/placeholder.jpg");
-        if(isset($_SESSION['user_id'])) {
-            $user->setUserId($_SESSION['user_id']);
-        }
-        //var_dump($user);
 
         $userDao->updateUserInfo($user);
+        if(trim(strlen($_POST['password'])) > 4) {
+            $uid = "";
+            if(isset($_SESSION["user_id"])) {
+                $uid = $_SESSION["user_id"];
+            }
+            $new_pass = (trim(htmlentities($_POST['password'])));
+
+            $userDaoPass->updateUserPassword($new_pass, $uid);
+        }
+        else {
+            echo "Pss provb";
+        }
+
         header("location: ../view/profile.php");
 
     } catch (PDOException $e) {
         echo "PDOa rra: " . $e->getMessage();
+
         //header("Location: ../../view/error/pdo_error.php");
     }
 

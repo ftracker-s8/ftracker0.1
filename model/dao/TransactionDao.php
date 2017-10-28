@@ -44,12 +44,24 @@ AND MONTH(date_time) = MONTH(NOW());";
 
         $stm = $this->pdo->prepare(self::ADD_EXPENCE);
         //$stm->execute([$uid->getAccountId(), $uid->getUserId(), $uid->getAmount(), $uid->getExpInc(), $uid->getCategoryId(), $uid->getUserId(), $uid->getDescription(), $uid->getRecurentBill() ]);
-        $stm->execute([$uid->getAccountId(), $uid->getUserId(), $uid->getAmount(), $uid->getExpInc(), $uid->getCategoryId(), $uid->getUserId(), $uid->getDescription(), $uid->getRecurentBill() ]);
-        $result = $stm->fetchAll(\PDO::FETCH_ASSOC);
-        return $result;
+        $stm->execute([$uid->getAccountId(), $uid->getAmount(), $uid->getExpInc(), $uid->getCategoryId(), $uid->getUserId(), $uid->getDescription(), $uid->getRecurentBill()]);
+        //$result = $stm->fetchAll(\PDO::FETCH_ASSOC);
+        //return $result;
     }
+
+
     public function getAllTransactionsByUid($uid) {
-        $sql = "SELECT * FROM transactions WHERE user_id = ?";
+        //$sql = "SELECT * FROM transactions WHERE user_id = ?";
+        $sql = "SELECT t.user_id, t.date_time, t.transaction_id, t.amount, t.exp_inc, t.category_id, t.description, recurent_bill,
+a.account_id, a.account_name, a.ammount, u.first_name, u.last_name, ca.category_name FROM transactions as t
+JOIN `accounts` as a
+ON a.account_id = t.account_id
+JOIN users as u
+ON a.owner_id = u.user_id
+JOIN categories as ca
+ON t.category_id = ca.category_id
+WHERE u.user_id = 26";
+
         $stm = $this->pdo->prepare($sql);
         //$stm->execute([$uid->getAccountId(), $uid->getUserId(), $uid->getAmount(), $uid->getExpInc(), $uid->getCategoryId(), $uid->getUserId(), $uid->getDescription(), $uid->getRecurentBill() ]);
         //$stm->execute([$uid->getUserId()]);

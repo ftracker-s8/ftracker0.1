@@ -73,6 +73,7 @@ $user_id = $_POST['user_id'];
 <!--            <?php //include "../controller/get_categories_list.php"; ?> -->
             <?php include "includes/get_default_categories_list.incl.php"; ?>
 
+
         </div>
 
         <!-- ======================================================= -->
@@ -85,6 +86,7 @@ $user_id = $_POST['user_id'];
                 <form class="form-inline">
                     <input class="form-text" type="text" id="user_cat_name" placeholder="Category name" required>
                     <select class="form-text form-inline" name="icons" id="icons">
+                        <option value="money.png" selected>Money</option>
                         <option value="kid.png" selected>Kid</option>
                         <option value="phone.png">Phone</option>
                         <option value="food.png">Food</option>
@@ -114,7 +116,8 @@ $user_id = $_POST['user_id'];
 
 
             <div id="list_container" class="col-md-8">
-                <?php include "../controller/get_user_categories_list.php" ?>
+                <?php include "../controller/get_user_custom_categories.php" ?>
+
             </div>
         </div>
 
