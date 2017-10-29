@@ -6,7 +6,13 @@
  * Time: 14:13 ч.
  */
 ?>
-<div class="modal fade" id="modal-default">
+<div class="">
+    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-add-exp">
+        +
+    </button>
+
+</div>
+<div class="modal fade" id="modal-add-exp">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -16,6 +22,7 @@
             </div>
             <div class="modal-body">
                 <p>One fine body&hellip;</p>
+                TEST
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
@@ -27,8 +34,3 @@
     <!-- /.modal-dialog -->
 </div>
 <!-- /.modal -->
-<div class="box-body">
-    <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-default">
-        Launch Default Modal
-    </button>
-</div>

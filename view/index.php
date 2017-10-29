@@ -1,11 +1,7 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: assen.kovachev
- * Date: 10.10.2017 г.
- * Time: 12:05 ч.
- */
-
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
 ?>
 <!doctype html>
 <html lang="en">

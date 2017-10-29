@@ -2,12 +2,7 @@
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
-/**
- * Created by PhpStorm.
- * User: assen.kovachev
- * Date: 22.10.2017 г.
- * Time: 12:23 ч.
- */
+
 $month = date("F");
 if (isset($_GET['page'])) {
     $page = $_GET['page'];
@@ -34,12 +29,10 @@ if (isset($_GET['page'])) {
 <?php include "header.php" ?>
 <div id="container" class="container">
     <?php
-    include '../model/calendar.php';
-    $calendar = new Calendar();
-    echo $calendar->showNavOnly();
+//    include '../model/calendar.php';
+//    $calendar = new Calendar();
+//    echo $calendar->showNavOnly();
     ?>
-
-
     <div class="modal fade" id="modal-default">
         <div class="modal-dialog">
             <div class="modal-content">

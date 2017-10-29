@@ -22,8 +22,6 @@ $user_id = "";
 if(isset($_POST['user_id'])) {
 $user_id = $_POST['user_id'];
 }
-//include "../controller/get_user_custom_categories.php";
-//$result_cat = CategoryDao::getCategoryInstance()->getAllDefaultCategories();
 ?>
 
 <!doctype html>
@@ -46,29 +44,29 @@ $user_id = $_POST['user_id'];
 </head>
 <body>
 <?php include "header.php" ?>
+
+<div class="modal fade" id="modal-default" >
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title"></h4>
+            </div>
+            <div class="modal-body" id="modala"></div>
+            <div class="modal-footer">
+                <!--                    <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>-->
+                <!--                    <button type="button" class="btn btn-primary">Save changes</button>-->
+            </div>
+        </div>            <!-- /.modal-content -->
+    </div>        <!-- /.modal-dialog -->
+</div>    <!-- /.modal -->
+
 <div id="container" class="container">
-
-    <div class="modal fade" id="modal-default" >
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title"></h4>
-                </div>
-                <div class="modal-body" id="modala"></div>
-                <div class="modal-footer">
-                    <!--                    <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>-->
-                    <!--                    <button type="button" class="btn btn-primary">Save changes</button>-->
-                </div>
-            </div>            <!-- /.modal-content -->
-        </div>        <!-- /.modal-dialog -->
-    </div>    <!-- /.modal -->
-
     <div class="row">
+        <h1>Categories</h1>
 
         <div class="col-md-4 adk adk-shadow">
-            <h1>Categories</h1>
             <h2>Defined categories</h2>
 <!--            <?php //include "../controller/get_categories_list.php"; ?> -->
             <?php include "includes/get_default_categories_list.incl.php"; ?>

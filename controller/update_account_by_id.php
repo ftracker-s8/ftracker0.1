@@ -28,6 +28,7 @@ if(isset($_POST['account_name_update']) && $_POST['account_name_update'] != "" &
 
         $query->execute(array($account_name, $ammount, $account_desc, $account_id));
         $_SESSION['error-account'] = null;
+        include_once "../view/includes/show_user_accounts_list.incl.php";
     } catch (PDOException $e) {
         echo 'PDOException : ' . $e->getMessage();
         //trow: new PDOException();

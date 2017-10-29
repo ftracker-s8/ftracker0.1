@@ -100,6 +100,53 @@ function update_account_by_id(aid) {
     ajax (url, method, params, container_id, loading_text) ;
 }
 
+function add_transaction(tagID, uid) {
+    var request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');  // XMLHttpRequest object
+
+    // create pairs index=value with data that must be sent to server
+    //var  the_data = 'test='+document.getElementById('txt2').innerHTML;
+    var the_data = 'id-submit=' + uid;
+    var php_file = '../view/includes/add_expence_form.incl.php';
+
+
+    request.open("POST", php_file, true);			// set the request
+
+    // adds  a header to tell the PHP script to recognize the data as is sent via POST
+    request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    request.send(the_data);		// calls the send() method with datas as parameter
+
+    // Check request status
+    // If the response is received completely, will be transferred to the HTML tag with tagID
+    request.onreadystatechange = function () {
+        if (request.readyState == 4) {
+            document.getElementById(tagID).innerHTML = request.responseText;
+        }
+    }
+}
+
+function mod_transaction(tagID, aid) {
+    var request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');  // XMLHttpRequest object
+
+    // create pairs index=value with data that must be sent to server
+    //var  the_data = 'test='+document.getElementById('txt2').innerHTML;
+    var the_data = 'id-submit=' + aid;
+    var php_file = '../controller/add_transaction_ctrl.php';
+
+    request.open("POST", php_file, true);			// set the request
+
+    // adds  a header to tell the PHP script to recognize the data as is sent via POST
+    request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    request.send(the_data);		// calls the send() method with datas as parameter
+
+    // Check request status
+    // If the response is received completely, will be transferred to the HTML tag with tagID
+    request.onreadystatechange = function () {
+        if (request.readyState == 4) {
+            document.getElementById(tagID).innerHTML = request.responseText;
+        }
+    }
+}
+
 // ajax : basic function for using ajax easily
 function ajax (url, method, params, container_id, loading_text) {
     try { // For: chrome, firefox, safari, opera, yandex, ...
