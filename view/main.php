@@ -62,15 +62,16 @@ if (isset($_GET['page'])) {
         <div class="col-sm-8">
             <div class="nav-tabs-custom">
                 <ul class="nav nav-tabs">
+
                     <li class="active"><a href="#tab_1" data-toggle="tab">
-                            <p class="glyphicon glyphicon-cloud-upload"></p> Add Expenses
+                            <p class="glyphicon glyphicon-cloud-upload"></p> Inquiry
                         </a></li>
                     <li><a href="#tab_2" data-toggle="tab">
-                            <p class="glyphicon glyphicon-cloud-download"></p> Add Income
+                            <p class="glyphicon glyphicon-cloud-download"></p> Add Expenses
                         </a>
                     </li>
                     <li><a href="#tab_3" data-toggle="tab">
-                            <p class="glyphicon glyphicon-cloud-download"></p> Inquiry
+                            <p class="glyphicon glyphicon-cloud-download"></p> Add Income
                         </a>
                     </li>
                     <!-- <li class="dropdown">
@@ -88,22 +89,11 @@ if (isset($_GET['page'])) {
                     <li class="pull-right"><a href="#" class="text-muted"><i class="fa fa-gear"></i></a></li>-->
                 </ul>
                 <div class="tab-content">
-                    <div class="tab-pane active" id="tab_1"> <!-- start TAB 1 -->
-
-                        <?php include "includes/add_entry_form.incl.php"; ?>
-
-                    </div> <!-- end TAB 1 -->
-                    <!-- /.tab-pane -->
-                    <div class="tab-pane" id="tab_2">
-
-                        <?php include "includes/add_entry_income_form.incl.php"; ?>
-                    </div>
-                    <!-- /.tab-pane -->
-                    <div class="tab-pane" id="tab_3">
+                    <div class="tab-pane active" id="tab_1">
                         <div class="form-row">
 
                             <form class="form-group">
-                                by date: <select class="form-inline" name="datef" id="datef"
+                                by date: <select class="form-inline input-lg" name="datef" id="datef"
                                                  onchange="filterEntries()">
                                     <option value="0" selected>Select date range:</option>
                                     <option value="1">Today</option>
@@ -133,6 +123,18 @@ if (isset($_GET['page'])) {
                             <?php include "../controller/get_transactions_with_filters.php"; ?>
                         </div>
                     </div>
+                    <div class="tab-pane" id="tab_2"> <!-- start TAB 1 -->
+
+                        <?php include "includes/add_entry_form.incl.php"; ?>
+
+                    </div> <!-- end TAB 1 -->
+                    <!-- /.tab-pane -->
+                    <div class="tab-pane" id="tab_3">
+
+                        <?php include "includes/add_entry_income_form.incl.php"; ?>
+                    </div>
+                    <!-- /.tab-pane -->
+
                     <!-- /.tab-pane -->
                 </div>
                 <!-- /.tab-content -->

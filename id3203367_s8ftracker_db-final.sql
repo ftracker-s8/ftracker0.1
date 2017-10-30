@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 30, 2017 at 08:55 AM
+-- Generation Time: Oct 30, 2017 at 09:03 AM
 -- Server version: 10.1.25-MariaDB
 -- PHP Version: 5.6.31
 
@@ -21,8 +21,7 @@ SET time_zone = "+00:00";
 --
 -- Database: `id3203367_s8ftracker_db`
 --
-DROP DATABASE IF EXISTS `id3203367_s8ftracker_db`;
-CREATE DATABASE IF NOT EXISTS `id3203367_s8ftracker_db` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+CREATE DATABASE IF NOT EXISTS `id3203367_s8ftracker_db` DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
 USE `id3203367_s8ftracker_db`;
 
 -- --------------------------------------------------------
@@ -189,35 +188,6 @@ INSERT INTO `transactions` (`transaction_id`, `date_time`, `account_id`, `amount
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user_categories`
---
-
-DROP TABLE IF EXISTS `user_categories`;
-CREATE TABLE `user_categories` (
-  `uc_id` int(11) NOT NULL,
-  `user_cat_name` varchar(16) COLLATE utf8_unicode_ci NOT NULL,
-  `user_cat_icon` varchar(45) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'wallet.png',
-  `user_cat_color` varchar(11) COLLATE utf8_unicode_ci NOT NULL DEFAULT '#ffffff',
-  `user_cat_desc` varchar(45) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'no desc',
-  `user_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Dumping data for table `user_categories`
---
-
-INSERT INTO `user_categories` (`uc_id`, `user_cat_name`, `user_cat_icon`, `user_cat_color`, `user_cat_desc`, `user_id`) VALUES
-(21, 'test1', 'default.png', 'ff00aa', 'desc1', 26),
-(22, 'test2', 'default.png', 'red', 'desc2', 26),
-(23, 'custom1', 'phone.png', 'CC0300', 'proba', 27),
-(24, 'custom1', 'money.png', '91AD4E', 'stroitelni mats', 26),
-(25, 'Custom 2', 'food.png', 'A62E63', 'asdasdasd', 30),
-(28, 'Cat2', 'kid.png', '#2F10CC', 'Cat2Cat2Cat2Cat2', 31),
-(34, 'bbbbb', 'food.png', '#1616CC', 'sdfsdfdsfsdf', 31);
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `users`
 --
 
@@ -250,6 +220,35 @@ INSERT INTO `users` (`user_id`, `user_email`, `password`, `first_name`, `last_na
 (29, 'pesho@test.com', '88ac22d45b08079504d58d97867af5430afee469', 'pesho', 'pesho', '../uploads/placeholder.jpg', 1, '2017-10-26 09:08:16', 0),
 (30, 'test1@test.com', 'b444ac06613fc8d63795be9ad0beaf55011936ac', 'User1', 'Test1', '../uploads/placeholder.jpg', 1, '2017-10-28 09:23:46', 0),
 (31, 'ivan@ivanov.com', 'a15f8b81a160b4eebe5c84e9e3b65c87b9b2f18e', 'ivan', 'ivanov', '../uploads/placeholder.jpg', 1, '2017-10-29 15:59:11', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user_categories`
+--
+
+DROP TABLE IF EXISTS `user_categories`;
+CREATE TABLE `user_categories` (
+  `uc_id` int(11) NOT NULL,
+  `user_cat_name` varchar(16) COLLATE utf8_unicode_ci NOT NULL,
+  `user_cat_icon` varchar(45) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'wallet.png',
+  `user_cat_color` varchar(11) COLLATE utf8_unicode_ci NOT NULL DEFAULT '#ffffff',
+  `user_cat_desc` varchar(45) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'no desc',
+  `user_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `user_categories`
+--
+
+INSERT INTO `user_categories` (`uc_id`, `user_cat_name`, `user_cat_icon`, `user_cat_color`, `user_cat_desc`, `user_id`) VALUES
+(21, 'test1', 'default.png', 'ff00aa', 'desc1', 26),
+(22, 'test2', 'default.png', 'red', 'desc2', 26),
+(23, 'custom1', 'phone.png', 'CC0300', 'proba', 27),
+(24, 'custom1', 'money.png', '91AD4E', 'stroitelni mats', 26),
+(25, 'Custom 2', 'food.png', 'A62E63', 'asdasdasd', 30),
+(28, 'Cat2', 'kid.png', '#2F10CC', 'Cat2Cat2Cat2Cat2', 31),
+(34, 'bbbbb', 'food.png', '#1616CC', 'sdfsdfdsfsdf', 31);
 
 -- --------------------------------------------------------
 
@@ -296,18 +295,18 @@ ALTER TABLE `transactions`
   ADD KEY `fk_accounts_idx` (`account_id`);
 
 --
--- Indexes for table `user_categories`
---
-ALTER TABLE `user_categories`
-  ADD PRIMARY KEY (`uc_id`),
-  ADD KEY `fk_usrcat_userid_idx` (`user_id`);
-
---
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`user_id`),
   ADD UNIQUE KEY `user_email_UNIQUE` (`user_email`);
+
+--
+-- Indexes for table `user_categories`
+--
+ALTER TABLE `user_categories`
+  ADD PRIMARY KEY (`uc_id`),
+  ADD KEY `fk_usrcat_userid_idx` (`user_id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -334,15 +333,15 @@ ALTER TABLE `categories`
 ALTER TABLE `transactions`
   MODIFY `transaction_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 --
--- AUTO_INCREMENT for table `user_categories`
---
-ALTER TABLE `user_categories`
-  MODIFY `uc_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
---
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
   MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+--
+-- AUTO_INCREMENT for table `user_categories`
+--
+ALTER TABLE `user_categories`
+  MODIFY `uc_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 --
 -- Constraints for dumped tables
 --

@@ -51,12 +51,12 @@ if (session_status() == PHP_SESSION_NONE) {
             </form>
             <br>
         </div>
-        <div class="col-md-6 col-padding10 shadow-soft">
+        <div class="col-md-6 pull-right shadow-soft">
             <h1>Change username details</h1>
             <?php include "../controller/get_profile.php" ;?>
             <form class="form-group-lg" action="../controller/update_user_ctrl.php" method="post">
                 <div class="form-group">
-                    <label class="col-sm-3 control-label" for="user_email"a>User/email</label>
+                    <label class="col-sm-3 control-label" for="user_email">User/email</label>
                     <input class="form-control" type="text" name="user_email" value="<?php echo $all_user_data[0]["user_email"] ?>" autofocus><br>
                 </div>
                 <!--            <span class="help-block">Last Name, First Name, eg.: Smith, Harry</span>-->
@@ -66,6 +66,7 @@ if (session_status() == PHP_SESSION_NONE) {
                 Last Name<input class="form-control" type="text" name="last_name" value="<?php echo $all_user_data[0]["last_name"] ?>"><br>
                 <input class="btn btn-primary" type="submit" name="updateuser" value="Update">
             </form>
+            <br>
 
             <?php
             if (!isset($_COOKIE['upload-error'])) {

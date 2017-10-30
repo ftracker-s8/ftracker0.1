@@ -18,6 +18,11 @@ use model\UserDAO;
 //$res = strlen($_POST['password']);
 //var_dump($res);
 //exit();
+$uid = "";
+if(isset($_SESSION["user_id"])) {
+                $uid = $_SESSION["user_id"];
+            }
+//var_dump($uid);
 if (isset($_POST['updateuser'])
     //&& filter_var($_POST['user_email'], FILTER_VALIDATE_EMAIL)
     // strlen($_POST['user_email']) > 7 && strlen($_POST['user_email']) < 254
@@ -33,7 +38,7 @@ if (isset($_POST['updateuser'])
     $account_name = 'Cash';
     $amount = 0;
     $owner_id = "";
-    $uid = "";
+    //$uid = "";
     $set_old_pass = "";
 
     //$passw = new \model\UserVO();
@@ -47,9 +52,15 @@ if (isset($_POST['updateuser'])
 
         $user->setFirstName(htmlentities($_POST['first_name']));
         $user->setLastName(htmlentities($_POST['last_name']));
+        $user->setUserId($uid);
         //$user->setUserPic("../uploads/placeholder.jpg");
 
+//        var_dump($user);
+//        exit();
         $userDao->updateUserInfo($user);
+        if (isset($_SESSION['user_name'])) {
+            $_SESSION['user_name'] = htmlentities($_POST['first_name']);
+        }
         if(trim(strlen($_POST['password'])) > 4) {
             $uid = "";
             if(isset($_SESSION["user_id"])) {
@@ -62,7 +73,7 @@ if (isset($_POST['updateuser'])
         else {
             echo "Pss provb";
         }
-
+//echo "OK";
         header("location: ../view/profile.php");
 
     } catch (PDOException $e) {

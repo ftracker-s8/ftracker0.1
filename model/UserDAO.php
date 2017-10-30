@@ -155,8 +155,6 @@ class UserDAO{
     public function updateUserInfo(\model\UserVO $user) {
         $sql = "UPDATE users SET user_email = ?, first_name = ?, last_name = ? WHERE user_id = ?";
         $stmt = $this->pdo->prepare($sql);
-        //$stmt->bindParam("uid", $user_id,\PDO::PARAM_INT);
-        //$stmt->execute([$user->getUserEmail(), $user->getPassword(), $user->getFirstName(), $user->getLastName(), $user->getUserId()]);
         $stmt->execute([$user->getUserEmail(), $user->getFirstName(), $user->getLastName(), $user->getUserId()]);
         //$data = $stmt->fetch(\PDO::FETCH_OBJ);
         //return $data;
