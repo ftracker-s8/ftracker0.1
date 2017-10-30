@@ -38,17 +38,30 @@ GROUP BY DATE_FORMAT(a.date_time, '%Y-%m')
 ORDER BY DATE_FORMAT(a.date_time, '%Y-%m') ASC
 ";
 
+$sql5 ="
+SELECT t.Month, t.amountsum, DATE_FORMAT(b.date_time, '%Y-%m'), SUM(b.amount) as amb
+FROM 
+(SELECT DATE_FORMAT(date_time, '%Y-%m') AS Month, SUM(amount) as amountsum
+FROM transactions
+WHERE exp_inc = `inc`
+GROUP BY DATE_FORMAT(date_time, '%Y-%m')) AS t
+NATURAL JOIN transactions as b
+WHERE b.exp_inc = `exp`
+GROUP BY DATE_FORMAT(b.date_time, '%Y-%m')
+";
+
+
 $pdo = \model\DBManager::getInstance()->getConnection();
 $sql = "SELECT amount FROM transactions WHERE exp_inc = 'inc'";
-$stmt = $pdo->prepare($sql4);
+$stmt = $pdo->prepare($sql5);
 $stmt->execute();
 $incoms = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 
-$sql = "SELECT amount FROM transactions WHERE exp_inc = 'inc'";
-$stmt = $pdo->prepare($sql3exp);
-$stmt->execute();
-$expenses = $stmt->fetchAll(PDO::FETCH_ASSOC);
+//$sql = "SELECT amount FROM transactions WHERE exp_inc = 'inc'";
+//$stmt = $pdo->prepare($sql3exp);
+//$stmt->execute();
+//$expenses = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 //print_r($incoms). PHP_EOL;
 //print_r($incoms). PHP_EOL;
@@ -62,7 +75,7 @@ $expenses = $stmt->fetchAll(PDO::FETCH_ASSOC);
 //    }
 //}
 foreach ($incoms as $item) {
-         $chart_data .= "{ year:'" . $item['Month'] . "', inc:" . $item["amounti"] . ", exp:" . $item["amounte"] . "}, ";
+         $chart_data .= "{ year:'" . $item['Month'] . "', inc:" . $item["amounte"] . ", exp:" . $item["amounte"] . "}, ";
 }
 print_r($chart_data);
 
