@@ -39,15 +39,14 @@ ORDER BY DATE_FORMAT(a.date_time, '%Y-%m') ASC
 ";
 
 $sql5 ="
-SELECT t.Month, t.amountsum, DATE_FORMAT(b.date_time, '%Y-%m'), SUM(b.amount) as amb
-FROM 
-(SELECT DATE_FORMAT(date_time, '%Y-%m') AS Month, SUM(amount) as amountsum
-FROM transactions
-WHERE exp_inc = `inc`
-GROUP BY DATE_FORMAT(date_time, '%Y-%m')) AS t
-NATURAL JOIN transactions as b
-WHERE b.exp_inc = `exp`
-GROUP BY DATE_FORMAT(b.date_time, '%Y-%m')
+SELECT t.month, t.amountt, DATE_FORMAT(date_time,'%Y-%m') AS month, SUM(amount) AS amounte
+FROM
+(SELECT *, DATE_FORMAT(date_time, '%Y-%m') AS month, SUM(amount) as amountt
+FROM transactions AS e
+WHERE user_id = 26 AND exp_inc = 'inc'
+GROUP BY DATE_FORMAT(date_time, '%Y-%m')
+) as t
+GROUP BY DATE_FORMAT(date_time, '%Y-%m')
 ";
 
 
@@ -75,7 +74,7 @@ $incoms = $stmt->fetchAll(PDO::FETCH_ASSOC);
 //    }
 //}
 foreach ($incoms as $item) {
-         $chart_data .= "{ year:'" . $item['Month'] . "', inc:" . $item["amounte"] . ", exp:" . $item["amounte"] . "}, ";
+         $chart_data .= "{ year:'" . $item['month'] . "', inc:" . $item["amountt"] . ", exp:" . $item["amounte"] . "}, ";
 }
 print_r($chart_data);
 
