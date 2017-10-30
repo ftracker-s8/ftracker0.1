@@ -40,7 +40,7 @@ include "../model/userClass.php";
         <h1>
             Overview::Welcome <?php
             if (!empty($_SESSION['user_name'])) {
-                echo $_SESSION['user_name'] . " | id # " . $_SESSION['user_id'];
+                echo $_SESSION['user_name'];
             }
             ?>
         </h1>
