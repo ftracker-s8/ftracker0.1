@@ -46,6 +46,8 @@ FROM transactions AS e
 WHERE user_id = 26 AND exp_inc = 'inc'
 GROUP BY DATE_FORMAT(date_time, '%Y-%m')
 ) as t
+NATURAL JOIN transactions as b
+
 GROUP BY DATE_FORMAT(date_time, '%Y-%m')
 ";
 
