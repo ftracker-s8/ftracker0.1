@@ -18,3 +18,4 @@ $result = "";
 $owner_id = $_SESSION['user_id'];
 //selectCategoriesUnionList
 $union_result = UserCategoriesDao::getUserCategoryInstance()->selectCategoriesUnionList($owner_id);
+//var_dump($union_result);

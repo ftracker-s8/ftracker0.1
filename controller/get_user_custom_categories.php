@@ -9,6 +9,8 @@ if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
 
+include_once "../model/dao/UserCategoriesDao.php";
+include_once "../model/DBManager.php";
 use model\UserCategories;
 use model\dao\UserCategoriesDao;
 $user_id = "";

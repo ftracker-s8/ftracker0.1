@@ -10,5 +10,5 @@ use model\dao\AccountDao;
 $owner_id = $_SESSION['user_id'];
 $oi = new Accounts($owner_id);
 
-$result = AccountDao::getAInstance()->getUserTotalAmmount($oi);
-echo $result['total'];
+$result_total_ammount = AccountDao::getAInstance()->getUserTotalAmmount($oi);
+//echo $result['total'];

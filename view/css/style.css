@@ -52,8 +52,10 @@ legend.add-cat {
 }
 input[type=text] {padding: 2px 5px 2px 10px; !important;}
 #footer {box-sizing: content-box; padding: 20px}
-.background-light-gray {background: #f4f4f4
+.background-light-gray {background: #f4f4f4}
+.background-dark-gray {background: #161616
 }
+
 .shadow-soft {box-shadow: 0 3px 7px #d8d8d8
 }
 
@@ -127,8 +129,34 @@ width: 60px;
 .filter {min-height: 3em;}
 
 .border-thin {
-
-box-sizing: content-box;
-    border: 1px solid #dddddd;
+    box-sizing: content-box;
+    border: 1px solid #d0d0d0;
     padding: 20px;
+    border-radius: 3px;
+}
+.row-exp {background: #440918
+}
+.row-inc {background: #124124
+}
+
+select.icon-menu option {
+    background-size: contain;
+    background-repeat:no-repeat;
+    background-position:bottom left ;
+    padding-left:30px;
+
+}
+.balance {
+    color: white;
+    font-weight: 600;
+    text-shadow: 0 2px 3px #000;
+}
+.balance-red-bg {
+    background: #540000 !important;
+}
+.balance-green-bg {
+    background: #005d00 !important;
+}
+.balance-orange-bg {
+    background: #7d5d10 !important;
 }

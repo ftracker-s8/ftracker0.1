@@ -40,8 +40,6 @@ class UserCategoriesDao
         $stm->execute([$uid]);
         $cat_list_result = $stm->fetchAll(\PDO::FETCH_ASSOC);
         return $cat_list_result;
-
-
     }
 
     public function getAllCustomCategories($user_id) {
@@ -73,4 +71,22 @@ class UserCategoriesDao
         $stm = $this->pdo->prepare(self::RM_CUSTOM_CATEGORY);
         $stm->execute([$u->getUserId(), $uc_id]);
     }
+
+    public function selectExpCategories($uid) {
+        $sql = "SELECT * FROM CategoriesUnion WHERE category_id < 12 OR category_id > 20 AND `user_id` IN (0, ?)";
+        //$sql = "SELECT user_id FROM `CategoriesUnion`";
+        $stm = $this->pdo->prepare($sql);
+        $stm->execute([$uid]);
+        $results = $stm->fetchAll(\PDO::FETCH_ASSOC);
+        return $results;
+    }
+    public function selectIncCategories($uid) {
+        $sql = "SELECT * FROM CategoriesUnion WHERE category_id >= 12 AND category_id <= 16 AND `user_id` IN (0, ?)";
+        //$sql = "SELECT user_id FROM `CategoriesUnion`";
+        $stm = $this->pdo->prepare($sql);
+        $stm->execute([$uid]);
+        $results = $stm->fetchAll(\PDO::FETCH_ASSOC);
+        return $results;
+    }
+
 }

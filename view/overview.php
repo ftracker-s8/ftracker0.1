@@ -46,9 +46,9 @@ include "../model/userClass.php";
         </h1>
     </div>
     <div class="row">
-        <?php include "../controller/get_user_all_transactions_uid_ctrl.php"; ?>
+        <?php include "includes/show_barchart_year.incl.php"; ?>
     </div>
-    <div class="row">
+    <!-- <div class="row">
         <div class="box-body chart-responsive col-md-4">
             <div class="chart" id="sales-chart" style="height: 300px; position: relative;"></div>
         </div>
@@ -56,9 +56,7 @@ include "../model/userClass.php";
         <div class="box-body chart-responsive col-md-4">
             <div class="chart" id="bar-chart" style="height: 300px;"></div>
         </div>
-    </div>
-
-
+    </div> -->
 
 
 </div> <!-- container-->

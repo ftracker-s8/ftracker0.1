@@ -3,6 +3,7 @@
 
 <!--<link rel="stylesheet" href="css/bootstrap.min.css">-->
 <!--<link rel="stylesheet" href="css/bootstrapunited.min.css">-->
+<link rel="stylesheet" href="css/morris.css">
 <link rel="stylesheet" href="css/bootstrapslate.min.css">
 <link rel="stylesheet" href="css/style.css">
 

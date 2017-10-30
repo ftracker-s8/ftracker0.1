@@ -36,6 +36,9 @@ WHERE u.user_id = ?";
     const SELECT_USER_SUM_AMMOUNT = "SELECT round(sum(ammount),2) as total, currency FROM accounts as a WHERE owner_id = ?";
     const GET_USER_ACCOUNT_INFO_BY_ID = "SELECT * FROM accounts WHERE account_id = ?";
 
+    public function addIncome ($inc_values) {
+
+    }
     public function getUserAcountsList($uid) {
             $stm = $this->pdo->prepare(self::GET_USER_ACCOUNTS);
             $stm->execute(array($uid));
@@ -47,7 +50,7 @@ WHERE u.user_id = ?";
         $sql = "UPDATE accounts SET ammount = ? WHERE account_id = ?";
         $stm = $this->pdo->prepare($sql);
         $stm->execute([$ammount, $aid]);
-        return;
+        return true;
     }
 
 //    public function addNewAccount(AccountDao $a) {

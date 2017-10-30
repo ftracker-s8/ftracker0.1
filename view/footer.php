@@ -5,7 +5,7 @@
  */
 ?>
 
-<div class="container-fluid background-light-gray">
+<div class="container background-dark-gray">
     <div class="row">
         <div class="col-lg-12">
             <div class="col-md-3">email: admin@s8ftracker.tk</div>

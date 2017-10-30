@@ -8,12 +8,11 @@
 
 ?>
 <div class="form-row">
-    <form class="form-group" action="../controller/add_expence_ctrl.php" method="post">
-        <!--    account id: <input type="number" name="account_id" value="26" placeholder="26"><br>
-        <input type="radio" class="radio-inline input-lg"  name="entype" value="0" checked>(-) Expense
-        <input type="radio" class="radio-inline" name="entype" value="1"> (+)Income<br>-->
+    <form class="form-group" action="../controller/add_incomes_ctrl.php" method="post">
+        <!--    account id: <input type="number" name="account_id" value="26" placeholder="26"><br>-->
 
-        <label class="" for="account_id">from account:</label>
+
+        <label class="" for="account_id">to account:</label>
         <select class="form-control input-lg" name="account_id" id="account_id">
             <?php
             include "../controller/get_user_account_list.php";
@@ -33,11 +32,11 @@
 
         Category <select class="form-control input-lg icon-menu" name="category" id="category">
             <?php
-//            include "../controller/get_exp_union_categories_ctrl.php";
-//            foreach ($united_list as $row) {
-//                echo "<option value=\"" . $row['category_id'] . "\"> " . $row['category_name'] . "</option>";
-//            }
-            include "show_exp_union_list.php"
+            //            include "../controller/get_exp_union_categories_ctrl.php";
+            //            foreach ($united_list as $row) {
+            //                echo "<option value=\"" . $row['category_id'] . "\"> " . $row['category_name'] . "</option>";
+            //            }
+            include "show_inc_union_list.incl.php"
 
             ?>
 
@@ -46,7 +45,7 @@
 
 
 
-        <input class="btn btn-success pull-right" type="submit" name="add_exp" value="Add Expence">
+        <input class="btn btn-success pull-right" type="submit" name="add_inc" value="Add Income">
 
         <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
     </form>
@@ -54,13 +53,13 @@
 </div>
 <div class="alert">
     <?php
-    if(!empty($_SESSION['exp-err'])) {
-        echo "
-        <div class='alert alert-dismissible alert-danger'>
-            <button type='button' class='close' data-dismiss='alert'>&times;</button>
-            <strong>" . $_SESSION["exp-err"] . "</strong> 
-        </div>";
-
-    }
+//    if(!empty($_SESSION['exp-err'])) {
+//        echo "
+//        <div class='alert alert-dismissible alert-danger'>
+//            <button type='button' class='close' data-dismiss='alert'>&times;</button>
+//            <strong>" . $_SESSION["exp-err"] . "</strong>
+//        </div>";
+//
+//    }
     ?>
 </div>

@@ -42,9 +42,9 @@ if (isset($_GET['page'])) {
                 </div>
                 <div class="modal-body" id="modala">
 
-                    <?php include "includes/add_expence_form.incl.php"; ?>
+                    <?php include "includes/add_entry_form.incl.php"; ?>
 
-<!--                    <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>-->
+                    <!--                    <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>-->
                 </div>
                 <!-- <div class="modal-footer">
                     <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
@@ -62,9 +62,16 @@ if (isset($_GET['page'])) {
         <div class="col-sm-8">
             <div class="nav-tabs-custom">
                 <ul class="nav nav-tabs">
-                    <li class="active"><a href="#tab_1" data-toggle="tab"><p
-                                    class="glyphicon glyphicon-cloud-download"></p> Expenses</a></li>
-                    <li><a href="#tab_2" data-toggle="tab"><p class="glyphicon glyphicon-cloud-upload"></p> Incoms</a>
+                    <li class="active"><a href="#tab_1" data-toggle="tab">
+                            <p class="glyphicon glyphicon-cloud-upload"></p> Add Expenses
+                        </a></li>
+                    <li><a href="#tab_2" data-toggle="tab">
+                            <p class="glyphicon glyphicon-cloud-download"></p> Add Income
+                        </a>
+                    </li>
+                    <li><a href="#tab_3" data-toggle="tab">
+                            <p class="glyphicon glyphicon-cloud-download"></p> Inquiry
+                        </a>
                     </li>
                     <!-- <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">
@@ -81,65 +88,78 @@ if (isset($_GET['page'])) {
                     <li class="pull-right"><a href="#" class="text-muted"><i class="fa fa-gear"></i></a></li>-->
                 </ul>
                 <div class="tab-content">
-                    <div class="tab-pane active" id="tab_1">
-                        <div class="">
-                            <div class="col-auto filter border-thin">
-                                <h4>Filter:</h4>
-                                <!-- Date and time range -->
-                                <form>
-                                    by date: <select class="form-inline input-lg" name="users" onchange="filterDates(this.value)">
-                                        <option value="">Select date range:</option>
-                                        <option value="1">Today</option>
-                                        <option value="2">Yesterday</option>
-<!--                                        <option value="3">Last 7 days</option>-->
-                                        <option value="3">This month</option>
-                                        <option value="4">Last month</option>
-                                        <option value="5">This year</option>
-                                    </select>
+                    <div class="tab-pane active" id="tab_1"> <!-- start TAB 1 -->
 
-                                </form>
-                                <input type="radio" name="both" value="both" checked> Both<br>
-                                <input type="radio" name="exp" value="exp"> ExpensesBoth<br>
-                                <input type="radio" name="inc" value="inc"> Incoms<br>
+                        <?php include "includes/add_entry_form.incl.php"; ?>
 
-                            </div>
+                    </div> <!-- end TAB 1 -->
+                    <!-- /.tab-pane -->
+                    <div class="tab-pane" id="tab_2">
+
+                        <?php include "includes/add_entry_income_form.incl.php"; ?>
+                    </div>
+                    <!-- /.tab-pane -->
+                    <div class="tab-pane" id="tab_3">
+                        <div class="form-row">
+
+                            <form class="form-group">
+                                by date: <select class="form-inline" name="datef" id="datef"
+                                                 onchange="filterEntries()">
+                                    <option value="0" selected>Select date range:</option>
+                                    <option value="1">Today</option>
+                                    <option value="2">Yesterday</option>
+                                    <!--                                        <option value="3">Last 7 days</option>-->
+                                    <option value="3">This month</option>
+                                    <option value="4">This Year</option>
+                                    <option value="5">All</option>
+                                </select>
+                                <label for="entrytype" class="label">by type:
+                                    <input type="radio" class="radio radio-inline" name="entrytype" id="entrytype"
+                                           value="both"
+                                           checked onclick="filterEntries()"> Both
+                                    <input type="radio" class="radio radio-inline" name="entrytype" id="entrytype"
+                                           value="exp"
+                                           onclick="filterEntries()"> Expenses
+                                    <input type="radio" class="radio radio-inline" name="entrytype" id="entrytype"
+                                           value="inc"
+                                           onclick="filterEntries()"> Incoms<br>
+                                </label>
+                            </form>
+
+
                         </div>
+
                         <div id="transactionslist">
                             <?php include "../controller/get_transactions_with_filters.php"; ?>
                         </div>
                     </div>
-                    <!-- /.tab-pane -->
-                    <div class="tab-pane" id="tab_2">
-                        The European languages are members of the same family. Their separate existence is a myth.
-                        For science, music, sport, etc, Europe uses the same vocabulary. The languages only differ
-                        in their grammar, their pronunciation and their most common words. Everyone realizes why a
-                        new common language would be desirable: one could refuse to pay expensive translators. To
-                        achieve this, it would be necessary to have uniform grammar, pronunciation and more common
-                        words. If several languages coalesce, the grammar of the resulting language is more simple
-                        and regular than that of the individual languages.
-                    </div>
-                    <!-- /.tab-pane -->
-                    <!--                <div class="tab-pane" id="tab_3">
-                                        Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                                        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-                                        when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-                                        It has survived not only five centuries, but also the leap into electronic typesetting,
-                                        remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset
-                                        sheets containing Lorem Ipsum passages, and more recently with desktop publishing software
-                                        like Aldus PageMaker including versions of Lorem Ipsum.
-                                    </div> -->
                     <!-- /.tab-pane -->
                 </div>
                 <!-- /.tab-content -->
             </div>
             <!-- nav-tabs-custom -->
 
-        </div>
+        </div> <!-- end col 1 -->
+
         <div class="col-sm-4" id="sidebar">
             <div class="panel panel-default">
-                <div class="panel-heading">Statistics</div>
+                <?php include "../controller/get_user_account_totals_ammount.php"?>
+                <div class="panel-heading
+                    <?php
+                    if ($result_total_ammount['total'] > 50) {
+                        echo "balance balance-green-bg";
+                    }
+                    elseif ($result_total_ammount['total'] <= 0) {
+                            echo "balance balance-red-bg";
+                    }
+                    elseif ($result_total_ammount['total'] > 0 && $result_total_ammount['total'] <100) {
+                        echo "balance balance-orange-bg";
+                    }
+                ?>"
+                >Balance: <strong><?php echo $result_total_ammount['total']; ?> $</strong>
+                </div>
                 <div class="panel-body">
-                    Panel content
+                    <?php include "includes/show_user_accounts_avail.incl.php"; ?>
                 </div>
             </div>
         </div><!--/.sidebar-offcanvas-->
@@ -151,7 +171,7 @@ if (isset($_GET['page'])) {
 <?php //include 'footer.php' ?>
 <div class="bottom-but-area">
     <button type="button" class="btn-round-large btn-red" data-toggle="modal" data-target="#modal-add-exp">+</button>
-    Add expense
+    Add entry
 </div>
 
 </body>

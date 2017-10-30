@@ -82,11 +82,11 @@ include "../model/DBManager.php";
         <fieldset class="field_container profile-field">
             <legend> Add new account </legend>
             <form class="form-inline">
-                <input class="form-text" type="text" id="account_name" placeholder="Account name" required>
-                <input class="form-text text-right" type="number" id="ammount" placeholder="Ammount" step=".01" required>$
-                <input class="form-text" type="text" id="account_desc" placeholder="description">
+                <input class="form-text input-lg" type="text" id="account_name" placeholder="Account name" required>
+                <input class="form-text input-lg text-right" type="number" id="ammount" placeholder="Ammount" step=".01" required>$
+                <input class="form-text input-lg" type="text" id="account_desc" placeholder="description">
 
-                <input type="button" class="btn btn-outline-secondary frm_button" value="Add" onclick="add_new_account()">
+                <input type="button" class="btn btn-outline-secondary input-lg" value="Add" onclick="add_new_account()">
             </form>
             <div id="err_ms_id"></div>
         </fieldset>

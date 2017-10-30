@@ -81,13 +81,14 @@ $user_id = $_POST['user_id'];
             <fieldset class="form-group-lg">
                 <legend class="legend"> Add custom category</legend>
 
-                <form class="form-inline">
-                    <input class="form-text" type="text" id="user_cat_name" placeholder="Category name" required>
-                    <select class="form-text form-inline" name="icons" id="icons">
-                        <option value="money.png" selected>Money</option>
-                        <option value="kid.png" selected>Kid</option>
-                        <option value="phone.png">Phone</option>
-                        <option value="food.png">Food</option>
+                <form class="form-group">
+                    Category name: <input class="form-control" type="text" id="user_cat_name" placeholder="Category name" required>
+                    Select icon: <select class="form-control form-inline" name="icons" id="icons" required>
+                        <option <option value="" disabled selected><p class="glyphicon glyphicon-user"></p> Select icon</option>
+                        <option value="money.png"><p class="glyphicon glyphicon-user"></p> Money</option>
+                        <option value="kid.png" ><p class="glyphicon glyphicon-user"></p> Kid</option>
+                        <option value="phone.png"><p class="glyphicon glyphicon-phone"></p>Phone</option>
+                        <option value="food.png"><p class="glyphicon glyphicon-apple"></p>Food</option>
 <!--                        --><?php
 //                        //$result_cat = CategoryDao::getCategoryInstance()->getAllDefaultCategories();
 //                        //var_dump($result_cat);
@@ -99,19 +100,17 @@ $user_id = $_POST['user_id'];
 
                     </select>
 
-                    <input class="form-text" type="text" id="user_cat_desc" placeholder="description">
+                    <input class="form-control form-inline" type="text" id="user_cat_desc" placeholder="description">
 
-                    <input name="user_cat_color" type="hidden" id="color_value" value="99cc00">
+                    Choose color: <input name="user_cat_color" type="hidden" id="color_value" value="99cc00">
                     <button class="jscolor {valueElement: 'color_value'}">&nbsp;</button>
 
 <!--                    <input type="button" class="btn btn-outline-secondary frm_button" value="Add" onclick="addViaAjax('../controller/add_custom_category.php', list_container, <?//= $user_id; ?>//, 'default')"> -->
-                    <input type="button" class="frm_button" value="Add" onclick="add_custom_category()">
+                    <input type="button" class="btn btn-success" value="Add" onclick="add_custom_category()">
 
                 </form>
                 <div id="err_ms_id"></div>
             </fieldset>
-
-
 
             <div id="list_container" class="col-md-8">
                 <?php include "../controller/get_user_custom_categories.php" ?>
@@ -123,7 +122,7 @@ $user_id = $_POST['user_id'];
 
 
 </div> <!-- container-->
-<div class="container">
+<div>
     <?php include 'footer.php' ?>
 </div>
 </body>
