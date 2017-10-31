@@ -28,9 +28,12 @@ include "../model/userClass.php";
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 
     <?php include_once "head.inc.php"; ?>
+<!--    <script src="/view/js/Chart.min.js"></script>-->
+    <script src="/view/js/Chart27.js"></script>
     <link rel="stylesheet" href="css/morris.css">
-    <script src="js/raphael.min.js"></script>
-    <script src="js/morris.min.js"></script>
+    <!-- <script src="js/raphael.min.js"></script>
+    <script src="js/morris.min.js"></script> -->
+
 </head>
 <body>
 <?php include "header.php" ?>
@@ -45,6 +48,7 @@ include "../model/userClass.php";
             ?>
         </h1>
     </div>
+
     <div class="row">
         <?php include "includes/show_barchart_year.incl.php"; ?>
     </div>
@@ -62,42 +66,8 @@ include "../model/userClass.php";
 </div> <!-- container-->
 <?php include 'footer.php' ?>
 
-<script>
-    $(function () {
-        "use strict";
-
-        //DONUT CHART
-        var donut = new Morris.Donut({
-            element: 'sales-chart',
-            resize: true,
-            colors: ["#3c8dbc", "#f56954", "#00a65a"],
-            data: [
-                {label: "Download Sales", value: 12},
-                {label: "In-Store Sales", value: 30},
-                {label: "Mail-Order Sales", value: 20}
-            ],
-            hideHover: 'auto'
-        });
-        //BAR CHART
-        var bar = new Morris.Bar({
-            element: 'bar-chart',
-            resize: true,
-            data: [
-                {y: '2006', a: 100, b: 90},
-                {y: '2007', a: 75, b: 65},
-                {y: '2008', a: 50, b: 40},
-                {y: '2009', a: 75, b: 65},
-                {y: '2010', a: 50, b: 40},
-                {y: '2011', a: 75, b: 65},
-                {y: '2012', a: 100, b: 90}
-            ],
-            barColors: ['#00a65a', '#f56954'],
-            xkey: 'y',
-            ykeys: ['a', 'b'],
-            labels: ['CPU', 'DISK'],
-            hideHover: 'auto'
-        });
-    });
-</script>
+<script src="js/jquery.min.js"></script>
+<script src="js/chartapp.js"></script>
+<script src="js/Chart27.js"></script>
 </body>
 </html>
