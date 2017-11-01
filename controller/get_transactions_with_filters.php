@@ -81,7 +81,11 @@ try {
     //$sql = "SELECT * FROM `transactions` WHERE $date AND user_id = $uid AND category_id = $filt_cat";
     //$sql = "SELECT * FROM `transactions` WHERE $date user_id = $uid AND `category_id`  IN $filt_cat";
     //$sql = "SELECT * FROM `transactions` WHERE $date user_id = $uid $entry_type ORDER BY `date_time` $order_date";
-    $sql = "SELECT * FROM `transactions` WHERE $date user_id = $uid $entry_type ORDER BY `date_time` $order_date";
+    $sql = "SELECT *, ca.category_name, ca.icon_url FROM `transactions` as tr
+LEFT JOIN categories AS ca
+ON ca.category_id = tr.category_id
+ 
+ WHERE $date tr.user_id = $uid $entry_type ORDER BY `date_time` $order_date";
     $stmt = $pdo->prepare($sql);
     $stmt->execute();
     $resulta = $stmt->fetchAll(\PDO::FETCH_ASSOC);
@@ -102,8 +106,8 @@ try {
         <th>Category</th>
         <th>Description</th>
         <th>Ammount</th>
-        <th>Recurent</th>
-        <th>Moify</th>
+<!--        <th>Recurent</th>-->
+<!--        <th>Moify</th>-->
     </tr>
 
     <?php foreach ($resulta as $item) { ?>
@@ -115,7 +119,7 @@ try {
 
                 ?></td>
 
-            <td><?= $item['category_id'] ?></td>
+            <td><img height="30" width="auto" src="images/icons/<?= $item['icon_url'] ?>" alt=""> <?= $item['category_name'] ?></td>
             <td><?= $item['description'] ?></td>
 
             <td class="
@@ -135,13 +139,13 @@ try {
 
                     <?= $item['amount'] ?>$</span></td>
 
-            <td><?php
+           <!--  <td><?php
                 if ($item['recurent_bill'] == 0) {
                     echo "no";
                 } else {
                     echo "yes";
                 }
-                //$item['recurent_bill'] ?></td>
+                ?></td> -->
             <!--        <td>--><? //= $item['user_id'] ?><!--</td>-->
             <!-- <td><a href="#" class="btn btn-danger delete_m" onclick="delete_account(<?php echo $item['account_id']; ?>)">Delete</a></td> -->
             <td><a data-toggle="modal" data-target="#modal-add-exp" href="#" class="btn btn-success btn-xs"

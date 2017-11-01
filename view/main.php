@@ -90,7 +90,7 @@ if (isset($_GET['page'])) {
                 </ul>
                 <div class="tab-content">
                     <div class="tab-pane active" id="tab_1">
-                        <div class="form-row">
+                        <div class="form-row filter border-thin">
 
                             <form class="form-group">
                                 by date: <select class="form-inline input-lg" name="datef" id="datef"

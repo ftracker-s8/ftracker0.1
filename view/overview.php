@@ -1,10 +1,9 @@
-
-
 <?php
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
-function __autoload($className) {
+function __autoload($className)
+{
     $className = '..\\' . $className;
     require_once str_replace("\\", "/", $className) . '.php';
 }
@@ -28,12 +27,17 @@ include "../model/userClass.php";
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 
     <?php include_once "head.inc.php"; ?>
-<!--    <script src="/view/js/Chart.min.js"></script>-->
+    <!--    <script src="/view/js/Chart.min.js"></script>-->
     <script src="/view/js/Chart27.js"></script>
     <link rel="stylesheet" href="css/morris.css">
     <!-- <script src="js/raphael.min.js"></script>
     <script src="js/morris.min.js"></script> -->
-
+    <style type="text/css">
+        #chart-container {
+            width: 640px;
+            height: auto;
+        }
+    </style>
 </head>
 <body>
 <?php include "header.php" ?>
@@ -50,17 +54,72 @@ include "../model/userClass.php";
     </div>
 
     <div class="row">
-        <?php include "includes/show_barchart_year.incl.php"; ?>
-    </div>
-    <!-- <div class="row">
-        <div class="box-body chart-responsive col-md-4">
-            <div class="chart" id="sales-chart" style="height: 300px; position: relative;"></div>
+        <!--        --><?php //include "includes/show_barchart_year.incl.php"; ?>
+
+        <?php
+        include "../controller/chart_get_inc_ctrl.php";
+        //var_dump($jsona);
+
+        //$data = json_decode($json, true);
+        //var_dump($data);
+        ?>
+
+        <div id="chart-container">
+            <canvas id="mycanvas"></canvas>
         </div>
 
-        <div class="box-body chart-responsive col-md-4">
-            <div class="chart" id="bar-chart" style="height: 300px;"></div>
+        <div id="chart-container">
+            <canvas id="pie-chart" width="300" height="auto"></canvas>
+
         </div>
-    </div> -->
+        <div id="chart-container">
+            <canvas id="doughnut-chart" width="300" height="auto"></canvas>
+
+        </div>
+    </div>
+    <script>
+        new Chart(document.getElementById("pie-chart"), {
+            type: 'pie',
+            data: {
+                labels: ["Africa", "Asia", "Europe", "Latin America", "North America"],
+                datasets: [{
+                    label: "Population (millions)",
+                    backgroundColor: ["#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850"],
+                    data: [2478, 5267, 734, 784, 433]
+                }]
+            },
+            options: {
+                title: {
+                    display: true,
+                    text: 'Predicted world population (millions) in 2050'
+                }
+            }
+        });
+    </script>
+
+    <script>
+        new Chart(document.getElementById("doughnut-chart"), {
+            type: 'doughnut',
+            data: {
+                labels: ["Africa", "Asia", "Europe", "Latin America", "North America"],
+                datasets: [
+                    {
+                        label: "Population (millions)",
+                        backgroundColor: ["#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850"],
+                        data: [2478, 5267, 734, 784, 433]
+                    }
+                ]
+            },
+            options: {
+                title: {
+                    display: true,
+                    text: 'Predicted world population (millions) in 2050'
+                }
+            }
+        });
+
+
+    </script>
 
 
 </div> <!-- container-->

@@ -12,10 +12,10 @@
         ?>
         <tr >
 
-            <td style="color: <?php echo $row['user_cat_color'] ?>"><img width="20px" height="20px" src="images/icons/<?php echo $row['user_cat_icon']; ?>" alt=""> <?php echo $row['user_cat_name'] ?></td>
-            <td><?php echo $row['user_cat_desc'] ?></td>
+            <td style="color: <?php echo $row['user_cat_color'] ?>"><img width="20px" height="20px" src="images/icons/<?php echo $row['icon_url']; ?>" alt=""> <?php echo $row['category_name'] ?></td>
+            <td><?php echo $row['category_desc'] ?></td>
 
-            <td><a href="#" class="btn btn-danger" onclick="rm_cust_cat(<?php echo $row['uc_id']; ?>)">Delete</a></td>
+            <td><a href="#" class="btn btn-danger" onclick="rm_cust_cat(<?php echo $row['category_id']; ?>)">Delete</a></td>
         </tr>
 
         <?php

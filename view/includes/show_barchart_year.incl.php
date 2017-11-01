@@ -13,27 +13,50 @@ $chart_data = '';
 if(isset($_SESSION['user_id'])) {
     $uid = $_SESSION['user_id'];
 }
+$months_list = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
-$sql3 = "
-SELECT *, SUM(amount) as incsum FROM transactions WHERE user_id = 26 AND exp_inc = 'inc'
-AND YEAR(date_time) = YEAR(NOW())
-AND DATE(date_time) BETWEEN '2017-01-01' AND '2017-12-31'
-GROUP BY month(date_time)
-ORDER BY month(date_time);
-";
-
+$sql_inc = "
+SELECT m.monthn, IFNULL(SUM(t.amount),0) as incomer FROM months as m
+LEFT JOIN transactions as t
+ON DATE_FORMAT(t.date_time, '%c') = m.monthn AND exp_inc = 'inc'
+AND user_id = 26
+GROUP BY m.monthn";
 $pdo = \model\DBManager::getInstance()->getConnection();
-$sql = "$sql3";
-$stmt = $pdo->prepare($sql3);
+$sql = "$sql_inc";
+$stmt = $pdo->prepare($sql_inc);
 $stmt->execute();
-$incoms = $stmt->fetchAll(PDO::FETCH_ASSOC);
+$incomer = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
+$sql_exp = "
+SELECT m.monthn, IFNULL(SUM(t.amount),0) as expenser FROM months as m
+LEFT JOIN transactions as t
+ON DATE_FORMAT(t.date_time, '%c') = m.monthn AND exp_inc = 'exp'
+AND user_id = 26
+GROUP BY m.monthn";
+$pdo = \model\DBManager::getInstance()->getConnection();
+$sql = "$sql_exp";
+$stmt = $pdo->prepare($sql_exp);
+$stmt->execute();
+$expenser = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
+$data_inc = [];
+foreach ($incomer as $row) {
+    $data_inc[] = $row;
+}
+var_dump($data_inc);
+
+$data_exp = [];
+foreach ($expenser as $row) {
+    $data_exp[] = $row;
+}
+var_dump($data_inc). "<br>";
+echo "trarala";
+var_dump($data_exp);
 
 //foreach ($incoms as $item) {
 //
 //}
-print_r($chart_data);
+
 
 ?>
 

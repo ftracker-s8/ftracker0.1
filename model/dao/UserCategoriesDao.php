@@ -29,9 +29,10 @@ class UserCategoriesDao
 //uc_iduser_cat_nameuser_cat_iconuser_cat_coloruser_cat_descuser_id
     //const GET_CATEGORIES_LIST = "SELECT * FROM user_categories WHERE user_id = ?";
     const GET_UNITED_CATEGORIES_LIST = "SELECT * FROM CategoriesUnion WHERE user_id = 0 OR user_id = ?";
-    const GET_USER_CATEGORIES_LIST = "SELECT * FROM `user_categories` WHERE `user_id` = ?";
-    const ADD_CUSTOM_CATEGORY = "INSERT INTO `user_categories` (user_id, user_cat_name, user_cat_icon, user_cat_color, user_cat_desc) VALUES (?, ?, ?, ?, ?)";
-    const RM_CUSTOM_CATEGORY = "DELETE FROM `user_categories` WHERE user_id = ? AND uc_id = ?";
+    const GET_USER_CATEGORIES_LIST = "SELECT * FROM `categories` WHERE `user_id` = ?";
+    //const ADD_CUSTOM_CATEGORY = "INSERT INTO `user_categories` (user_id, user_cat_name, user_cat_icon, user_cat_color, user_cat_desc) VALUES (?, ?, ?, ?, ?)";
+    const ADD_CUSTOM_CATEGORY = "INSERT INTO `categories` (user_id, category_name, icon_url, color, category_desc) VALUES (?, ?, ?, ?, ?)";
+    const RM_CUSTOM_CATEGORY = "DELETE FROM `categories` WHERE user_id = ? AND category_id = ?";
     //const ADD_CUSTOM_CATEGORY = "INSERT INTO users (user_email, `password`, first_name, last_name) VALUES (?, ?, ?, ?)";
 
     public function selectCategoriesUnionList($uid) {
@@ -73,7 +74,7 @@ class UserCategoriesDao
     }
 
     public function selectExpCategories($uid) {
-        $sql = "SELECT * FROM CategoriesUnion WHERE category_id < 12 OR category_id > 20 AND `user_id` IN (0, ?)";
+        $sql = "SELECT * FROM categories WHERE category_id < 12 OR category_id > 16 AND `user_id` IN (0, ?)";
         //$sql = "SELECT user_id FROM `CategoriesUnion`";
         $stm = $this->pdo->prepare($sql);
         $stm->execute([$uid]);
@@ -81,7 +82,7 @@ class UserCategoriesDao
         return $results;
     }
     public function selectIncCategories($uid) {
-        $sql = "SELECT * FROM CategoriesUnion WHERE category_id >= 12 AND category_id <= 16 AND `user_id` IN (0, ?)";
+        $sql = "SELECT * FROM categories WHERE category_id >= 12 AND category_id <= 16 AND `user_id` IN (0, ?)";
         //$sql = "SELECT user_id FROM `CategoriesUnion`";
         $stm = $this->pdo->prepare($sql);
         $stm->execute([$uid]);
