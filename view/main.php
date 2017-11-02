@@ -64,14 +64,14 @@ if (isset($_GET['page'])) {
                 <ul class="nav nav-tabs">
 
                     <li class="active"><a href="#tab_1" data-toggle="tab">
-                            <p class="glyphicon glyphicon-cloud-upload"></p> Inquiry
+                            <p class="glyphicon glyphicon-th-list"></p> Inquiry
                         </a></li>
                     <li><a href="#tab_2" data-toggle="tab">
                             <p class="glyphicon glyphicon-cloud-download"></p> Add Expenses
                         </a>
                     </li>
                     <li><a href="#tab_3" data-toggle="tab">
-                            <p class="glyphicon glyphicon-cloud-download"></p> Add Income
+                            <p class="glyphicon glyphicon-cloud-upload"></p> Add Income
                         </a>
                     </li>
                     <!-- <li class="dropdown">

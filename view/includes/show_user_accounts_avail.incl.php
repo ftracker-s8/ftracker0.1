@@ -19,5 +19,5 @@
     ?>
 </table>
 <div id="user-total">
-    Total ammount from accounts: <strong><?php include "../controller/get_user_account_totals_ammount.php"?> &euro;</strong>
+    Total ammount from accounts: <strong><?php include "../controller/get_user_account_totals_ammount.php"; echo $result_total_ammount['total']?> &euro;</strong>
 </div>

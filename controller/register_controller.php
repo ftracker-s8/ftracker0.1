@@ -44,10 +44,12 @@ if (isset($_POST['user_email']) && isset($_POST['password'])
 
             //Locate to error Register Page
             setcookie('err-exist', 'user exist', time()+360 );
+            $emailErr = "User already exist";
             header("Location: ../view/register.php");
         } else {
 
             $user_id = $userDao->registerUser2($user);
+
             $_SESSION['user_id'] = "";
             //echo $user_id;
             header("Location: ../view/login.php");

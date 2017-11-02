@@ -8,6 +8,7 @@ function __autoload($className)
     require_once str_replace("\\", "/", $className) . '.php';
 }
 
+
 include('../model/config.php');
 include "../model/userClass.php";
 //include('../controller/session.php');
@@ -30,14 +31,15 @@ include "../model/userClass.php";
     <!--    <script src="/view/js/Chart.min.js"></script>-->
     <script src="/view/js/Chart27.js"></script>
     <link rel="stylesheet" href="css/morris.css">
-    <!-- <script src="js/raphael.min.js"></script>
-    <script src="js/morris.min.js"></script> -->
-    <style type="text/css">
-        #chart-container {
-            width: 640px;
-            height: auto;
-        }
-    </style>
+    <!--    <script src="js/raphael.min.js"></script>-->
+    <!--    <script src="js/morris.min.js"></script>-->
+    <!--    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">-->
+<!--    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>-->
+    <!--    <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>-->
+    <!--    <script src="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>-->
+    <script src="js/raphael212-min.js"></script>
+    <script src="js/morris050.min.js"></script>
+
 </head>
 <body>
 <?php include "header.php" ?>
@@ -54,79 +56,70 @@ include "../model/userClass.php";
     </div>
 
     <div class="row">
-        <!--        --><?php //include "includes/show_barchart_year.incl.php"; ?>
-
         <?php
-        include "../controller/chart_get_inc_ctrl.php";
-        //var_dump($jsona);
+        $categories_exp_json_data = $incomes_cat_json_data = "";
+        include "../controller/chart_get_categories.php";
+        include "../controller/chart_get_income_categories.php";
+        include "../controller/chart_morris_exp_inc.php";
 
-        //$data = json_decode($json, true);
-        //var_dump($data);
         ?>
-
-        <div id="chart-container">
-            <canvas id="mycanvas"></canvas>
+        <div class="col-md-4">
+            <div id="donut-categories" style="height: 250px;"></div>
+            <div>2017 Expenses Categories</div>
         </div>
-
-        <div id="chart-container">
-            <canvas id="pie-chart" width="300" height="auto"></canvas>
-
+        <div class="col-md-4">
+            <div id="donut-inc-acc" style="height: 250px;"></div>
+            <div class="">2017 Incomes</div>
         </div>
-        <div id="chart-container">
-            <canvas id="doughnut-chart" width="300" height="auto"></canvas>
-
+        <div class="col-md-4">
+            <div id="donut-exp-inc" style="height: 250px;"></div>
         </div>
     </div>
-    <script>
-        new Chart(document.getElementById("pie-chart"), {
-            type: 'pie',
-            data: {
-                labels: ["Africa", "Asia", "Europe", "Latin America", "North America"],
-                datasets: [{
-                    label: "Population (millions)",
-                    backgroundColor: ["#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850"],
-                    data: [2478, 5267, 734, 784, 433]
-                }]
-            },
-            options: {
-                title: {
-                    display: true,
-                    text: 'Predicted world population (millions) in 2050'
-                }
-            }
+    <div class="col-md-12">
+        <div id="donut-inc-acc" style="height: 250px;"></div>
+    </div>
+
+
+    <script type="application/javascript">
+        Morris.Donut({
+            element: 'donut-categories',
+            data: <?php echo json_encode($categories_exp_json_data)?>,
+            backgroundColor: '#ccc',
+            labelColor: '#f4b107',
+            colors: [
+                '#a4000d', '#20b532', '#f4cf0c', '#c626f4', '#f49238', '#4589d7'
+            ]
         });
     </script>
-
-    <script>
-        new Chart(document.getElementById("doughnut-chart"), {
-            type: 'doughnut',
-            data: {
-                labels: ["Africa", "Asia", "Europe", "Latin America", "North America"],
-                datasets: [
-                    {
-                        label: "Population (millions)",
-                        backgroundColor: ["#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850"],
-                        data: [2478, 5267, 734, 784, 433]
-                    }
-                ]
-            },
-            options: {
-                title: {
-                    display: true,
-                    text: 'Predicted world population (millions) in 2050'
-                }
-            }
+    <script type="application/javascript">
+        Morris.Donut({
+            element: 'donut-inc-acc',
+            data: <?php echo json_encode($incomes_cat_json_data)?>,
+            backgroundColor: '#ccc',
+            labelColor: '#f4b107',
+            colors: [
+                '#a4000d', '#20b532', '#f4cf0c', '#c626f4', '#f49238', '#4589d7'
+            ]
         });
+    </script>
+    <script type="application/javascript">
+        Morris.Donut({
+            element: 'donut-exp-inc',
+            data: <?php echo json_encode($inc_exp_q_json_data)?>,
+            backgroundColor: '#ccc',
+            labelColor: '#f4b107',
+            colors: [
+                '#13a400',
+                '#8e0010'
 
-
+            ]
+        });
     </script>
 
 
 </div> <!-- container-->
 <?php include 'footer.php' ?>
 
-<script src="js/jquery.min.js"></script>
-<script src="js/chartapp.js"></script>
-<script src="js/Chart27.js"></script>
+
 </body>
 </html>

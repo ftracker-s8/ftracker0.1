@@ -38,10 +38,10 @@ if (isset($_POST['add_exp'])) {
     $value = test_input($value);
 //    var_dump($value). "<br>";
 //    exit();
-    if ($value <= $account_ammount) {
+
+//    if ($value <= $account_ammount) { // ***** check for availability
         $new_ammount = $account_ammount - $value;
-//        var_dump($new_ammount). "<br>";
-//        exit();
+
         $t_values = new \model\Transaction();
 
         $t_values->setAccountId($account_id);
@@ -52,13 +52,6 @@ if (isset($_POST['add_exp'])) {
         $t_values->setDescription($description);
         $t_values->setRecurentBill($recurent_bill);
 
-//        var_dump($t_values);
-//        exit();
-
-        //var_dump($new_ammount);
-        //exit();
-//        var_dump($new_ammount, $account_id);
-//        exit();
         $pdo = \model\DBManager::getInstance()->getConnection();
         try {
             $pdo = \model\DBManager::getInstance()->getConnection();
@@ -75,10 +68,11 @@ if (isset($_POST['add_exp'])) {
             echo "error adding expenses" . $e->getMessage();
         }
 
-    } else {
-        $_SESSION['exp-err'] = "insufficient availability";
-        header("Location: ../view/main.php");
-    }
+//    }
+//    else {
+//        $_SESSION['exp-err'] = "insufficient availability";
+//        header("Location: ../view/main.php");
+//    } // *****  end check for availability
 
 } else {
     $_SESSION['exp-err'] = "Add Exp Error";

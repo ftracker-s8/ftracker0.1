@@ -99,7 +99,7 @@ ON ca.category_id = tr.category_id
 }
 
 ?>
-<div><?php echo "entries: " . $rowCounts; ?></div>
+<div class="label label-discrete"><?php echo $rowCounts . " entries "; ?></div>
 <table class="table table-bordered">
     <tr class="bg_h">
         <th>Date</th>

@@ -74,6 +74,11 @@ class UserDAO{
             $statement = $this->pdo->prepare(self::CREATE_NEW_ACCOUNT);
             $statement->execute(array($lastInsertId));
 
+            $sql = "INSERT INTO accounts (account_name, ammount, owner_id, currency, account_desc) 
+VALUES  ('Salary', 0, ?, 'USD', 'Salary')";//owner_idaccount_desc
+            $statement = $this->pdo->prepare($sql);
+            $statement->execute([$lastInsertId]);
+
             $this->pdo->commit();
             return $lastInsertId; //Return registered user's ID
 

@@ -8,6 +8,7 @@
 <link rel="stylesheet" href="css/style.css">
 
 <script src="/view/js/jquery.min.js"></script>
+<script src="js/jquery.validate.js"></script>
 <script src="/view/js/bootstrap3.min.js"></script>
 <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.min.js"></script>-->
 <link rel="icon" type="image/png" href="/favicon-64.png"/>
