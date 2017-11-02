@@ -146,6 +146,21 @@ function mod_transaction(tagID, aid) {
         }
     }
 }
+function balanceDataRangeUpdate(uid) {
+    var url = '../../controller/chart_morris_exp_inc.php';
+    var method = 'POST';
+    var params = 'user_id=' + uid;
+    params += '&balance_daterange=' + document.getElementById('daterange1').value;
+    // params += '&ammount_update='+document.getElementById('ammount_update').value;
+    // params += '&account_desc_update='+document.getElementById('account_desc_update').value;
+
+    var container_id = 'donut-exp-inc';
+
+    var loading_text = '<img src="../view/images/ajax_loader.gif">';
+    // call ajax function
+    ajax(url, method, params, container_id, loading_text);
+}
+
 
 // ajax : basic function for using ajax easily
 function ajax (url, method, params, container_id, loading_text) {

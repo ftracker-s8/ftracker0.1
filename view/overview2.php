@@ -65,19 +65,7 @@ include "../model/userClass.php";
             <div id="demo"></div>
         <input type="text" id="daterange1" name="daterange1" value="2017/01/01 - 2017/10/01" />
         </div>
-        <?= date("Y/m/d") ?>
         <script type="text/javascript">
-//            $('input[name="daterange"]').daterangepicker(
-//                {
-//                    locale: {
-//                        format: 'YYYY-MM-DD'
-//                    },
-//                    startDate: '2017-01-01',
-//                    endDate: '2017-12-31'
-//                },
-//                function(start, end, label) {
-//                    alert("A new date range was chosen: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'));
-//                });
 $('#daterange1').daterangepicker({
     "showDropdowns": true,
     "locale": {

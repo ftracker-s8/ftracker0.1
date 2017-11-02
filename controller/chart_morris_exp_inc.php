@@ -19,8 +19,8 @@ SELECT DISTINCT
 (select ROUND(SUM(amount),2) FROM transactions WHERE exp_inc = 'inc' AND user_id = 26
 -- AND DATE_FORMAT(date_time, \"%Y/%m/%d\") = '2017') as incoms, 
 AND DATE_FORMAT(date_time, '%Y') = '2017') as incoms, 
-(select ROUND(SUM(amount),2) FROM transactions WHERE exp_inc = 'exp'
-AND user_id = 26 AND DATE_FORMAT(date_time, '%Y') = '2017') as expenses
+(select ROUND(SUM(amount),2) FROM transactions WHERE exp_inc = 'exp' AND user_id = 26
+AND DATE_FORMAT(date_time, '%Y') = '2017') as expenses
 FROM transactions
 ";
 $pdo = \model\DBManager::getInstance()->getConnection();

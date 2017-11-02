@@ -8,6 +8,10 @@ function __autoload($className)
     require_once str_replace("\\", "/", $className) . '.php';
 }
 
+$uid = "";
+if (isset($_SESSION['user_id'])) {
+    $uid = $_SESSION['user_id'];
+}
 
 include('../model/config.php');
 include "../model/userClass.php";
@@ -31,13 +35,12 @@ include "../model/userClass.php";
     <!--    <script src="/view/js/Chart.min.js"></script>-->
     <script src="/view/js/Chart27.js"></script>
     <link rel="stylesheet" href="css/morris.css">
-    <!--    <script src="js/raphael.min.js"></script>-->
-    <!--    <script src="js/morris.min.js"></script>-->
-    <!--    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">-->
-    <!--    <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>-->
-    <!--    <script src="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>-->
+
     <script src="js/raphael212-min.js"></script>
     <script src="js/morris050.min.js"></script>
+    <script src="js/moment-locales.js"></script>
+    <script src="js/daterangepicker.js"></script>
+    <link rel="stylesheet" href="css/daterangepicker.css">
 
 </head>
 <body>
@@ -59,7 +62,7 @@ include "../model/userClass.php";
         $categories_exp_json_data = $incomes_cat_json_data = $categories_exp_json_data = "";
         include "../controller/chart_get_categories.php";
         include "../controller/chart_get_income_categories.php";
-        include "../controller/chart_morris_exp_inc.php";
+
 
         ?>
         <div class="col-md-4">
@@ -71,13 +74,21 @@ include "../model/userClass.php";
             <div class="row text-center">2017 Incomes</div>
         </div>
         <div class="col-md-4">
-            <div id="donut-exp-inc" style="height: 250px;"></div>
-            <div class="row text-center">2017 Balance</div>
+            <div id="donut-exp-inc" style="height: 250px;">
+                <?php include "../controller/chart_morris_exp_inc.php"; ?>
+            </div>
+
+
+            <div class="row text-center"><div id="date-picker-balance">
+                    <input type="text" id="daterange1" name="daterange1" size="23" value="" onselect="balanceDataRangeUpdate(<?= uid ?>)" />
+                </div>
+                <br>
+                2017 Balance</div>
         </div>
     </div>
-    <div class="col-md-12">
-        <div id="donut-inc-acc" style="height: 250px;"></div>
-    </div>
+<!--    <div class="col-md-12">-->
+<!--        <div id="bar-chart" style="height: 250px;"></div>-->
+<!--    </div>-->
 
 
     <script type="application/javascript">
@@ -117,6 +128,51 @@ include "../model/userClass.php";
     </script>
 
 
+    <script type="text/javascript">
+        $('#daterange1').daterangepicker({
+            "showDropdowns": true,
+            "locale": {
+                "format": "DD.MM.YYYY",
+                "separator": " - ",
+                "applyLabel": "Apply",
+                "cancelLabel": "Cancel",
+                "fromLabel": "From",
+                "toLabel": "To",
+                "customRangeLabel": "Custom",
+                "weekLabel": "W",
+                "daysOfWeek": [
+                    "Su",
+                    "Mo",
+                    "Tu",
+                    "We",
+                    "Th",
+                    "Fr",
+                    "Sa"
+                ],
+                "monthNames": [
+                    "January",
+                    "February",
+                    "March",
+                    "April",
+                    "May",
+                    "June",
+                    "July",
+                    "August",
+                    "September",
+                    "October",
+                    "November",
+                    "December"
+                ],
+                "firstDay": 1
+            },
+            "parentEl": "test",
+            //"startDate": "2017/01/27",
+            "startDate": "27.01.2017",
+            "endDate": "<?= date("d.m.Y") ?>"
+        }, function (start, end, label) {
+            console.log("New date range selected: ' + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD') + ' (predefined range: ' + label + ')");
+        });
+    </script>
 </div> <!-- container-->
 <?php include 'footer.php' ?>
 
