@@ -75,12 +75,14 @@ include "../model/userClass.php";
         </div>
         <div class="col-md-4">
             <div id="donut-exp-inc" style="height: 250px;">
-                <?php include "../controller/chart_morris_exp_inc.php"; ?>
+<!--                --><?php //include "../controller/chart_morris_exp_inc.php"; ?>
+
+                <?php include "../controller/chart_balance_date_range_ctrl.php"; ?>
             </div>
 
 
             <div class="row text-center"><div id="date-picker-balance">
-                    <input type="text" id="daterange1" name="daterange1" size="23" value="" onselect="balanceDataRangeUpdate(<?= uid ?>)" />
+                    <input type="text" id="daterange1" name="daterange1" size="23" value="" onselect="balanceDataRangeUpdate(<?= $uid ?>)" />
                 </div>
                 <br>
                 2017 Balance</div>

@@ -16,13 +16,14 @@ if(isset($_SESSION['user_id'])) {
 
 $sql_inc = "
 SELECT DISTINCT
-(select ROUND(SUM(amount),2) FROM transactions WHERE exp_inc = 'inc' AND user_id = 26
--- AND DATE_FORMAT(date_time, \"%Y/%m/%d\") = '2017') as incoms, 
-AND DATE_FORMAT(date_time, '%Y') = '2017') as incoms, 
-(select ROUND(SUM(amount),2) FROM transactions WHERE exp_inc = 'exp' AND user_id = 26
+(select ROUND(SUM(amount),2) FROM transactions WHERE exp_inc = 'inc' AND user_id = $uid
+AND DATE_FORMAT(date_time, '%Y') = '2017') as incoms,
+(select ROUND(SUM(amount),2) FROM transactions WHERE exp_inc = 'exp' AND user_id = $uid
 AND DATE_FORMAT(date_time, '%Y') = '2017') as expenses
 FROM transactions
 ";
+//AND YEAR(date_time) = DATE_FORMAT('2017', '%Y')) as incoms,
+//AND DATE_FORMAT(date_time, '%Y') = '2017') as incoms,
 $pdo = \model\DBManager::getInstance()->getConnection();
 $sql = "$sql_inc";
 $stmt = $pdo->prepare($sql_inc);
