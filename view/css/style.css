@@ -54,7 +54,7 @@ legend.add-cat {
     color: #cbcbcb;
 }
 input[type=text] {padding: 2px 5px 2px 10px; !important;}
-#footer {box-sizing: content-box; padding: 20px}
+#footer {box-sizing: content-box; margin: 10px 0; padding: 20px; display: block}
 .background-light-gray {background: #f4f4f4}
 .background-dark-gray {background: #161616;
     border-radius: 4px;
@@ -169,4 +169,12 @@ select.icon-menu option {
 /*  datepicker */
 .table-condensed {
     background: #fff;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    #footer2 {
+        clear: both;
+        display: block !important;
+        margin-top: 200px;
+    }
 }

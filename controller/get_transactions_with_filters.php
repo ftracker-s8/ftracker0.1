@@ -8,6 +8,7 @@ include_once "../model/DBManager.php";
 $date = $etype = $entry_type = $uid = $filt_cat = $rowCounts = $resulta = "";
 
 $order_date = "DESC";
+$limit = "200";
 
 include "../model/dao/TransactionDao.php";
 
@@ -32,6 +33,7 @@ if (isset($_GET['date'])) {
         $date = "DATE(date_time) > DATE_SUB(NOW(), INTERVAL 1 MONTH) AND"; // this month
     } elseif (intval($_GET['date']) == 4) {
         $date = "YEAR(date_time) = YEAR(NOW()) AND"; //current year
+        $limit = 1000;
     } elseif (intval($_GET['date']) == 0) {
         $date = ""; //yday
     }
@@ -62,30 +64,17 @@ else {
     }
 }
 
-//if(isset($_GET['etype'])) {
-//    var_dump($_GET['etype']);
-//}
-//$uid = 26;
-//$entry_type = "";
-//var_dump($date, $filt_cat, $uid);
-
-//var_dump($date);
-//$sql1 = "SELECT * FROM `transactions` WHERE $date AND user_id = 26";
-//$sql2 = "SELECT * FROM `transactions` WHERE DATE(`date_time`) >= DATE_SUB(CURDATE(), INTERVAL 1 DAY) AND DATE(`date_time`) < CURDATE()";
-//SELECT * FROM `transactions` WHERE $date AND user_id = $uid AND category_id = $filt_cat
 try {
     if (!isset($pdo)) {
         $pdo = \model\DBManager::getInstance()->getConnection();
     }
 
-    //$sql = "SELECT * FROM `transactions` WHERE $date AND user_id = $uid AND category_id = $filt_cat";
-    //$sql = "SELECT * FROM `transactions` WHERE $date user_id = $uid AND `category_id`  IN $filt_cat";
-    //$sql = "SELECT * FROM `transactions` WHERE $date user_id = $uid $entry_type ORDER BY `date_time` $order_date";
     $sql = "SELECT *, ca.category_name, ca.icon_url FROM `transactions` as tr
 LEFT JOIN categories AS ca
 ON ca.category_id = tr.category_id
  
- WHERE $date tr.user_id = $uid $entry_type ORDER BY `date_time` $order_date";
+ WHERE $date tr.user_id = $uid $entry_type ORDER BY `date_time` $order_date
+ LIMIT $limit";
     $stmt = $pdo->prepare($sql);
     $stmt->execute();
     $resulta = $stmt->fetchAll(\PDO::FETCH_ASSOC);

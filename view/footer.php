@@ -4,7 +4,7 @@
  * User: assen.kovachev
  */
 ?>
-
+<div id="footer2">
 <div class="container background-dark-gray">
     <div class="row">
         <div class="col-lg-12">
@@ -13,4 +13,5 @@
             <br><br>
         </div>
     </div>
+</div>
 </div>
