@@ -36,9 +36,6 @@ if (isset($_POST['loginSubmit'])) {
                 setcookie('login_error', " no problem", time() + 360);
                 setcookie('login_pass', $password, time() + 360);
 
-                //$url = BASE_URL . 'view/main.php';
-                //echo "Loged";
-                //header("Location: $url");
                 header("Location: ../view/main.php");
             }
 //        }

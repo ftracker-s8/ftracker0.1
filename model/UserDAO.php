@@ -2,7 +2,7 @@
 
 namespace model;
 
-include "DBManager.php";
+include_once "DBManager.php";
 
 class UserDAO{
     private static $instance;
@@ -75,9 +75,9 @@ class UserDAO{
             $statement->execute(array($lastInsertId));
 
             $sql = "INSERT INTO accounts (account_name, ammount, owner_id, currency, account_desc) 
-VALUES  ('Salary', 0, ?, 'USD', 'Salary')";//owner_idaccount_desc
+VALUES  ('Salary', 0, $lastInsertId, 'USD', 'Salary')";//owner_idaccount_desc
             $statement = $this->pdo->prepare($sql);
-            $statement->execute([$lastInsertId]);
+            $statement->execute($lastInsertId);
 
             $this->pdo->commit();
             return $lastInsertId; //Return registered user's ID
@@ -94,7 +94,7 @@ VALUES  ('Salary', 0, ?, 'USD', 'Salary')";//owner_idaccount_desc
 
     public function userLogin3($user_name, $password)
     {
-        $sql = "SELECT user_id, first_name FROM users WHERE user_email = ? AND  password = ?";
+        $sql = "SELECT user_id, first_name, user_pic FROM users WHERE user_email = ? AND  password = ?";
         //$hash_password= $password;
         //$stmt = $db->prepare($sql);
         $stmt = $this->pdo->prepare($sql);
@@ -106,6 +106,7 @@ VALUES  ('Salary', 0, ?, 'USD', 'Salary')";//owner_idaccount_desc
         {
             $_SESSION['user_id']=$data->user_id;
             $_SESSION['user_name']=$data->first_name;
+            //$_SESSION['user_img']=$data->user_pic;
             return true;
         }
         else

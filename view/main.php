@@ -27,6 +27,7 @@ if (isset($_GET['page'])) {
     <script src="js/tracker.js"></script>
     <script src="js/ajaxAdk.js"></script>
     <script src="js/filters.js"></script>
+    <script src="js/daterangepicker.js"></script>
 
 </head>
 <body>
@@ -60,6 +61,7 @@ if (isset($_GET['page'])) {
 <div id="container" class="container">
     <div class="row">
         <div class="col-sm-8">
+
             <div class="nav-tabs-custom">
                 <ul class="nav nav-tabs">
 
@@ -175,6 +177,17 @@ if (isset($_GET['page'])) {
     <button type="button" class="btn-round-large btn-red" data-toggle="modal" data-target="#modal-add-exp">+</button>
     Add entry
 </div>
-
+<script type="text/javascript">
+    $(function() {
+        $('input[name="entrydate1"]').daterangepicker({
+                singleDatePicker: true,
+                showDropdowns: true
+            },
+            function(start, end, label) {
+                var years = moment().diff(start, 'years');
+                alert("You are " + years + " years old.");
+            });
+    });
+</script>
 </body>
 </html>

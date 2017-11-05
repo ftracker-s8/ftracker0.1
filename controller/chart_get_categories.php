@@ -10,7 +10,7 @@ if (session_status() == PHP_SESSION_NONE) {
 
 $uid = "";
 $chart_data = '';
-if(isset($_SESSION['user_id'])) {
+if (isset($_SESSION['user_id'])) {
     $uid = $_SESSION['user_id'];
 }
 
@@ -27,17 +27,17 @@ $stmt = $pdo->prepare($sql_inc);
 $stmt->execute();
 $incomer = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-$categories_exp_json_data=array();
+$categories_exp_json_data = array();
 
-foreach($incomer as $rec)
-{
-    $json_array['label']=$rec['category_name'];
-    $json_array['value']=$rec['category_total'];
-
-    array_push($categories_exp_json_data,$json_array);
-
+if (!empty($incomer)) {
+    foreach ($incomer as $rec) {
+        $json_array['label'] = $rec['category_name'];
+        $json_array['value'] = $rec['category_total'];
+        array_push($categories_exp_json_data, $json_array);
+    }
+} else {
+    $json_array['label'] = "Empty";
+    $json_array['value'] = 100;
+    array_push($categories_exp_json_data, $json_array);
 }
-//$category_json = json_encode($data_inc);
-//echo $category_json;
-//var_dump($categories_exp_json_data);
-?>
+

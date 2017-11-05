@@ -18,6 +18,7 @@ if (session_status() == PHP_SESSION_NONE) {
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>$8: User profile</title>
     <?php include_once "head.inc.php"; ?>
+    <link rel="stylesheet" href="css/bootstrapslate.min.css">
 </head>
 <body>
 <?php include "header.php" ?>
@@ -45,7 +46,7 @@ if (session_status() == PHP_SESSION_NONE) {
                   action="../controller/upload_userpic_controller.php"
                   method="post">
                 <input type="hidden" name="MAX_FILE_SIZE" value="100000">
-                <input class="btn btn-secondary" type="file" name="user_pic" size="20"><br>
+                <input class="btn btn-secondary text-muted" type="file" name="user_pic" size="20" accept='image/*'><br>
 
                 <input class="btn btn-primary" type="submit" name="uploadedfile" value="Upload image">
             </form>

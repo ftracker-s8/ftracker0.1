@@ -40,7 +40,7 @@ if (isset($_POST['uploadedfile'])) {
         echo "Sorry, only JPG, JPEG, PNG & GIF  files are allowed.";
         header("Location: ../view/profile.php");
     }
-    elseif (($_FILES["user_pic"]["size"] > 200000)){
+    elseif (($_FILES["user_pic"]["size"] > 1000000)){
         $_COOKIE['upload-error'] = "Sorry, file is too big.";
         header("Location: ../view/profile.php");
         //echo "file too big";
@@ -48,9 +48,9 @@ if (isset($_POST['uploadedfile'])) {
     else {
 
         if (file_exists($full_path)) unlink($full_path);
-
+        $timestamp = time();
         $user_id = $_SESSION['user_id'];
-        $custom_path = $folder.$user_id."-profile.".$ext;
+        $custom_path = $folder.$user_id."-profile.".$timestamp.".".$ext;
         //var_dump($custom_path);
         //move_uploaded_file($_FILES['user_pic']['tmp_name'], $full_path);
         move_uploaded_file($_FILES['user_pic']['tmp_name'], $custom_path);

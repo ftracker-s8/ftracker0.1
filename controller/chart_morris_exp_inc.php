@@ -78,11 +78,17 @@ GROUP by exp_inc";
 
 //var_dump($inc_exp_q);
 
+//    $json_array['label'] = ['incoms'];
+//    $json_array['value'] = $inc_exp_q[0]['sums_balance'];
+//    array_push($bie_json_data, $json_array);
+//    $json_array['label'] = ['expenses'];
+//    $json_array['value'] = $inc_exp_q[1]['sums_balance'];
+//    array_push($bie_json_data, $json_array);
     $json_array['label'] = ['incoms'];
-    $json_array['value'] = $inc_exp_q[0]['sums_balance'];
+    $json_array['value'] = 5;
     array_push($bie_json_data, $json_array);
     $json_array['label'] = ['expenses'];
-    $json_array['value'] = $inc_exp_q[1]['sums_balance'];
+    $json_array['value'] = 5;
     array_push($bie_json_data, $json_array);
 }
 ?>

@@ -5,12 +5,16 @@ body{padding-top: 70px}
 h1 {
     font-weight: 600;
     border-bottom: dotted 1px #4b4b4b;
-    text-shadow: 0 1px 1px #aaaaaa, 0 0 0 #000, 0 -2px 1px #000;
+    text-shadow: 1px -1px 1px #aaaaaa, 0 0 0 #000, -1px 1px 1px #000;
     margin-bottom: 1em;
     color: #727272;
 }
 
 nav form {display: inline-block}
+
+#user_pic {height: 44px; border-radius: 25px;}
+#user_pic img {border-radius: 25px; max-width: 100%; max-height: 100%;
+}
 
 #container {margin-top: 30px; margin-bottom: 3em;}
 .adk {display: inline}
@@ -156,6 +160,7 @@ select.icon-menu option {
     color: white;
     font-weight: 600;
     text-shadow: 0 2px 3px #000;
+
 }
 .balance-red-bg {
     background: #540000 !important;
@@ -170,6 +175,8 @@ select.icon-menu option {
 .table-condensed {
     background: #fff;
 }
+
+
 
 @media (min-width: 768px) and (max-width: 991px) {
     #footer2 {

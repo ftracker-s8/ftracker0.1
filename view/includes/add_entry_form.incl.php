@@ -31,6 +31,14 @@
         <input type="radio" class="radio-inline input-lg"  name="recurent_bill" value="0" checked> Onetime
         <input type="radio" class="radio-inline" name="recurent_bill" value="1"> Recurent<br>
 
+<!--        <div class="col-md-4 col-md-offset-2 demo">-->
+
+
+        <input id="entrydate" class="form-control input-xs" type="text" value="<?php echo date("d.m.Y")?>">
+        <input type="text" name="entrydate1" value="10/24/1984" />
+<!--            <i class="glyphicon glyphicon-calendar fa fa-calendar"></i>-->
+<!--        </div>-->
+
         Category <select class="form-control input-lg icon-menu" name="category" id="category">
             <?php
 //            include "../controller/get_exp_union_categories_ctrl.php";

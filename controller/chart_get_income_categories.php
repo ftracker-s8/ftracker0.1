@@ -29,11 +29,17 @@ $income_cat = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 $incomes_cat_json_data=array();
 
-foreach($income_cat as $rec)
-{
-    $json_array['label']=$rec['category_name'];
-    $json_array['value']=$rec['category_total'];
-    array_push($incomes_cat_json_data,$json_array);
+//var_dump($income_cat);
+if(!empty($income_cat)) {
+    foreach ($income_cat as $rec) {
+        $json_array['label'] = $rec['category_name'];
+        $json_array['value'] = $rec['category_total'];
+        array_push($incomes_cat_json_data, $json_array);
+    }
 }
-
+else {
+    $json_array['label'] = "Empty";
+    $json_array['value'] = 100;
+    array_push($incomes_cat_json_data, $json_array);
+}
 ?>
