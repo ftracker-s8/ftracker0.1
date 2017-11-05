@@ -12,6 +12,10 @@ h1 {
 
 nav form {display: inline-block}
 
+@media (max-width:767px) {
+    .navbar-nav > li > a {font-size: 1.8em !important; line-height: 1.8em}
+}
+
 #user_pic {height: 44px; border-radius: 25px;}
 #user_pic img {border-radius: 25px; max-width: 100%; max-height: 100%;
 }
