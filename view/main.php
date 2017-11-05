@@ -22,11 +22,14 @@ if (isset($_GET['page'])) {
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>$8: Expenses</title>
     <?php include_once "head.inc.php"; ?>
-    <script src="js/raphael.min.js"></script>
-    <script src="js/morris.min.js"></script>
+<!--    <script src="js/raphael.min.js"></script>-->
+<!--    <script src="js/morris.min.js"></script>-->
     <script src="js/tracker.js"></script>
     <script src="js/ajaxAdk.js"></script>
     <script src="js/filters.js"></script>
+
+    <script src="js/moment-locales.js"></script>
+    <link rel="stylesheet" href="css/daterangepicker.css">
     <script src="js/daterangepicker.js"></script>
 
 </head>
@@ -43,7 +46,7 @@ if (isset($_GET['page'])) {
                 </div>
                 <div class="modal-body" id="modala">
 
-                    <?php include "includes/add_entry_form.incl.php"; ?>
+                    <?php include "includes/add_entry_form_modal.incl.php"; ?>
 
                     <!--                    <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>-->
                 </div>
@@ -177,16 +180,33 @@ if (isset($_GET['page'])) {
     <button type="button" class="btn-round-large btn-red" data-toggle="modal" data-target="#modal-add-exp">+</button>
     Add entry
 </div>
-<script type="text/javascript">
-    $(function() {
-        $('input[name="entrydate1"]').daterangepicker({
-                singleDatePicker: true,
-                showDropdowns: true
-            },
-            function(start, end, label) {
-                var years = moment().diff(start, 'years');
-                alert("You are " + years + " years old.");
-            });
+<script>
+    $('#entryd').daterangepicker({
+        "singleDatePicker": true,
+        "locale": {
+            "format": "DD.MM.YYYY",
+            "separator": " - ",
+            "applyLabel": "Apply",
+            "cancelLabel": "Cancel",
+            "fromLabel": "From",
+            "toLabel": "To",
+            "customRangeLabel": "Custom",
+            "weekLabel": "W",
+            "daysOfWeek": [
+                "Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"
+            ],
+            "monthNames": [
+                "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"
+            ],
+            "firstDay": 1
+        },
+        "linkedCalendars": false,
+        "showCustomRangeLabel": false,
+//        "startDate": "01.01.2017",
+//        "endDate": "31.12.2017",
+        "opens": "center"
+    }, function(start, end, label) {
+        console.log("New date range selected: ' + start.format('DD.MM.YYYY') + ' to ' + end.format('DD.MM.YYYY') + ' (predefined range: ' + label + ')");
     });
 </script>
 </body>

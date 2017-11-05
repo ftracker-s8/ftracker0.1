@@ -29,7 +29,7 @@ class TransactionDao {
     }
     // transaction_id, date_time, account_id, amount,exp_inc,category_id,description,user_id, recurent_bill
     // $account_id, $amount, $exp_inc, $category_id, $user_id, $description=null, $recurent_bill = 0
-    const ADD_EXPENCE = "INSERT INTO transactions (account_id, `amount`, exp_inc, category_id, user_id, description, recurent_bill) VALUES (?, ?, ?, ?, ?, ?, ?)";
+    const ADD_EXPENCE = "INSERT INTO transactions (account_id, date_time, `amount`, exp_inc, category_id, user_id, description, recurent_bill) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 
     const GET_ALL_EXPENCE = "SELECT * FROM transactions WHERE user_id = ?";
     const GET_ALL_TRANSACTIONS_UID = "SELECT * FROM transactions WHERE user_id = ?";
@@ -55,7 +55,7 @@ ORDER BY t.date_time DESC";
 
         $stm = $this->pdo->prepare(self::ADD_EXPENCE);
         //$stm->execute([$uid->getAccountId(), $uid->getUserId(), $uid->getAmount(), $uid->getExpInc(), $uid->getCategoryId(), $uid->getUserId(), $uid->getDescription(), $uid->getRecurentBill() ]);
-        $stm->execute([$uid->getAccountId(), $uid->getAmount(), $uid->getExpInc(), $uid->getCategoryId(), $uid->getUserId(), $uid->getDescription(), $uid->getRecurentBill()]);
+        $stm->execute([$uid->getAccountId(), $uid->getDateTime(), $uid->getAmount(), $uid->getExpInc(), $uid->getCategoryId(), $uid->getUserId(), $uid->getDescription(), $uid->getRecurentBill()]);
         //$result = $stm->fetchAll(\PDO::FETCH_ASSOC);
         //return $result;
     }

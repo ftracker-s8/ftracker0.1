@@ -17,6 +17,7 @@ if (isset($_POST['add_exp'])) {
     //$exp_inc = $_POST['exp'];
     $exp_inc = 'exp';
     $category_id = $_POST['category'];
+    $entrydate = test_input($_POST['entrydate']);
     $description = $_POST['description'];
     $recurent_bill = $_POST['recurent_bill'];
     if(isset($_SESSION['user_id'])) {
@@ -26,6 +27,8 @@ if (isset($_POST['add_exp'])) {
         $_SESSION['exp-err'] = "Empty UID";
         header("Location: ../main.php");
     }
+
+    $date_time = date(timestamp);
     if($description == "") {
         $description = "no description";
     }
@@ -45,6 +48,7 @@ if (isset($_POST['add_exp'])) {
         $t_values = new \model\Transaction();
 
         $t_values->setAccountId($account_id);
+        $t_values->setDateTime($date_time);
         $t_values->setAmount($value);
         $t_values->setExpInc($exp_inc);
         $t_values->setCategoryId($category_id);
