@@ -65,7 +65,7 @@ if (session_status() == PHP_SESSION_NONE) {
                 Confirm New Password <input class="form-control" type="password" name="cpassword"><br>
                 First Name<input class="form-control" type="text" name="first_name" value="<?php echo $all_user_data[0]["first_name"] ?>"><br>
                 Last Name<input class="form-control" type="text" name="last_name" value="<?php echo $all_user_data[0]["last_name"] ?>"><br>
-                <input class="btn btn-primary" type="submit" name="updateuser" value="Update">
+                <input class="btn btn-success" type="submit" name="updateuser" value="Update">
             </form>
             <br>
 

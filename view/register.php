@@ -33,20 +33,26 @@ if (!empty($_COOKIE['err-exist'])) {
             <form action="../controller/register_controller.php" method="post">
                 <label class="col-form-label">Email*</label>
                 <input class="form-control" type="text" name="user_email" required placeholder="valid email"
-                       autocomplete="off"><?= $err_user ?><br>
+                       autocomplete="off" autofocus><?= $err_user ?><br>
                 <label>password*</label>
                 <input class="form-control" type="password" name="password" required placeholder="4+ symbols"
                        autocomplete="off" id="password" minlength="4" maxlength="20"><br>
                 <label>First name</label>
-                <input class="form-control" type="text" name="first_name"><br>
+                <input class="form-control" type="text" name="first_name" placeholder="2-20 chars"><br>
                 <label>Last name</label>
-                <input class="form-control" type="text" name="last_name"><br>
+                <input class="form-control" type="text" name="last_name" placeholder="2-20 chars"><br>
                 <input class="btn btn-success" type="submit" name="Register" value="Register"><br>
                 <div class="clearfix"></div>
             </form>
             </div>
         </div>
     </div>
+</div>
+<div id="err">
+    <?php if(isset($err_user)) {
+        echo $err_user;
+    }
+        ?>
 </div>
 <?php include 'footer.php' ?>
 </body>

@@ -27,8 +27,8 @@ if (isset($_POST['updateuser'])
     //&& filter_var($_POST['user_email'], FILTER_VALIDATE_EMAIL)
     // strlen($_POST['user_email']) > 7 && strlen($_POST['user_email']) < 254
     //&& strlen($_POST['password']) >= 4 && strlen($_POST['password']) < 20
-    && strlen($_POST['first_name']) >= 4 && strlen($_POST['first_name']) < 20
-    && strlen($_POST['last_name']) >= 4 && strlen($_POST['last_name']) < 20) {
+    && strlen($_POST['first_name']) >= 0 && strlen($_POST['first_name']) < 20
+    && strlen($_POST['last_name']) >= 0 && strlen($_POST['last_name']) < 20) {
     //TODO ask for old password
     //TODO verify new pass match
     //TODO if password is 0 - get old pass
