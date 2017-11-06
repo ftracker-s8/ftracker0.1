@@ -63,18 +63,18 @@ include "../model/userClass.php";
         ?>
         <div class="col-md-4">
             <div id="donut-categories" style="height: 250px;"></div>
-            <div class="row text-center">2017 Expenses Categories</div>
+            <div class="row text-center"><?= date('Y') ?> Expenses Categories</div>
         </div>
         <div class="col-md-4">
             <div id="donut-inc-acc" style="height: 250px;"></div>
-            <div class="row text-center">2017 Incomes</div>
+            <div class="row text-center"><?= date('Y') ?> Incomes</div>
         </div>
         <div class="col-md-4">
             <div id="donut-exp-inc" style="height: 250px;">
                 <?php include "../controller/chart_morris_exp_inc.php"; ?>
 
             </div>
-            <div class="row text-center">2017 Balance</div>
+            <div class="row text-center"><?= date('Y') ?> Balance</div>
         </div>
     </div>
 </div>
@@ -82,7 +82,7 @@ include "../model/userClass.php";
 <div class="container">
     <div class="box box-success">
         <div class="box-header with-border">
-            <h3 class="box-title">Year report</h3>
+            <h3 class="box-title">Year <?= date('Y') ?> report</h3>
             <div class="box-body">
                 <div class="chart">
                     <canvas id="bardChart" style="position: relative; height:40vh; width:80vw"></canvas>
@@ -99,6 +99,11 @@ include "../model/userClass.php";
 <script type="application/javascript">
     Morris.Donut({
         element: 'donut-categories',
+        formatter: function (y, data) {
+            if (y <= 0) {
+                return 'still empty' }
+            else {return '$' + y}
+        },
         data: <?php echo json_encode($categories_exp_json_data)?>,
         backgroundColor: '#ccc',
         labelColor: '#f4b107',
@@ -110,6 +115,11 @@ include "../model/userClass.php";
 <script type="application/javascript">
     Morris.Donut({
         element: 'donut-inc-acc',
+        formatter: function (y, data) {
+            if (y <= 0) {
+                return 'still empty' }
+            else {return '$' + y}
+        },
         data: <?php echo json_encode($incomes_cat_json_data)?>,
         backgroundColor: '#ccc',
         labelColor: '#f4b107',
@@ -121,6 +131,11 @@ include "../model/userClass.php";
 <script type="application/javascript">
     Morris.Donut({
         element: 'donut-exp-inc',
+        formatter: function (y, data) {
+            if (y <= 0) {
+                return 'still empty' }
+            else {return '$' + y}
+        },
         data: <?php echo json_encode($bie_json_data)?>,
         backgroundColor: '#ccc',
         labelColor: '#f4b107',

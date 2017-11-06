@@ -20,6 +20,7 @@ class Transaction
     private $description;
     private $recurent_bill;
     private $user_id;
+    private $next_update;
 
     public function __construct(){
         $this->pdo = DBManager::getInstance()->getConnection();
@@ -39,6 +40,22 @@ class Transaction
     public function getDateTime()
     {
         return $this->date_time;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getNextUpdate()
+    {
+        return $this->next_update;
+    }
+
+    /**
+     * @param mixed $next_update
+     */
+    public function setNextUpdate($next_update)
+    {
+        $this->next_update = $next_update;
     }
 
     /**

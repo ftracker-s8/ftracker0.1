@@ -36,8 +36,8 @@
 
 
         <div class="col col-sm-7 pull-right">
-            entry date:<i class="glyphicon glyphicon-calendar fa fa-calendar"></i> (date.month.year)
-            <input id="entryd" class="form-control pull-right" name="entrydate" type="text" value="<?= date('d.m.Y') ?>" size="11">
+            entry date:<i class="glyphicon glyphicon-calendar fa fa-calendar"></i> (month/date/year)
+            <input id="entry2date" class="form-control pull-right" name="entrydate" type="text" value="<?= date('Y-m-d') ?>" size="11">
         </div>
 
         </div>

@@ -18,27 +18,27 @@ if (session_status() == PHP_SESSION_NONE) {
 <div class="jumbotron">
     <div class="container">
         <h1 class="display-3">Track your personal finances <img src="images/s8itt-logo.png" alt=""></h1>
-        <p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
-        <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>
+        <p>Tracking spending is important! If you don't know where your money is going, you can't make intelligent choices about how to divert it for maximum benefit. This is a course work project. It includes some basic functionality to track your personal finances.</p>
+        <p><a class="btn btn-primary btn-lg" href="about.php" role="button">Learn more &raquo;</a></p>
     </div>
 </div>
 
 <div class="container">
     <!-- Example row of columns -->
-    <div class="row">
+    <div class="row index-page">
         <div class="col-md-4">
-            <h2>Heading1</h2>
-            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+            <h2>Track your expenses</h2>
+            <p>Tracking spending is important if you don't know where your money is going, you can't make intelligent choices about how to divert it for maximum benefit.</p>
             <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
         </div>
         <div class="col-md-4">
-            <h2>Heading</h2>
-            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+            <h2>Overview</h2>
+            <p>With the help of detailed inforgraphics of your expenditure you will begin to notice where to make appropriate cuts, good places to shift your resources and other goals you might want to make.</p>
             <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
         </div>
         <div class="col-md-4">
-            <h2>Heading</h2>
-            <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+            <h2>Cloud</h2>
+            <p>Instantly synchronize your transactions across all your devices and you will never lose your data again. </p>
             <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
         </div>
     </div>
@@ -46,7 +46,7 @@ if (session_status() == PHP_SESSION_NONE) {
     <hr>
 
     <footer>
-        <p>&copy; Company 2017</p>
+
         <?php include 'footer.php' ?>
     </footer>
 </div> <!-- /container -->

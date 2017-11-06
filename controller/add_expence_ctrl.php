@@ -28,7 +28,15 @@ if (isset($_POST['add_exp'])) {
         header("Location: ../main.php");
     }
 
-    $date_time = date(timestamp);
+    $temp_date = $entrydate;
+    $temp_time = date('H:i:s');
+
+    $construct_date = date($temp_date. " " .$temp_time);
+    $old_date_timestamp = strtotime($construct_date);
+    $date_time = date('Y-m-d H:i:s', $old_date_timestamp);
+
+    $next_update = date('Y-m-d', strtotime('+1 month', strtotime($entrydate)));
+
     if($description == "") {
         $description = "no description";
     }
@@ -55,11 +63,13 @@ if (isset($_POST['add_exp'])) {
         $t_values->setUserId($user_id);
         $t_values->setDescription($description);
         $t_values->setRecurentBill($recurent_bill);
+        $t_values->setNextUpdate($next_update);
 
         $pdo = \model\DBManager::getInstance()->getConnection();
         try {
             $pdo = \model\DBManager::getInstance()->getConnection();
             $pdo->beginTransaction();
+            //$transaction = \model\dao\TransactionDao::getTransactionInstance()->addExpence($t_values);
             $transaction = \model\dao\TransactionDao::getTransactionInstance()->addExpence($t_values);
 
             $upd_acc = \model\dao\AccountDao::getAInstance()->updateAccountAfterTransaction($new_ammount, $account_id);

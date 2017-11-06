@@ -18,7 +18,27 @@
 </head>
 <body>
 
-<?php echo date("Y-m-d "timestamp);?>
+<?php
+
+$temp_date = "11/05/2017";
+$temp_time = date('H:i:s');
+// $temp_date_time = $temp_date . " " . $temp_time;
+
+//$old_date = date($temp_date_time);              // returns Saturday, January 30 10 02:06:34
+$construct_date = date($temp_date. " " .$temp_time);
+$old_date_timestamp = strtotime($construct_date);
+$date_time = date('Y-m-d H:i:s', $old_date_timestamp);
+
+
+
+
+var_dump($temp_date, $temp_time);
+echo "<br>";
+var_dump($new_date);
+//$new_date =  dateY-m-d H:i:s
+
+
+;?>
 
 </body>
 </html>

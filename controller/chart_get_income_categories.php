@@ -39,7 +39,7 @@ if(!empty($income_cat)) {
 }
 else {
     $json_array['label'] = "Empty";
-    $json_array['value'] = 100;
+    $json_array['value'] = 0;
     array_push($incomes_cat_json_data, $json_array);
 }
 ?>

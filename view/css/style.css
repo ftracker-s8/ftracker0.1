@@ -9,6 +9,7 @@ h1 {
     margin-bottom: 1em;
     color: #727272;
 }
+.index-page h2 {text-align: center}
 
 nav form {display: inline-block}
 
@@ -178,6 +179,9 @@ select.icon-menu option {
 /*  datepicker */
 .table-condensed {
     background: #fff;
+}
+.table-condensed .available {
+    color: #274a7a;
 }
 
 

@@ -28,7 +28,7 @@ if (isset($_GET['page'])) {
     <script src="js/ajaxAdk.js"></script>
     <script src="js/filters.js"></script>
 
-    <script src="js/moment-locales.js"></script>
+    <script src="js/moment.min.js"></script>
     <link rel="stylesheet" href="css/daterangepicker.css">
     <script src="js/daterangepicker.js"></script>
 
@@ -184,7 +184,7 @@ if (isset($_GET['page'])) {
     $('#entryd').daterangepicker({
         "singleDatePicker": true,
         "locale": {
-            "format": "DD.MM.YYYY",
+            "format": "MM/DD/YYYY",
             "separator": " - ",
             "applyLabel": "Apply",
             "cancelLabel": "Cancel",
@@ -208,6 +208,19 @@ if (isset($_GET['page'])) {
     }, function(start, end, label) {
         console.log("New date range selected: ' + start.format('DD.MM.YYYY') + ' to ' + end.format('DD.MM.YYYY') + ' (predefined range: ' + label + ')");
     });
+</script>
+<script>
+$('#entry2date').daterangepicker({
+"singleDatePicker": true,
+"showDropdowns": true,
+"linkedCalendars": false,
+//"startDate": "10/30/2017",
+"startDate": "<?= date('m/d/Y') ?>",
+"endDate": "11/05/2017",
+"opens": "left"
+}, function(start, end, label) {
+console.log("New date range selected: ' + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD') + ' (predefined range: ' + label + ')");
+});
 </script>
 </body>
 </html>

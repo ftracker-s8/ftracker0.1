@@ -37,7 +37,7 @@
 
             <div class="col col-sm-7 pull-right">
                 entry date:<i class="glyphicon glyphicon-calendar fa fa-calendar"></i>
-                <input id="entrydmodal" class="form-control pull-right" type="text" value="<?= date('d.m.Y') ?>" size="11">
+                <input id="entrydmodal" class="form-control pull-right" type="date" value="<?= date('m/d//Y') ?>" size="11">
             </div>
 
         </div>

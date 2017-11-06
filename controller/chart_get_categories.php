@@ -17,8 +17,8 @@ if (isset($_SESSION['user_id'])) {
 $sql_inc = "
 SELECT ca.category_id, ca.category_name, SUM(tr.amount) as category_total FROM categories as ca
 RIGHT JOIN transactions as tr
-ON ca.category_id = tr.category_id
-WHERE tr.user_id IN (0, $uid) AND exp_inc = 'exp'
+ON ca.category_id = tr.category_id  
+WHERE tr.user_id IN (0, $uid) AND exp_inc = 'exp' AND YEAR(date_time) = YEAR(CURDATE())
 GROUP BY tr.category_id
 ";
 $pdo = \model\DBManager::getInstance()->getConnection();
@@ -37,7 +37,7 @@ if (!empty($incomer)) {
     }
 } else {
     $json_array['label'] = "Empty";
-    $json_array['value'] = 100;
+    $json_array['value'] = 0;
     array_push($categories_exp_json_data, $json_array);
 }
 
