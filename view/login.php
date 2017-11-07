@@ -22,6 +22,7 @@ $userClass = new \model\userClass();
         <h1>Login</h1>
         <div class="col-md-6 col-md-offset-3 shadow-soft">
             <div id="login" class="form-group">
+                <br>
                 <fieldset>
                     <legend>Login form:</legend>
                     <form method="post" action="../controller/login_controler.php" name="login">

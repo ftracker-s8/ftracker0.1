@@ -40,7 +40,7 @@ if (isset($_POST['uploadedfile'])) {
         echo "Sorry, only JPG, JPEG, PNG & GIF  files are allowed.";
         header("Location: ../view/profile.php");
     }
-    elseif (($_FILES["user_pic"]["size"] > 1000000)){
+    elseif (($_FILES["user_pic"]["size"] > 2000000)){
         $_COOKIE['upload-error'] = "Sorry, file is too big.";
         header("Location: ../view/profile.php");
         //echo "file too big";
@@ -66,7 +66,7 @@ if (isset($_POST['uploadedfile'])) {
             $sql = "UPDATE users SET `user_pic` = ? WHERE `user_id` = ?";
             $stmt = $pdo->prepare($sql);
             $stmt->execute(array($url, $user_id));
-            echo "success";
+            //echo "success";
             $_COOKIE['upload-error'] = "Success.";
             header("Location: ../view/profile.php");
 
