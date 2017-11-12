@@ -8,8 +8,8 @@ class DBManager
     private $pdo;
     const DB_IP   = "localhost";
     const DB_PORT = "3306";
-    const DB_USER = "id3203367_admina";
-    const DB_PASS = "ZOqMIBwHI0c3zCXl";
+    const DB_USER = "root";
+    const DB_PASS = "";
     const DB_NAME = "id3203367_s8ftracker_db";
 
     private function __construct(){
