@@ -19,6 +19,8 @@ use model\UserDAO;
 //var_dump($res);
 //exit();
 $uid = "";
+$owner_id = "";
+$set_old_pass = "";
 if(isset($_SESSION["user_id"])) {
                 $uid = $_SESSION["user_id"];
             }
@@ -37,9 +39,9 @@ if (isset($_POST['updateuser'])
 
     $account_name = 'Cash';
     $amount = 0;
-    $owner_id = "";
+
     //$uid = "";
-    $set_old_pass = "";
+
 
     //$passw = new \model\UserVO();
 
@@ -71,7 +73,8 @@ if (isset($_POST['updateuser'])
             $userDaoPass->updateUserPassword($new_pass, $uid);
         }
         else {
-            echo "Pss provb";
+            //echo "Pss provb";
+            header("location: ../view/profile.php");
         }
 //echo "OK";
         header("location: ../view/profile.php");

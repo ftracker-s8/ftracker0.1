@@ -2,11 +2,6 @@
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
-//function __autoload($class)
-//{
-//    $class = "..\\" . $class;
-//    require_once str_replace("\\", "/", $class) . ".php";
-//}
 
 use \model\Accounts;
 use model\dao\AccountDao;
@@ -37,8 +32,6 @@ if (isset($_POST['account_name']) && $_POST['account_name'] != "" && isset($_POS
     }
 }
 else {
-    //echo "Empty fields not permited";
-    //$err_msga =  "Empty fields are not permited";
     $_SESSION['error-account'] = "Empty fields are not permited";
 }
 

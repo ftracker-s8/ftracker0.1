@@ -22,7 +22,7 @@ if (!empty($_COOKIE['err-exist'])) {
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Register</title>
     <?php include_once "head.inc.php"; ?>
-    <script type="text/javascript" src="js/validate.min.js"></script>
+<!--    <script type="text/javascript" src="js/validate.min.js"></script>-->
     <script>
 
     </script>
@@ -63,32 +63,32 @@ if (!empty($_COOKIE['err-exist'])) {
     ?>
 </div>
 <?php include 'footer.php' ?>
-<script>
-    var validator = new FormValidator('example_form', [{
-        name: 'alphanumeric',
-        rules: 'alpha_numeric'
-    }, {
-        name: 'password',
-        rules: 'required|min_length[8]'
-    }, {
-        name: 'password_confirm',
-        display: 'password confirmation',
-        rules: 'required|matches[password]'
-    }, {
-        name: 'user_email',
-        rules: 'required|valid_email',
-        depends: function() {
-            return Math.random() > .5;
-        }
-    }, {
-        name: 'minlength',
-        display: 'min length',
-        rules: 'min_length[8]'
-    }], function(errors, event) {
-        if (errors.length > 0) {
-            // Show the errors
-        }
-    });
-</script>
+<!--<script>-->
+<!--    var validator = new FormValidator('example_form', [{-->
+<!--        name: 'alphanumeric',-->
+<!--        rules: 'alpha_numeric'-->
+<!--    }, {-->
+<!--        name: 'password',-->
+<!--        rules: 'required|min_length[8]'-->
+<!--    }, {-->
+<!--        name: 'password_confirm',-->
+<!--        display: 'password confirmation',-->
+<!--        rules: 'required|matches[password]'-->
+<!--    }, {-->
+<!--        name: 'user_email',-->
+<!--        rules: 'required|valid_email',-->
+<!--        depends: function() {-->
+<!--            return Math.random() > .5;-->
+<!--        }-->
+<!--    }, {-->
+<!--        name: 'minlength',-->
+<!--        display: 'min length',-->
+<!--        rules: 'min_length[8]'-->
+<!--    }], function(errors, event) {-->
+<!--        if (errors.length > 0) {-->
+<!--            // Show the errors-->
+<!--        }-->
+<!--    });-->
+<!--</script>-->
 </body>
 </html>
